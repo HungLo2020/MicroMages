@@ -1,0 +1,15 @@
+/target/
+/tools/
+/analysis/
+/screenshots/
+/.agents/
+/.codex/
+/.aws/
+__pycache__/
+*.pyc
+*.bin
+*.ppm
+*.nes
+*.exe
+*.dll
+*.ogg
