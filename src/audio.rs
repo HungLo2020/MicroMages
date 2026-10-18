@@ -1,4 +1,4 @@
-//! Native playback of the installed PC version's Ogg assets.
+//! Native playback of the repository's PC-game Ogg assets.
 //! Hook and table addresses are documented in analysis/audio-tables.json.
 use rodio::{Decoder, OutputStream, OutputStreamHandle, Sink, Source};
 use std::{
@@ -309,6 +309,30 @@ impl Audio {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn repository_audio_assets_decode() {
+        let root = Path::new(env!("MICRO_MAGES_BUILD_ASSETS"));
+        for (folder, expected) in [("music", 9), ("sfx", 37)] {
+            let files: Vec<_> = std::fs::read_dir(root.join(folder))
+                .unwrap()
+                .map(|entry| entry.unwrap().path())
+                .filter(|path| path.extension().is_some_and(|ext| ext == "ogg"))
+                .collect();
+            assert_eq!(files.len(), expected);
+            for path in files {
+                let sample = Sample::load(&path).unwrap();
+                assert!(!sample.data.is_empty(), "Empty audio: {}", path.display());
+            }
+        }
+        for name in MUSIC
+            .iter()
+            .map(|entry| entry.0)
+            .chain(SFX.iter().map(|entry| entry.0))
+        {
+            assert!(root.join(name).is_file(), "Missing playback asset: {name}");
+        }
+    }
+
     #[test]
     fn intro_plays_once_then_only_loop_region_repeats() {
         let sample = Sample {

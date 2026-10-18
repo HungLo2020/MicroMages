@@ -10,16 +10,19 @@ import json
 from pathlib import Path
 import sys
 
-exe, out = Path(sys.argv[1]), Path(sys.argv[2])
-image = exe.read_bytes()
-expected = "b7bf279c1b7ce6714aca5634719d300ea60d2a0b8e073918c17a3702ee0a6e9c"
-if hashlib.sha256(image).hexdigest() != expected:
-    raise SystemExit("This executable build has not been analyzed; SHA-256 mismatch")
-rom = image[0x28a00:0x32a00]
-prg = rom[:0x8000]
+assets, out = Path(sys.argv[1]), Path(sys.argv[2])
+manifest = json.loads((assets / "manifest.json").read_text())
+for name, digest in manifest["files"].items():
+    if hashlib.sha256((assets / name).read_bytes()).hexdigest() != digest:
+        raise SystemExit(f"Asset SHA-256 mismatch: {name}")
+expected = manifest["source_executable_sha256"]
+prg = (assets / "game-data.bin").read_bytes()
+tiles = (assets / "tiles.bin").read_bytes()
+if len(prg) != 0x8000 or len(tiles) != 0x2000:
+    raise SystemExit("Unexpected program or tile data size")
 out.mkdir(parents=True, exist_ok=True)
 (out / "game-data.bin").write_bytes(prg)
-(out / "tiles.bin").write_bytes(rom[0x8000:])
+(out / "tiles.bin").write_bytes(tiles)
 ops = {int(k): v for k, v in json.loads(Path("scripts/instructions.json").read_text()).items()}
 ops[4] = ["FRAME", "imm"]
 lengths = dict(imp=1, acc=1, imm=2, zpg=2, zpx=2, zpy=2, inx=2, iny=2,
@@ -187,7 +190,7 @@ for start in sorted(leaders):
         addr = nxt
     blocks[start] = lines
 
-generated = ["// Generated from the verified installed game at build time. Do not edit.",
+generated = ["// Generated from the verified repository game data at build time. Do not edit.",
              "#[allow(unreachable_code, unused_variables, clippy::needless_return)]",
              "pub fn dispatch(s: &mut super::Game, block: u16) -> Result<u16, String> {", "match block {"]
 # Shard to keep LLVM compile time bounded.

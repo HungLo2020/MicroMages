@@ -58,7 +58,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Micro Mages — native Rust reconstruction\n\nArrow keys: move | Z/X: action buttons | Enter: confirm | Tab: select\nEsc/P or gamepad Start: settings (resume, audio, controls, restart, quit)\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.ppm\nThe original installed game supplies graphics/data/audio during the build.\nGameplay is compiled to native Rust; no opcode interpreter is included."
+                    "Micro Mages — native Rust reconstruction\n\nArrow keys: move | Z/X: action buttons | Enter: confirm | Tab: select\nEsc/P or gamepad Start: settings (resume, audio, controls, restart, quit)\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.ppm\nGraphics, game data, and audio are supplied by the repository assets directory.\nGameplay is compiled to native Rust; no opcode interpreter is included."
                 );
                 return Ok(());
             }
@@ -68,9 +68,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if headless && frames.is_none() {
         return Err("--headless requires --frames N".into());
     }
-    let assets = env::var_os("MICRO_MAGES_DIR")
-        .map(PathBuf::from)
-        .unwrap_or_else(|| PathBuf::from(env!("MICRO_MAGES_BUILD_ASSETS")));
+    let assets = PathBuf::from(env!("MICRO_MAGES_BUILD_ASSETS"));
     let mut game = Game::new(&assets, sound);
     let mut window = if headless {
         None

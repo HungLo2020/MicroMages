@@ -5,8 +5,8 @@ cargo run
 ```
 
 This opens the game in a native Linux window with keyboard/gamepad input and native
-Ogg audio playback. Enter skips the intro and confirms menu choices. The installed
-PC game's embedded logic is translated into Rust at **build time**, then compiled
+Ogg audio playback. Enter skips the intro and confirms menu choices. The repository's extracted
+PC game logic is translated into Rust at **build time**, then compiled
 by rustc. No NES emulator, CPU instruction interpreter, Wine, Proton, or original
 executable is launched by this program.
 
@@ -35,7 +35,7 @@ The installed PC game consists of an embedded game program, a custom C++ executi
 wrapper, a tile/sprite compositor, and external Ogg music/effects. Its embedded
 program differs substantially from the separately distributed NES ROM.
 
-`build.rs` runs `scripts/compile_game.py` against the verified local executable.
+`build.rs` runs `scripts/compile_game.py` against the verified data in `assets/`.
 The compiler follows recovered control-flow tables and callbacks and emits about
 9,857 original instructions as 3,952 Rust basic blocks. Rust/LLVM compiles these
 blocks to host machine code. The game keeps the original memory layout and
@@ -62,29 +62,25 @@ Generated Rust is inspectable at
 records the source digest and translation counts. Unknown control transfers fail
 explicitly; there is no interpreter fallback.
 
-## Installed game and prerequisites
+## Assets and prerequisites
 
-On this computer the build automatically finds:
+All assets for this PC-game reconstruction live in `assets/`:
 
-`/run/media/matt/10TB Internal HDD/SteamLibrary/steamapps/common/Micro Mages`
+- `game-data.bin`: original 32 KiB program and game data, including level and animation tables.
+- `tiles.bin`: original 8 KiB graphics tile data used for sprites, backgrounds and text.
+- `music/`: all 9 original Ogg music tracks.
+- `sfx/`: all 37 original Ogg sound files, including files not currently referenced by playback mappings.
+- `manifest.json`: SHA-256 checksums for every asset and the source executable digest.
 
-For another installation:
-
-```sh
-MICRO_MAGES_DIR="/path/to/Micro Mages" cargo run
-```
+The build verifies the asset checksums, translates the repository program data,
+and embeds graphics and game data into the executable. Audio is read from this
+checkout's `assets/` directory at runtime, independently of the working directory.
+Steam and the original installation are no longer needed to build or run.
+Moving the checkout requires rebuilding so the audio directory path is refreshed.
+These are the original game assets, not newly authored replacements.
 
 Build requirements: Rust, Python 3, and the Linux X11/Wayland, ALSA and udev
-development libraries used by the native window/audio/input crates. They are
-available on this computer. The exact supported executable SHA-256 is:
-
-`b7bf279c1b7ce6714aca5634719d300ea60d2a0b8e073918c17a3702ee0a6e9c`
-
-A different build is rejected rather than translated using guessed offsets.
-The original installation is read without modification. Graphics and immutable
-game data are embedded during compilation; Ogg files are read from the installation
-at runtime. The original executable and `.nes` files are not opened at runtime.
-No commercial assets are checked into the source tree.
+development libraries used by the native window/audio/input crates.
 
 ## Verification
 
@@ -101,10 +97,10 @@ selection injection exists only in test builds and uses the recovered new-game
 entry. Normal stage 13 exercises the ending; hard stage 13 exercises the final
 boss selection. A separate 10,000-frame normal gameplay smoke run passed.
 
-All 16 tests and strict Clippy checks pass. The native window and audio initialization
-have also been exercised. A traced windowed run opened 35 Ogg assets and launched
-only the Rust executable; it opened no `.exe` or `.nes` files at runtime (recorded
-in `analysis/native-run.strace`). These checks
+All 17 tests and strict Clippy checks pass, including decoding every bundled Ogg
+file. A fresh package build and 3,600-frame gameplay run were traced: neither
+accessed Steam or the original executable. A windowed run from outside the checkout
+also verified local audio loading and native window initialization. These checks
 establish runnable gameplay and broad callback coverage, not complete playthroughs,
 physical testing of every controller, or frame-by-frame parity with the original.
 
