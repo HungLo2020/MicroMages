@@ -146,6 +146,10 @@ pub struct Audio {
     music_seek: Option<(Arc<AtomicUsize>, usize)>,
     pending_music: Option<u8>,
     fade: u16,
+    music_volume: f32,
+    effects_volume: f32,
+    host_paused: bool,
+    game_paused: bool,
 }
 impl Audio {
     pub fn new(root: &Path) -> Result<Self, Box<dyn Error>> {
@@ -164,6 +168,10 @@ impl Audio {
             music_seek: None,
             pending_music: None,
             fade: 0,
+            music_volume: 1.0,
+            effects_volume: 1.0,
+            host_paused: false,
+            game_paused: false,
         })
     }
 
@@ -187,14 +195,12 @@ impl Audio {
                 }
             }
             0x9208 => {
-                if let Some(sink) = &self.music {
-                    sink.pause();
-                }
+                self.game_paused = true;
+                self.sync_music();
             }
             0x9215 => {
-                if let Some(sink) = &self.music {
-                    sink.play();
-                }
+                self.game_paused = false;
+                self.sync_music();
             }
             0x9230 => self.play_sfx(a as usize, y as i8),
             0x9232 => self.play_sfx(a as usize, 0),
@@ -208,6 +214,7 @@ impl Audio {
         self.music = None;
         self.music_seek = None;
         self.fade = 0;
+        self.game_paused = false;
         let Ok(sample) = Sample::load(&self.root.join(name)) else {
             return;
         };
@@ -216,12 +223,13 @@ impl Audio {
         };
         let source = sample.source(looping, start, end);
         self.music_seek = Some((source.seek.clone(), sample.position(1.596)));
-        sink.set_volume(0.85);
+        sink.set_volume(0.85 * self.music_volume);
         if id == 3 {
             sink.set_speed(f32::from_bits(0x3f7f943f));
         }
         sink.append(source);
         self.music = Some(sink);
+        self.sync_music();
     }
     fn play_sfx(&mut self, id: usize, pitch: i8) {
         let Some(sample) = self.sfx.get(id) else {
@@ -250,6 +258,10 @@ impl Audio {
             return;
         };
         sink.set_speed((1.0 + pitch as f32 * 0.05).max(0.4));
+        sink.set_volume(self.effects_volume);
+        if self.host_paused {
+            sink.pause();
+        }
         sink.append(sample.source(false, 0.0, 0.0));
         if slot == self.voices.len() {
             self.voices.push((id, sink));
@@ -261,7 +273,34 @@ impl Audio {
         if self.fade > 0 {
             self.fade = (self.fade + 1).min(256);
             if let Some(sink) = &self.music {
-                sink.set_volume(0.85 * (256 - self.fade) as f32 / 256.0);
+                sink.set_volume(0.85 * self.music_volume * (256 - self.fade) as f32 / 256.0);
+            }
+        }
+    }
+
+    /// The host menu pauses playback without discarding the game's own pause state.
+    pub fn settings(&mut self, music: u8, effects: u8, paused: bool) {
+        self.music_volume = music.min(100) as f32 / 100.0;
+        self.effects_volume = effects.min(100) as f32 / 100.0;
+        self.host_paused = paused;
+        self.sync_music();
+        for (_, sink) in &self.voices {
+            sink.set_volume(self.effects_volume);
+            if paused {
+                sink.pause();
+            } else {
+                sink.play();
+            }
+        }
+    }
+
+    fn sync_music(&self) {
+        if let Some(sink) = &self.music {
+            sink.set_volume(0.85 * self.music_volume * (256 - self.fade) as f32 / 256.0);
+            if self.host_paused || self.game_paused {
+                sink.pause();
+            } else {
+                sink.play();
             }
         }
     }

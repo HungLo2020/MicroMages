@@ -15,14 +15,19 @@ executable is launched by this program.
 | Action | Player 1 | Player 2 | Player 3 | Gamepad |
 | --- | --- | --- | --- | --- |
 | Move / menu | Arrow keys | WASD | IJKL | D-pad / left stick |
-| A action | Z | G | N | South button |
+| A action / confirm | Z or Enter | G | N | South button |
 | B action | X | H | M | West / East button |
-| Start / confirm | Enter | Y | O | Start |
+| Settings / pause | Escape or P | Y | O | Start |
 | Select | Tab | T | U | Select |
 
 Up to four gamepads are supported. Keyboard and gamepad input can be combined.
-Player count is selected in the game's menu. P pauses the native host, R restarts,
-and Escape closes the window. Resize the window to change display size.
+Player count is selected in the game's menu. Escape, P, or any gamepad's Start
+opens the native settings menu and pauses gameplay and audio. The menu provides
+Resume, separate music/effects volume, a Controls page, Restart (with confirmation),
+and an explicit Quit Game option. Use up/down to select, left/right to adjust
+volume, and Enter/Z or the gamepad's South button to confirm. Escape/Start or
+X/the gamepad's B button goes back. Volume choices last for the current run and
+survive a restart from this menu. Resize the window to change display size.
 
 ## What was reconstructed
 
@@ -47,6 +52,7 @@ collision, and menu logic executes through the translated Rust blocks.
 - `src/video.rs`: software tile/sprite compositor with the PC palette and scrolling.
 - `src/audio.rs`: native playback of all 9 music tracks and 34 effect mappings.
 - `src/input.rs`: native gamepad connections and four-player controls.
+- `src/menu.rs`: native settings, pause, volume controls and restart/quit actions.
 - `scripts/compile_game.py`: fixed-build static compiler, with original addresses
   retained in generated comments.
 - `scripts/game_roots.json`: recovered callback and computed-transfer targets.
@@ -95,16 +101,15 @@ selection injection exists only in test builds and uses the recovered new-game
 entry. Normal stage 13 exercises the ending; hard stage 13 exercises the final
 boss selection. A separate 10,000-frame normal gameplay smoke run passed.
 
-All 13 tests and strict Clippy checks pass. The native window and audio initialization
+All 16 tests and strict Clippy checks pass. The native window and audio initialization
 have also been exercised. A traced windowed run opened 35 Ogg assets and launched
 only the Rust executable; it opened no `.exe` or `.nes` files at runtime (recorded
 in `analysis/native-run.strace`). These checks
 establish runnable gameplay and broad callback coverage, not complete playthroughs,
 physical testing of every controller, or frame-by-frame parity with the original.
 
-The original PC wrapper's settings dialogs, configurable bindings and persistent
-configuration have not been recreated. Native controls and pause/restart replace
-those host features. The separate Second Quest ROM is not this build's target.
+A native settings overlay replaces the PC wrapper's settings dialogs. Configurable
+bindings and persistent configuration have not been recreated. The separate Second Quest ROM is not this build's target.
 
 ## Reverse-engineering evidence
 

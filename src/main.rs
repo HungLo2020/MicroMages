@@ -11,6 +11,7 @@ use std::{
     process::ExitCode,
 };
 
+mod menu;
 mod window;
 
 fn screenshot(path: &Path, pixels: &[u32]) -> std::io::Result<()> {
@@ -57,7 +58,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Micro Mages — native Rust reconstruction\n\nArrow keys: move | Z/X: action buttons | Enter: start | Tab: select\nP: pause | R: restart | Esc: quit\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.ppm\nThe original installed game supplies graphics/data/audio during the build.\nGameplay is compiled to native Rust; no opcode interpreter is included."
+                    "Micro Mages — native Rust reconstruction\n\nArrow keys: move | Z/X: action buttons | Enter: confirm | Tab: select\nEsc/P or gamepad Start: settings (resume, audio, controls, restart, quit)\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.ppm\nThe original installed game supplies graphics/data/audio during the build.\nGameplay is compiled to native Rust; no opcode interpreter is included."
                 );
                 return Ok(());
             }
@@ -75,7 +76,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         None
     } else {
         let mut window = Window::new(
-            "Micro Mages — Rust | Arrows + Z/X | Enter start | P pause | Esc quit",
+            "Micro Mages — Rust | Arrows + Z/X | Enter confirm | Esc / Start settings",
             WIDTH,
             HEIGHT,
             WindowOptions {
@@ -93,23 +94,21 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         Some(micro_mages_re::input::Pads::new())
     };
-    let mut paused = false;
+    let mut menu = menu::Menu::new();
+    let mut displayed = vec![0; WIDTH * HEIGHT];
     let mut ticks = 0;
     loop {
         if frames.is_some_and(|limit| ticks >= limit) {
             break;
         }
         let mut inputs = [0; 4];
+        let mut toggle_menu = false;
         if let Some(window) = &mut window {
-            if !window.is_open() || window.is_key_down(Key::Escape) {
+            if !window.is_open() {
                 break;
             }
-            if window.is_key_pressed(Key::P, KeyRepeat::No) {
-                paused = !paused;
-            }
-            if window.is_key_pressed(Key::R, KeyRepeat::No) {
-                game = Game::new(&assets, sound);
-            }
+            toggle_menu = window.is_key_pressed(Key::Escape, KeyRepeat::No)
+                || window.is_key_pressed(Key::P, KeyRepeat::No);
             inputs[0] = keys(
                 window,
                 [
@@ -123,6 +122,12 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                     Key::Right,
                 ],
             );
+            // Enter confirms the game's "press A" prompt. Physical Start belongs
+            // to host settings, as advertised by the original title screen.
+            inputs[0] &= !8;
+            if window.is_key_down(Key::Enter) {
+                inputs[0] |= 1;
+            }
             inputs[1] = keys(
                 window,
                 [
@@ -152,7 +157,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         if demo {
             if (120..126).contains(&ticks) || (240..246).contains(&ticks) {
-                inputs[0] |= 8;
+                inputs[0] |= 1;
             }
             if ticks > 300 {
                 inputs[0] |= if ticks % 240 < 120 { 0x80 } else { 0x40 };
@@ -169,18 +174,37 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 *mask |= pad;
             }
         }
-        if !paused {
-            game.buttons(inputs);
+        let ui = menu.handle(if demo { [0; 4] } else { inputs }, toggle_menu);
+        match ui.command {
+            menu::Command::Quit => break,
+            menu::Command::Restart => {
+                game.audio.take();
+                game = Game::new(&assets, sound);
+            }
+            menu::Command::None => {}
+        }
+        if let Some(audio) = &mut game.audio {
+            audio.settings(menu.music, menu.effects, menu.open);
+        }
+        if !ui.paused {
+            // Demo is a deterministic game-logic test, not physical host input.
+            game.buttons(if demo { inputs } else { ui.buttons });
             game.update().map_err(|e| format!("frame {ticks}: {e}"))?;
         }
+        let audio_available = game.audio.is_some();
         let pixels = game.video.render();
+        displayed.copy_from_slice(if menu.open {
+            menu.render(pixels, audio_available)
+        } else {
+            pixels
+        });
         if let Some(window) = &mut window {
-            window.update_with_buffer(pixels, WIDTH, HEIGHT)?;
+            window.update_with_buffer(&displayed, WIDTH, HEIGHT)?;
         }
         ticks += 1;
     }
     if let Some(path) = capture {
-        screenshot(&path, game.video.render())?;
+        screenshot(&path, &displayed)?;
     }
     println!(
         "Native game: {} frames, {} compiled blocks executed",
