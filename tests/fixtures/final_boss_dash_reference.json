@@ -1,0 +1,34 @@
+[
+  {
+    "tick": 1,
+    "vx_units": 216
+  },
+  {
+    "tick": 40,
+    "vx_units": 216
+  },
+  {
+    "tick": 41,
+    "vx_units": -1286
+  },
+  {
+    "tick": 42,
+    "vx_units": -1274
+  },
+  {
+    "tick": 50,
+    "vx_units": -1178
+  },
+  {
+    "tick": 60,
+    "vx_units": -1058
+  },
+  {
+    "tick": 80,
+    "vx_units": -818
+  },
+  {
+    "tick": 90,
+    "vx_units": -698
+  }
+]

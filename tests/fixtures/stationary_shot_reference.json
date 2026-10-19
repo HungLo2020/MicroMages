@@ -1,0 +1,8 @@
+[{"kind":7,"hard":false,"left":false,"tick":209,"x":128,"y":72,"vx":152,"vy":152},
+{"kind":11,"hard":false,"left":false,"tick":144,"x":132,"y":72,"vx":256,"vy":-768},
+{"kind":7,"hard":false,"left":true,"tick":209,"x":128,"y":72,"vx":-152,"vy":152},
+{"kind":11,"hard":false,"left":true,"tick":144,"x":124,"y":72,"vx":-256,"vy":-768},
+{"kind":7,"hard":true,"left":false,"tick":104,"x":128,"y":72,"vx":186,"vy":186},
+{"kind":11,"hard":true,"left":false,"tick":112,"x":132,"y":72,"vx":256,"vy":-768},
+{"kind":7,"hard":true,"left":true,"tick":104,"x":128,"y":72,"vx":-186,"vy":186},
+{"kind":11,"hard":true,"left":true,"tick":112,"x":124,"y":72,"vx":-256,"vy":-768}]

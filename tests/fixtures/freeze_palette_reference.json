@@ -1,0 +1,1326 @@
+{
+  "source": "Original a399/a3bc, source kind0e, freeze190, effect138. Research-only RAM setup after original startup; palette recorded after every original update.",
+  "base_palette": 2,
+  "rows": [
+    {
+      "tick": 1,
+      "freeze": 189,
+      "effect": 137,
+      "palette": 3
+    },
+    {
+      "tick": 2,
+      "freeze": 188,
+      "effect": 136,
+      "palette": 3
+    },
+    {
+      "tick": 3,
+      "freeze": 187,
+      "effect": 135,
+      "palette": 3
+    },
+    {
+      "tick": 4,
+      "freeze": 186,
+      "effect": 134,
+      "palette": 3
+    },
+    {
+      "tick": 5,
+      "freeze": 185,
+      "effect": 133,
+      "palette": 3
+    },
+    {
+      "tick": 6,
+      "freeze": 184,
+      "effect": 132,
+      "palette": 3
+    },
+    {
+      "tick": 7,
+      "freeze": 183,
+      "effect": 131,
+      "palette": 3
+    },
+    {
+      "tick": 8,
+      "freeze": 182,
+      "effect": 130,
+      "palette": 3
+    },
+    {
+      "tick": 9,
+      "freeze": 181,
+      "effect": 129,
+      "palette": 3
+    },
+    {
+      "tick": 10,
+      "freeze": 180,
+      "effect": 128,
+      "palette": 3
+    },
+    {
+      "tick": 11,
+      "freeze": 179,
+      "effect": 127,
+      "palette": 3
+    },
+    {
+      "tick": 12,
+      "freeze": 178,
+      "effect": 126,
+      "palette": 3
+    },
+    {
+      "tick": 13,
+      "freeze": 177,
+      "effect": 125,
+      "palette": 3
+    },
+    {
+      "tick": 14,
+      "freeze": 176,
+      "effect": 124,
+      "palette": 3
+    },
+    {
+      "tick": 15,
+      "freeze": 175,
+      "effect": 123,
+      "palette": 3
+    },
+    {
+      "tick": 16,
+      "freeze": 174,
+      "effect": 122,
+      "palette": 3
+    },
+    {
+      "tick": 17,
+      "freeze": 173,
+      "effect": 121,
+      "palette": 3
+    },
+    {
+      "tick": 18,
+      "freeze": 172,
+      "effect": 120,
+      "palette": 3
+    },
+    {
+      "tick": 19,
+      "freeze": 171,
+      "effect": 119,
+      "palette": 3
+    },
+    {
+      "tick": 20,
+      "freeze": 170,
+      "effect": 118,
+      "palette": 3
+    },
+    {
+      "tick": 21,
+      "freeze": 169,
+      "effect": 117,
+      "palette": 3
+    },
+    {
+      "tick": 22,
+      "freeze": 168,
+      "effect": 116,
+      "palette": 3
+    },
+    {
+      "tick": 23,
+      "freeze": 167,
+      "effect": 115,
+      "palette": 3
+    },
+    {
+      "tick": 24,
+      "freeze": 166,
+      "effect": 114,
+      "palette": 3
+    },
+    {
+      "tick": 25,
+      "freeze": 165,
+      "effect": 113,
+      "palette": 3
+    },
+    {
+      "tick": 26,
+      "freeze": 164,
+      "effect": 112,
+      "palette": 3
+    },
+    {
+      "tick": 27,
+      "freeze": 163,
+      "effect": 111,
+      "palette": 3
+    },
+    {
+      "tick": 28,
+      "freeze": 162,
+      "effect": 110,
+      "palette": 3
+    },
+    {
+      "tick": 29,
+      "freeze": 161,
+      "effect": 109,
+      "palette": 3
+    },
+    {
+      "tick": 30,
+      "freeze": 160,
+      "effect": 108,
+      "palette": 3
+    },
+    {
+      "tick": 31,
+      "freeze": 159,
+      "effect": 107,
+      "palette": 3
+    },
+    {
+      "tick": 32,
+      "freeze": 158,
+      "effect": 106,
+      "palette": 3
+    },
+    {
+      "tick": 33,
+      "freeze": 157,
+      "effect": 105,
+      "palette": 3
+    },
+    {
+      "tick": 34,
+      "freeze": 156,
+      "effect": 104,
+      "palette": 3
+    },
+    {
+      "tick": 35,
+      "freeze": 155,
+      "effect": 103,
+      "palette": 3
+    },
+    {
+      "tick": 36,
+      "freeze": 154,
+      "effect": 102,
+      "palette": 3
+    },
+    {
+      "tick": 37,
+      "freeze": 153,
+      "effect": 101,
+      "palette": 3
+    },
+    {
+      "tick": 38,
+      "freeze": 152,
+      "effect": 100,
+      "palette": 3
+    },
+    {
+      "tick": 39,
+      "freeze": 151,
+      "effect": 99,
+      "palette": 3
+    },
+    {
+      "tick": 40,
+      "freeze": 150,
+      "effect": 98,
+      "palette": 3
+    },
+    {
+      "tick": 41,
+      "freeze": 149,
+      "effect": 97,
+      "palette": 3
+    },
+    {
+      "tick": 42,
+      "freeze": 148,
+      "effect": 96,
+      "palette": 3
+    },
+    {
+      "tick": 43,
+      "freeze": 147,
+      "effect": 95,
+      "palette": 3
+    },
+    {
+      "tick": 44,
+      "freeze": 146,
+      "effect": 94,
+      "palette": 3
+    },
+    {
+      "tick": 45,
+      "freeze": 145,
+      "effect": 93,
+      "palette": 3
+    },
+    {
+      "tick": 46,
+      "freeze": 144,
+      "effect": 92,
+      "palette": 3
+    },
+    {
+      "tick": 47,
+      "freeze": 143,
+      "effect": 91,
+      "palette": 3
+    },
+    {
+      "tick": 48,
+      "freeze": 142,
+      "effect": 90,
+      "palette": 3
+    },
+    {
+      "tick": 49,
+      "freeze": 141,
+      "effect": 89,
+      "palette": 3
+    },
+    {
+      "tick": 50,
+      "freeze": 140,
+      "effect": 88,
+      "palette": 3
+    },
+    {
+      "tick": 51,
+      "freeze": 139,
+      "effect": 87,
+      "palette": 3
+    },
+    {
+      "tick": 52,
+      "freeze": 138,
+      "effect": 86,
+      "palette": 3
+    },
+    {
+      "tick": 53,
+      "freeze": 137,
+      "effect": 85,
+      "palette": 3
+    },
+    {
+      "tick": 54,
+      "freeze": 136,
+      "effect": 84,
+      "palette": 3
+    },
+    {
+      "tick": 55,
+      "freeze": 135,
+      "effect": 83,
+      "palette": 3
+    },
+    {
+      "tick": 56,
+      "freeze": 134,
+      "effect": 82,
+      "palette": 3
+    },
+    {
+      "tick": 57,
+      "freeze": 133,
+      "effect": 81,
+      "palette": 3
+    },
+    {
+      "tick": 58,
+      "freeze": 132,
+      "effect": 80,
+      "palette": 3
+    },
+    {
+      "tick": 59,
+      "freeze": 131,
+      "effect": 79,
+      "palette": 3
+    },
+    {
+      "tick": 60,
+      "freeze": 130,
+      "effect": 78,
+      "palette": 3
+    },
+    {
+      "tick": 61,
+      "freeze": 129,
+      "effect": 77,
+      "palette": 3
+    },
+    {
+      "tick": 62,
+      "freeze": 128,
+      "effect": 76,
+      "palette": 3
+    },
+    {
+      "tick": 63,
+      "freeze": 127,
+      "effect": 75,
+      "palette": 3
+    },
+    {
+      "tick": 64,
+      "freeze": 126,
+      "effect": 74,
+      "palette": 3
+    },
+    {
+      "tick": 65,
+      "freeze": 125,
+      "effect": 73,
+      "palette": 3
+    },
+    {
+      "tick": 66,
+      "freeze": 124,
+      "effect": 72,
+      "palette": 3
+    },
+    {
+      "tick": 67,
+      "freeze": 123,
+      "effect": 71,
+      "palette": 3
+    },
+    {
+      "tick": 68,
+      "freeze": 122,
+      "effect": 70,
+      "palette": 3
+    },
+    {
+      "tick": 69,
+      "freeze": 121,
+      "effect": 69,
+      "palette": 3
+    },
+    {
+      "tick": 70,
+      "freeze": 120,
+      "effect": 68,
+      "palette": 3
+    },
+    {
+      "tick": 71,
+      "freeze": 119,
+      "effect": 67,
+      "palette": 3
+    },
+    {
+      "tick": 72,
+      "freeze": 118,
+      "effect": 66,
+      "palette": 3
+    },
+    {
+      "tick": 73,
+      "freeze": 117,
+      "effect": 65,
+      "palette": 3
+    },
+    {
+      "tick": 74,
+      "freeze": 116,
+      "effect": 64,
+      "palette": 3
+    },
+    {
+      "tick": 75,
+      "freeze": 115,
+      "effect": 63,
+      "palette": 3
+    },
+    {
+      "tick": 76,
+      "freeze": 114,
+      "effect": 62,
+      "palette": 3
+    },
+    {
+      "tick": 77,
+      "freeze": 113,
+      "effect": 61,
+      "palette": 3
+    },
+    {
+      "tick": 78,
+      "freeze": 112,
+      "effect": 60,
+      "palette": 3
+    },
+    {
+      "tick": 79,
+      "freeze": 111,
+      "effect": 59,
+      "palette": 3
+    },
+    {
+      "tick": 80,
+      "freeze": 110,
+      "effect": 58,
+      "palette": 3
+    },
+    {
+      "tick": 81,
+      "freeze": 109,
+      "effect": 57,
+      "palette": 3
+    },
+    {
+      "tick": 82,
+      "freeze": 108,
+      "effect": 56,
+      "palette": 3
+    },
+    {
+      "tick": 83,
+      "freeze": 107,
+      "effect": 55,
+      "palette": 3
+    },
+    {
+      "tick": 84,
+      "freeze": 106,
+      "effect": 54,
+      "palette": 3
+    },
+    {
+      "tick": 85,
+      "freeze": 105,
+      "effect": 53,
+      "palette": 3
+    },
+    {
+      "tick": 86,
+      "freeze": 104,
+      "effect": 53,
+      "palette": 2
+    },
+    {
+      "tick": 87,
+      "freeze": 103,
+      "effect": 52,
+      "palette": 3
+    },
+    {
+      "tick": 88,
+      "freeze": 102,
+      "effect": 51,
+      "palette": 3
+    },
+    {
+      "tick": 89,
+      "freeze": 101,
+      "effect": 50,
+      "palette": 3
+    },
+    {
+      "tick": 90,
+      "freeze": 100,
+      "effect": 49,
+      "palette": 3
+    },
+    {
+      "tick": 91,
+      "freeze": 99,
+      "effect": 49,
+      "palette": 2
+    },
+    {
+      "tick": 92,
+      "freeze": 98,
+      "effect": 49,
+      "palette": 2
+    },
+    {
+      "tick": 93,
+      "freeze": 97,
+      "effect": 49,
+      "palette": 2
+    },
+    {
+      "tick": 94,
+      "freeze": 96,
+      "effect": 49,
+      "palette": 2
+    },
+    {
+      "tick": 95,
+      "freeze": 95,
+      "effect": 48,
+      "palette": 3
+    },
+    {
+      "tick": 96,
+      "freeze": 94,
+      "effect": 47,
+      "palette": 3
+    },
+    {
+      "tick": 97,
+      "freeze": 93,
+      "effect": 46,
+      "palette": 3
+    },
+    {
+      "tick": 98,
+      "freeze": 92,
+      "effect": 45,
+      "palette": 3
+    },
+    {
+      "tick": 99,
+      "freeze": 91,
+      "effect": 45,
+      "palette": 2
+    },
+    {
+      "tick": 100,
+      "freeze": 90,
+      "effect": 45,
+      "palette": 2
+    },
+    {
+      "tick": 101,
+      "freeze": 89,
+      "effect": 45,
+      "palette": 2
+    },
+    {
+      "tick": 102,
+      "freeze": 88,
+      "effect": 45,
+      "palette": 2
+    },
+    {
+      "tick": 103,
+      "freeze": 87,
+      "effect": 44,
+      "palette": 3
+    },
+    {
+      "tick": 104,
+      "freeze": 86,
+      "effect": 43,
+      "palette": 3
+    },
+    {
+      "tick": 105,
+      "freeze": 85,
+      "effect": 42,
+      "palette": 3
+    },
+    {
+      "tick": 106,
+      "freeze": 84,
+      "effect": 41,
+      "palette": 3
+    },
+    {
+      "tick": 107,
+      "freeze": 83,
+      "effect": 41,
+      "palette": 2
+    },
+    {
+      "tick": 108,
+      "freeze": 82,
+      "effect": 41,
+      "palette": 2
+    },
+    {
+      "tick": 109,
+      "freeze": 81,
+      "effect": 41,
+      "palette": 2
+    },
+    {
+      "tick": 110,
+      "freeze": 80,
+      "effect": 41,
+      "palette": 2
+    },
+    {
+      "tick": 111,
+      "freeze": 79,
+      "effect": 40,
+      "palette": 3
+    },
+    {
+      "tick": 112,
+      "freeze": 78,
+      "effect": 39,
+      "palette": 3
+    },
+    {
+      "tick": 113,
+      "freeze": 77,
+      "effect": 38,
+      "palette": 3
+    },
+    {
+      "tick": 114,
+      "freeze": 76,
+      "effect": 37,
+      "palette": 3
+    },
+    {
+      "tick": 115,
+      "freeze": 75,
+      "effect": 37,
+      "palette": 2
+    },
+    {
+      "tick": 116,
+      "freeze": 74,
+      "effect": 37,
+      "palette": 2
+    },
+    {
+      "tick": 117,
+      "freeze": 73,
+      "effect": 37,
+      "palette": 2
+    },
+    {
+      "tick": 118,
+      "freeze": 72,
+      "effect": 37,
+      "palette": 2
+    },
+    {
+      "tick": 119,
+      "freeze": 71,
+      "effect": 36,
+      "palette": 3
+    },
+    {
+      "tick": 120,
+      "freeze": 70,
+      "effect": 35,
+      "palette": 3
+    },
+    {
+      "tick": 121,
+      "freeze": 69,
+      "effect": 34,
+      "palette": 3
+    },
+    {
+      "tick": 122,
+      "freeze": 68,
+      "effect": 33,
+      "palette": 3
+    },
+    {
+      "tick": 123,
+      "freeze": 67,
+      "effect": 33,
+      "palette": 2
+    },
+    {
+      "tick": 124,
+      "freeze": 66,
+      "effect": 33,
+      "palette": 2
+    },
+    {
+      "tick": 125,
+      "freeze": 65,
+      "effect": 33,
+      "palette": 2
+    },
+    {
+      "tick": 126,
+      "freeze": 64,
+      "effect": 33,
+      "palette": 2
+    },
+    {
+      "tick": 127,
+      "freeze": 63,
+      "effect": 32,
+      "palette": 3
+    },
+    {
+      "tick": 128,
+      "freeze": 62,
+      "effect": 31,
+      "palette": 3
+    },
+    {
+      "tick": 129,
+      "freeze": 61,
+      "effect": 30,
+      "palette": 3
+    },
+    {
+      "tick": 130,
+      "freeze": 60,
+      "effect": 29,
+      "palette": 3
+    },
+    {
+      "tick": 131,
+      "freeze": 59,
+      "effect": 29,
+      "palette": 2
+    },
+    {
+      "tick": 132,
+      "freeze": 58,
+      "effect": 29,
+      "palette": 2
+    },
+    {
+      "tick": 133,
+      "freeze": 57,
+      "effect": 29,
+      "palette": 2
+    },
+    {
+      "tick": 134,
+      "freeze": 56,
+      "effect": 29,
+      "palette": 2
+    },
+    {
+      "tick": 135,
+      "freeze": 55,
+      "effect": 28,
+      "palette": 3
+    },
+    {
+      "tick": 136,
+      "freeze": 54,
+      "effect": 27,
+      "palette": 3
+    },
+    {
+      "tick": 137,
+      "freeze": 53,
+      "effect": 26,
+      "palette": 3
+    },
+    {
+      "tick": 138,
+      "freeze": 52,
+      "effect": 25,
+      "palette": 3
+    },
+    {
+      "tick": 139,
+      "freeze": 51,
+      "effect": 25,
+      "palette": 2
+    },
+    {
+      "tick": 140,
+      "freeze": 50,
+      "effect": 25,
+      "palette": 2
+    },
+    {
+      "tick": 141,
+      "freeze": 49,
+      "effect": 25,
+      "palette": 2
+    },
+    {
+      "tick": 142,
+      "freeze": 48,
+      "effect": 25,
+      "palette": 2
+    },
+    {
+      "tick": 143,
+      "freeze": 47,
+      "effect": 24,
+      "palette": 3
+    },
+    {
+      "tick": 144,
+      "freeze": 46,
+      "effect": 23,
+      "palette": 3
+    },
+    {
+      "tick": 145,
+      "freeze": 45,
+      "effect": 22,
+      "palette": 3
+    },
+    {
+      "tick": 146,
+      "freeze": 44,
+      "effect": 21,
+      "palette": 3
+    },
+    {
+      "tick": 147,
+      "freeze": 43,
+      "effect": 21,
+      "palette": 2
+    },
+    {
+      "tick": 148,
+      "freeze": 42,
+      "effect": 21,
+      "palette": 2
+    },
+    {
+      "tick": 149,
+      "freeze": 41,
+      "effect": 21,
+      "palette": 2
+    },
+    {
+      "tick": 150,
+      "freeze": 40,
+      "effect": 21,
+      "palette": 2
+    },
+    {
+      "tick": 151,
+      "freeze": 39,
+      "effect": 20,
+      "palette": 3
+    },
+    {
+      "tick": 152,
+      "freeze": 38,
+      "effect": 19,
+      "palette": 3
+    },
+    {
+      "tick": 153,
+      "freeze": 37,
+      "effect": 18,
+      "palette": 3
+    },
+    {
+      "tick": 154,
+      "freeze": 36,
+      "effect": 17,
+      "palette": 3
+    },
+    {
+      "tick": 155,
+      "freeze": 35,
+      "effect": 17,
+      "palette": 2
+    },
+    {
+      "tick": 156,
+      "freeze": 34,
+      "effect": 17,
+      "palette": 2
+    },
+    {
+      "tick": 157,
+      "freeze": 33,
+      "effect": 17,
+      "palette": 2
+    },
+    {
+      "tick": 158,
+      "freeze": 32,
+      "effect": 17,
+      "palette": 2
+    },
+    {
+      "tick": 159,
+      "freeze": 31,
+      "effect": 16,
+      "palette": 3
+    },
+    {
+      "tick": 160,
+      "freeze": 30,
+      "effect": 15,
+      "palette": 3
+    },
+    {
+      "tick": 161,
+      "freeze": 29,
+      "effect": 14,
+      "palette": 3
+    },
+    {
+      "tick": 162,
+      "freeze": 28,
+      "effect": 13,
+      "palette": 3
+    },
+    {
+      "tick": 163,
+      "freeze": 27,
+      "effect": 13,
+      "palette": 2
+    },
+    {
+      "tick": 164,
+      "freeze": 26,
+      "effect": 13,
+      "palette": 2
+    },
+    {
+      "tick": 165,
+      "freeze": 25,
+      "effect": 13,
+      "palette": 2
+    },
+    {
+      "tick": 166,
+      "freeze": 24,
+      "effect": 13,
+      "palette": 2
+    },
+    {
+      "tick": 167,
+      "freeze": 23,
+      "effect": 12,
+      "palette": 3
+    },
+    {
+      "tick": 168,
+      "freeze": 22,
+      "effect": 11,
+      "palette": 3
+    },
+    {
+      "tick": 169,
+      "freeze": 21,
+      "effect": 10,
+      "palette": 3
+    },
+    {
+      "tick": 170,
+      "freeze": 20,
+      "effect": 9,
+      "palette": 3
+    },
+    {
+      "tick": 171,
+      "freeze": 19,
+      "effect": 9,
+      "palette": 2
+    },
+    {
+      "tick": 172,
+      "freeze": 18,
+      "effect": 9,
+      "palette": 2
+    },
+    {
+      "tick": 173,
+      "freeze": 17,
+      "effect": 9,
+      "palette": 2
+    },
+    {
+      "tick": 174,
+      "freeze": 16,
+      "effect": 9,
+      "palette": 2
+    },
+    {
+      "tick": 175,
+      "freeze": 15,
+      "effect": 8,
+      "palette": 3
+    },
+    {
+      "tick": 176,
+      "freeze": 14,
+      "effect": 7,
+      "palette": 3
+    },
+    {
+      "tick": 177,
+      "freeze": 13,
+      "effect": 6,
+      "palette": 3
+    },
+    {
+      "tick": 178,
+      "freeze": 12,
+      "effect": 5,
+      "palette": 3
+    },
+    {
+      "tick": 179,
+      "freeze": 11,
+      "effect": 5,
+      "palette": 2
+    },
+    {
+      "tick": 180,
+      "freeze": 10,
+      "effect": 5,
+      "palette": 2
+    },
+    {
+      "tick": 181,
+      "freeze": 9,
+      "effect": 5,
+      "palette": 2
+    },
+    {
+      "tick": 182,
+      "freeze": 8,
+      "effect": 5,
+      "palette": 2
+    },
+    {
+      "tick": 183,
+      "freeze": 7,
+      "effect": 4,
+      "palette": 3
+    },
+    {
+      "tick": 184,
+      "freeze": 6,
+      "effect": 3,
+      "palette": 3
+    },
+    {
+      "tick": 185,
+      "freeze": 5,
+      "effect": 2,
+      "palette": 3
+    },
+    {
+      "tick": 186,
+      "freeze": 4,
+      "effect": 1,
+      "palette": 3
+    },
+    {
+      "tick": 187,
+      "freeze": 3,
+      "effect": 1,
+      "palette": 2
+    },
+    {
+      "tick": 188,
+      "freeze": 2,
+      "effect": 1,
+      "palette": 2
+    },
+    {
+      "tick": 189,
+      "freeze": 1,
+      "effect": 1,
+      "palette": 2
+    },
+    {
+      "tick": 190,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 191,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 192,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 193,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 194,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 195,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 196,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 197,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 198,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 199,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 200,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 201,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 202,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 203,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 204,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 205,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 206,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 207,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 208,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 209,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 210,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 211,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 212,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 213,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 214,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 215,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 216,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 217,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 218,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 219,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    },
+    {
+      "tick": 220,
+      "freeze": 0,
+      "effect": 0,
+      "palette": 2
+    }
+  ]
+}

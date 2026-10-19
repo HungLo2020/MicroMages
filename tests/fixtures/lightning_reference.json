@@ -1,0 +1,7683 @@
+{
+  "source_callback": "c412",
+  "center": [
+    128,
+    64
+  ],
+  "player_centers_y": [
+    52,
+    68,
+    76,
+    60
+  ],
+  "cases": [
+    {
+      "boss": false,
+      "hard": false,
+      "rows": [
+        {
+          "tick": 0,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 63
+            }
+          ]
+        },
+        {
+          "tick": 1,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 62
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 61
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 60
+            }
+          ]
+        },
+        {
+          "tick": 4,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 59
+            }
+          ]
+        },
+        {
+          "tick": 5,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 58
+            }
+          ]
+        },
+        {
+          "tick": 6,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 57
+            }
+          ]
+        },
+        {
+          "tick": 7,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 56
+            }
+          ]
+        },
+        {
+          "tick": 8,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 55
+            }
+          ]
+        },
+        {
+          "tick": 9,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 54
+            }
+          ]
+        },
+        {
+          "tick": 10,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 11,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 12,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 13,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 14,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 15,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 16,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 17,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 18,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 19,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 20,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 21,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 22,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 23,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 24,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 25,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 26,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 27,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 28,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 29,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 30,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 31,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 32,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 33,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 34,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 35,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 36,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 37,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 38,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 39,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 40,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 45,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 46,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 47,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 49,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 50,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 51,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 52,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 53,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 54,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 55,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 56,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 57,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 58,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 59,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 60,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 61,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 62,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 63,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 64,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 65,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 66,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 67,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 68,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 69,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 70,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 71,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 72,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 73,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 74,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 75,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 76,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 77,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 78,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 79,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 80,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 81,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 82,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 83,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 84,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 85,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 86,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 87,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 88,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 89,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 90,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 91,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 92,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 93,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 94,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 95,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 96,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 97,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 98,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 99,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 100,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 101,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 102,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 103,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 104,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 105,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 106,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 107,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 108,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 109,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 110,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 111,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 112,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 113,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 114,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 115,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 116,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 117,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 118,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 119,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 68
+            }
+          ]
+        },
+        {
+          "tick": 120,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 67
+            }
+          ]
+        },
+        {
+          "tick": 121,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 66
+            }
+          ]
+        },
+        {
+          "tick": 122,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 65
+            }
+          ]
+        },
+        {
+          "tick": 123,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 64
+            }
+          ]
+        },
+        {
+          "tick": 124,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 63
+            }
+          ]
+        },
+        {
+          "tick": 125,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 62
+            }
+          ]
+        },
+        {
+          "tick": 126,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 61
+            }
+          ]
+        },
+        {
+          "tick": 127,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 60
+            }
+          ]
+        },
+        {
+          "tick": 128,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 59
+            }
+          ]
+        },
+        {
+          "tick": 129,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 58
+            }
+          ]
+        },
+        {
+          "tick": 130,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 57
+            }
+          ]
+        },
+        {
+          "tick": 131,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 56
+            }
+          ]
+        },
+        {
+          "tick": 132,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 55
+            }
+          ]
+        },
+        {
+          "tick": 133,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 54
+            }
+          ]
+        },
+        {
+          "tick": 134,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 135,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 136,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 137,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 138,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 139,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 140,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 141,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 142,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 143,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 144,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 145,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 146,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 147,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 148,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 149,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 150,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 151,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 152,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 153,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 154,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 155,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 156,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 157,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 158,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 159,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 160,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 161,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 162,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 163,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 164,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 165,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 166,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 167,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 168,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 169,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 170,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 171,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 172,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 173,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 174,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 175,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 176,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 177,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 178,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 179,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 180,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 181,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 182,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 183,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 184,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 185,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 186,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 187,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 188,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 189,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 190,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 191,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 192,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 193,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 194,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 195,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 196,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 197,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 198,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 199,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 200,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 201,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 202,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 203,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 204,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 205,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 206,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 207,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 208,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 209,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 210,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 211,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 212,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 213,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 214,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 215,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 216,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 217,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 218,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 219,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boss": false,
+      "hard": true,
+      "rows": [
+        {
+          "tick": 0,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 63
+            }
+          ]
+        },
+        {
+          "tick": 1,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 62
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 61
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 60
+            }
+          ]
+        },
+        {
+          "tick": 4,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 59
+            }
+          ]
+        },
+        {
+          "tick": 5,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 58
+            }
+          ]
+        },
+        {
+          "tick": 6,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 57
+            }
+          ]
+        },
+        {
+          "tick": 7,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 56
+            }
+          ]
+        },
+        {
+          "tick": 8,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 55
+            }
+          ]
+        },
+        {
+          "tick": 9,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 54
+            }
+          ]
+        },
+        {
+          "tick": 10,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 11,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 12,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 13,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 14,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 15,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 16,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 17,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 18,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 19,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 20,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 21,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 22,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 23,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 24,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 25,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 26,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 27,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 28,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 29,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 30,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 31,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 32,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 33,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 34,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 35,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 36,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 37,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 38,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 39,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 40,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 45,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 46,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 47,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 49,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 50,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 51,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 52,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 53,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 54,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 55,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 56,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 57,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 58,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 59,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 60,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 61,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 62,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 63,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 64,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 65,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 66,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 67,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 68,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 69,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 70,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 71,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 72,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 73,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 74,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 75,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 76,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 77,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 78,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 79,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 80,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 81,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 82,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 83,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 84,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 85,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 86,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 87,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 88,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 89,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 90,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 91,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 92,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 93,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 94,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 95,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 96,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 97,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 98,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 99,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 100,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 101,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 102,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 103,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 104,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 105,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 106,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 68
+            }
+          ]
+        },
+        {
+          "tick": 107,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 67
+            }
+          ]
+        },
+        {
+          "tick": 108,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 66
+            }
+          ]
+        },
+        {
+          "tick": 109,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 65
+            }
+          ]
+        },
+        {
+          "tick": 110,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 64
+            }
+          ]
+        },
+        {
+          "tick": 111,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 63
+            }
+          ]
+        },
+        {
+          "tick": 112,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 62
+            }
+          ]
+        },
+        {
+          "tick": 113,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 61
+            }
+          ]
+        },
+        {
+          "tick": 114,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 60
+            }
+          ]
+        },
+        {
+          "tick": 115,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 59
+            }
+          ]
+        },
+        {
+          "tick": 116,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 58
+            }
+          ]
+        },
+        {
+          "tick": 117,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 57
+            }
+          ]
+        },
+        {
+          "tick": 118,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 56
+            }
+          ]
+        },
+        {
+          "tick": 119,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 55
+            }
+          ]
+        },
+        {
+          "tick": 120,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 54
+            }
+          ]
+        },
+        {
+          "tick": 121,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 122,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 123,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 124,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 125,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 126,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 127,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 128,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 129,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 130,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 131,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 132,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 133,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 134,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 135,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 136,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 137,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 138,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 139,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 140,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 141,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 142,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 143,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 144,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 145,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 146,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 147,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 148,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 149,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 150,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 151,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 152,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 153,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 154,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 155,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 156,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 157,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 158,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 159,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 160,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 161,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 162,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 163,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 164,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 165,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 166,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 167,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 168,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 169,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 170,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 171,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 172,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 173,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 174,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 175,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 176,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 177,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 178,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 179,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 180,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 181,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 182,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 183,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 184,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 185,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 186,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 187,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 188,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 189,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 190,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 191,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 192,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 193,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 194,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 195,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 196,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 197,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 198,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 199,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 200,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 201,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 202,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 203,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 204,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 205,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 206,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 207,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 208,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 209,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 210,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 211,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 212,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 213,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 214,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 215,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 216,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 217,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 68
+            }
+          ]
+        },
+        {
+          "tick": 218,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 67
+            }
+          ]
+        },
+        {
+          "tick": 219,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 0,
+              "timer": 66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "boss": true,
+      "hard": false,
+      "rows": [
+        {
+          "tick": 0,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 79
+            }
+          ]
+        },
+        {
+          "tick": 1,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 78
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 77
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 76
+            }
+          ]
+        },
+        {
+          "tick": 4,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 75
+            }
+          ]
+        },
+        {
+          "tick": 5,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 74
+            }
+          ]
+        },
+        {
+          "tick": 6,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 73
+            }
+          ]
+        },
+        {
+          "tick": 7,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 72
+            }
+          ]
+        },
+        {
+          "tick": 8,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 71
+            }
+          ]
+        },
+        {
+          "tick": 9,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 70
+            }
+          ]
+        },
+        {
+          "tick": 10,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 69
+            }
+          ]
+        },
+        {
+          "tick": 11,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 68
+            }
+          ]
+        },
+        {
+          "tick": 12,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 67
+            }
+          ]
+        },
+        {
+          "tick": 13,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 66
+            }
+          ]
+        },
+        {
+          "tick": 14,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 65
+            }
+          ]
+        },
+        {
+          "tick": 15,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 64
+            }
+          ]
+        },
+        {
+          "tick": 16,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 63
+            }
+          ]
+        },
+        {
+          "tick": 17,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 62
+            }
+          ]
+        },
+        {
+          "tick": 18,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 61
+            }
+          ]
+        },
+        {
+          "tick": 19,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 60
+            }
+          ]
+        },
+        {
+          "tick": 20,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 59
+            }
+          ]
+        },
+        {
+          "tick": 21,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 58
+            }
+          ]
+        },
+        {
+          "tick": 22,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 57
+            }
+          ]
+        },
+        {
+          "tick": 23,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 56
+            }
+          ]
+        },
+        {
+          "tick": 24,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 55
+            }
+          ]
+        },
+        {
+          "tick": 25,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 54
+            }
+          ]
+        },
+        {
+          "tick": 26,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 27,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 28,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 29,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 30,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 31,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 32,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 33,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 34,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 35,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 36,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 37,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 38,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 39,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 40,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 45,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 46,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 47,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 49,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 50,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 51,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 52,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 53,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 54,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 55,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 56,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 57,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 58,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 59,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 60,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 61,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 62,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 63,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 64,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 65,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 66,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 67,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 68,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 69,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 70,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 71,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 72,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 73,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 74,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 75,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 76,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 77,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 78,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 79,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 16
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 16
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 80,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 15
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 15
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 81,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 14
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 14
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 82,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 13
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 13
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 83,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 12
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 12
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 84,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 11
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 11
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 85,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 10
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 10
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 86,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 9
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 9
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 87,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 8
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 8
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 88,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 7
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 7
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 89,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 6
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 6
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 90,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 5
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 5
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 91,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 4
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 4
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 92,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 3
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 3
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 93,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 2
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 2
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 94,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 1
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 1
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 95,
+          "hit_mask": 2,
+          "segments": []
+        }
+      ]
+    },
+    {
+      "boss": true,
+      "hard": true,
+      "rows": [
+        {
+          "tick": 0,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 53
+            }
+          ]
+        },
+        {
+          "tick": 1,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 52
+            }
+          ]
+        },
+        {
+          "tick": 2,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 51
+            }
+          ]
+        },
+        {
+          "tick": 3,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 50
+            }
+          ]
+        },
+        {
+          "tick": 4,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 49
+            }
+          ]
+        },
+        {
+          "tick": 5,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 48
+            }
+          ]
+        },
+        {
+          "tick": 6,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 47
+            }
+          ]
+        },
+        {
+          "tick": 7,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 46
+            }
+          ]
+        },
+        {
+          "tick": 8,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 45
+            }
+          ]
+        },
+        {
+          "tick": 9,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 44
+            }
+          ]
+        },
+        {
+          "tick": 10,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 43
+            }
+          ]
+        },
+        {
+          "tick": 11,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 42
+            }
+          ]
+        },
+        {
+          "tick": 12,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 41
+            }
+          ]
+        },
+        {
+          "tick": 13,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 40
+            }
+          ]
+        },
+        {
+          "tick": 14,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 39
+            }
+          ]
+        },
+        {
+          "tick": 15,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 38
+            }
+          ]
+        },
+        {
+          "tick": 16,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 37
+            }
+          ]
+        },
+        {
+          "tick": 17,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 36
+            }
+          ]
+        },
+        {
+          "tick": 18,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 35
+            }
+          ]
+        },
+        {
+          "tick": 19,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 34
+            }
+          ]
+        },
+        {
+          "tick": 20,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 33
+            }
+          ]
+        },
+        {
+          "tick": 21,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 32
+            }
+          ]
+        },
+        {
+          "tick": 22,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 31
+            }
+          ]
+        },
+        {
+          "tick": 23,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 30
+            }
+          ]
+        },
+        {
+          "tick": 24,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 29
+            }
+          ]
+        },
+        {
+          "tick": 25,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 28
+            }
+          ]
+        },
+        {
+          "tick": 26,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 27
+            }
+          ]
+        },
+        {
+          "tick": 27,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 26
+            }
+          ]
+        },
+        {
+          "tick": 28,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 25
+            }
+          ]
+        },
+        {
+          "tick": 29,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 24
+            }
+          ]
+        },
+        {
+          "tick": 30,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 23
+            }
+          ]
+        },
+        {
+          "tick": 31,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 22
+            }
+          ]
+        },
+        {
+          "tick": 32,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 21
+            }
+          ]
+        },
+        {
+          "tick": 33,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 20
+            }
+          ]
+        },
+        {
+          "tick": 34,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 19
+            }
+          ]
+        },
+        {
+          "tick": 35,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 18
+            }
+          ]
+        },
+        {
+          "tick": 36,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 17
+            }
+          ]
+        },
+        {
+          "tick": 37,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 38,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 39,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 40,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 41,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 42,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 43,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 44,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 45,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 46,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 47,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 48,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 49,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 50,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 51,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 52,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 1,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 53,
+          "hit_mask": 0,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 16
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 16
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 16
+            }
+          ]
+        },
+        {
+          "tick": 54,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 15
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 15
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 15
+            }
+          ]
+        },
+        {
+          "tick": 55,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 14
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 14
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 14
+            }
+          ]
+        },
+        {
+          "tick": 56,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 13
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 13
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 13
+            }
+          ]
+        },
+        {
+          "tick": 57,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 12
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 12
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 12
+            }
+          ]
+        },
+        {
+          "tick": 58,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 11
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 11
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 11
+            }
+          ]
+        },
+        {
+          "tick": 59,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 10
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 10
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 10
+            }
+          ]
+        },
+        {
+          "tick": 60,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 9
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 9
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 9
+            }
+          ]
+        },
+        {
+          "tick": 61,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 8
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 8
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 8
+            }
+          ]
+        },
+        {
+          "tick": 62,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 7
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 7
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 7
+            }
+          ]
+        },
+        {
+          "tick": 63,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 6
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 6
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 6
+            }
+          ]
+        },
+        {
+          "tick": 64,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 5
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 5
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 5
+            }
+          ]
+        },
+        {
+          "tick": 65,
+          "hit_mask": 2,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 4
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 4
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 4
+            }
+          ]
+        },
+        {
+          "tick": 66,
+          "hit_mask": 1,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 3
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 3
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 3
+            }
+          ]
+        },
+        {
+          "tick": 67,
+          "hit_mask": 8,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 2
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 2
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 2
+            }
+          ]
+        },
+        {
+          "tick": 68,
+          "hit_mask": 4,
+          "segments": [
+            {
+              "slot": 4,
+              "y": 64,
+              "phase": 2,
+              "timer": 1
+            },
+            {
+              "slot": 5,
+              "y": 96,
+              "phase": 2,
+              "timer": 1
+            },
+            {
+              "slot": 6,
+              "y": 128,
+              "phase": 2,
+              "timer": 1
+            }
+          ]
+        },
+        {
+          "tick": 69,
+          "hit_mask": 2,
+          "segments": []
+        }
+      ]
+    }
+  ],
+  "provenance": "Isolated original c412 callback in saved reference recompilation. Parent slot4, all lightning slots updated descending each tick. Four players have health2 and invulnerability0 restored before each tick to measure actual source hit detection. Boss warning initialized via c404 and doubled as source9906. Ordinary init usesc3fb. Non-lightning spawned actors (hurt fairies) are removed after each update to avoid artificial actor-slot exhaustion from resetting player health.",
+  "source_prg_sha256": "360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb"
+}

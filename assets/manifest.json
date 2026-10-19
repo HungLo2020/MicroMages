@@ -1,7 +1,14 @@
 {
   "source_executable_sha256": "b7bf279c1b7ce6714aca5634719d300ea60d2a0b8e073918c17a3702ee0a6e9c",
+  "source_program_sha256": "360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb",
+  "source_tiles_sha256": "f813fe56df2d6c50dc80829487dfb0dde39c93be3d90375ba0324a72c43cf3e4",
   "files": {
-    "game-data.bin": "360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb",
+    "README.md": "10f9f0c775ea7d48f72390e7477604e7fc1e2a331703b66130c3cac944f69bc1",
+    "graphics/animations.json": "1e30a9207f4d7ad471aa5b54eb8e39306ffe160057d018b7216bc185e637692c",
+    "graphics/palette.json": "b09f319fea72b5edb7bfda790e500c496f727cbd8a90d7e2e88391ba311241c4",
+    "graphics/sprites.json": "1d8de15e6285da9a41135c14891f53a561ba4494020ea3c98eebbafa2cf63d7e",
+    "graphics/tiles.png": "b9c333f8f670d0f8f53f56a62a846f5ba0a35abc795653a30f8faf5b75772f34",
+    "levels/levels.json": "f5dbdad4402ca3419e3042dcadb4f65adc419bbcd69a2fab3d06770cc6c9db34",
     "music/boss.ogg": "8460f8412d8724c93427b49d3683bf1a5e4a132fb1b9a3278902b6b821279538",
     "music/dreamy.ogg": "01d2c2365ff3c0515cbc3b49e85a0cc8f0d7c38cf2e098ed9955130a7fbb5c86",
     "music/evil.ogg": "0fd200b70437c9d2f33e4f610106c2d350c3b60f6921dcabfe8f7c8aa40997f6",
@@ -11,6 +18,18 @@
     "music/march.ogg": "0b31925506a0dbad4df22353a8e2c95d8e3458f71af2fcb2acb2cd72826ced89",
     "music/mysterious.ogg": "855fc5809010c5f4b6b03d15d99ce1fd9840586b6b9191864e99f710bb1f97b6",
     "music/spooky.ogg": "b48ee62b9950acfefca9cf4bce6e244bd26ab8ead75f75ca55e60bd1fadb7927",
+    "presentation/README.md": "f36f25fd1d2dccfecd18215c90685d3dfd655027a2810e6802a749ce7d0f9fea",
+    "presentation/cinematic.png": "62c25e9c0ecbfaa4936846cd386b5f4bb0c1a541b97ab14ba1aaec6097ea2f50",
+    "presentation/intro.json": "ee199fb1aea1a23f9ca753d5feab221b3c1d25c641091df1cbe93c304c69239d",
+    "presentation/loading.png": "3eb091a2448549a73195a553df5e6899c36dd39ecce778dd2283121a41070fb8",
+    "presentation/outcomes/game-over.json": "2b8027206c93ccef3e2067ed650135b524b13599df12385bd0effd6ba34d93d4",
+    "presentation/outcomes/hard-ending-1.json": "f0ea8bcf7aed0742d6ddc32d4e5d1bb5afa13a7e9556e98b981ef4ad90960d58",
+    "presentation/outcomes/hard-ending-2.json": "60af73e8aa4573569bfa5f5392f642f0de152b2e0f509b809af7ca0c29e7a330",
+    "presentation/outcomes/hard-ending-3.json": "b3f845c8205a870764abfdd17aa41a9f9987315e43236132f7dfc9a3b8c03b5d",
+    "presentation/outcomes/hard-ending-4.json": "6283d51ed3bc50d870caa3e9e2301de17b994e88466a1a6001844e308f118fdd",
+    "presentation/outcomes/normal-ending.json": "881cb586fd0d818207fad08698bb8e25950af71a0d8a7eb8ece575ff7f818a95",
+    "presentation/outcomes/outcomes.png": "4955ac25e570c04430341473ace729ab1c5e46bbb33ffe4223b6a2255af3d0dd",
+    "presentation/title.json": "8751396040e9309e0a6bbd888215730fe52a0782adde49babd6525b70f9f17b2",
     "sfx/boss damage.ogg": "8c2f2d4a6de3b4f5495c7df7a80bdcbaf73747e8d2773b319a41a9a068eee948",
     "sfx/boss dash charge.ogg": "c6cb6fbba1aeb57754faa4a951c5325d99faa73ee69cb39e65f0e7ed4a4bbc30",
     "sfx/boss dash.ogg": "6a308c0eafa3bcb4fe29d6881a72abbee224135d1290ad6cbe047d07f76c5c51",
@@ -47,7 +66,6 @@
     "sfx/troll spear.ogg": "129edf8837649ed4817779764653ad5ee1ee3d24a34b55b9ae4a0a56f32b1a26",
     "sfx/unpause.ogg": "da74e4a5bdc5ae0c7178d9930ec9215b3ba8478f4ffc0abe8d6bf0291aad5904",
     "sfx/willowisp scream.ogg": "ae4cf2f31c60c01f3fd53ad7fdd06b0c0181fd5bd4a1f7e27b994520e1aa893e",
-    "sfx/wstar.ogg": "a25437a97ba377b831e0baa788ff1869d8aa29c90f2e31d4b13bfb49192583e0",
-    "tiles.bin": "f813fe56df2d6c50dc80829487dfb0dde39c93be3d90375ba0324a72c43cf3e4"
+    "sfx/wstar.ogg": "a25437a97ba377b831e0baa788ff1869d8aa29c90f2e31d4b13bfb49192583e0"
   }
 }

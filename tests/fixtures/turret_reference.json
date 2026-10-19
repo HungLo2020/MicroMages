@@ -1,0 +1,9649 @@
+{
+  "source_callback": "f619",
+  "initial_x": 40,
+  "initial_y": 96,
+  "active_from_tick": 16,
+  "cases": [
+    {
+      "name": "normal_right",
+      "left": false,
+      "repeat_delay": 160,
+      "rows": [
+        {
+          "tick": 0,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 1,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 2,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 3,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 4,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 5,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 6,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 7,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 8,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 9,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 10,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 11,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 12,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 13,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 14,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 15,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 16,
+          "x": 44,
+          "y": 95,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 17,
+          "x": 44,
+          "y": 95,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 18,
+          "x": 44,
+          "y": 94,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 19,
+          "x": 44,
+          "y": 94,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 20,
+          "x": 44,
+          "y": 93,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 21,
+          "x": 44,
+          "y": 93,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 22,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 23,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 24,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 25,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 26,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 27,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 28,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 29,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 30,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 31,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 32,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 33,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 34,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 35,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 36,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 37,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 38,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 39,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 40,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 41,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 42,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 43,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 44,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 45,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 46,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 47,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 48,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 49,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 50,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 51,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 52,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 53,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 54,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 55,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 56,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 57,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 58,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 59,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 60,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 61,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 62,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 63,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 64,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 65,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 66,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 67,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 68,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 69,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 70,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 71,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 72,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 73,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 74,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 75,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 76,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 77,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 78,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 79,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 80,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 81,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 82,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 83,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 84,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 85,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 86,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 87,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 88,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 89,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 90,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 91,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 92,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 93,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 94,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 95,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 96,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 97,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 98,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 99,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 100,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 101,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 102,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 103,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 104,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 105,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 106,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 107,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 108,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 109,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 110,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 111,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 112,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 113,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 114,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 115,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 116,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 117,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 118,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 119,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 120,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 121,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 122,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 123,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 124,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 125,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 126,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 127,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 128,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 129,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 130,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 131,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 132,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 133,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 134,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 135,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 136,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 137,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 138,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 139,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 140,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 141,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 142,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 143,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 144,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 145,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 146,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 147,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 148,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 149,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 150,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 151,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 152,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 153,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 154,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 155,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 156,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 157,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 158,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 159,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 160,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 161,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 162,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 163,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 164,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 165,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 166,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 167,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 168,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 169,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 170,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 171,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 172,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 173,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 174,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 175,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 176,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 16,
+          "shot": {
+            "kind": 16,
+            "x": 60,
+            "y": 92,
+            "flags": 1
+          }
+        },
+        {
+          "tick": 177,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 178,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 179,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 180,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 181,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 182,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 183,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 184,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 185,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 186,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 187,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 188,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 189,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 190,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 191,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 192,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 160,
+          "shot": null
+        },
+        {
+          "tick": 193,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 160,
+          "shot": null
+        },
+        {
+          "tick": 194,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 159,
+          "shot": null
+        },
+        {
+          "tick": 195,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 159,
+          "shot": null
+        },
+        {
+          "tick": 196,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 158,
+          "shot": null
+        },
+        {
+          "tick": 197,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 158,
+          "shot": null
+        },
+        {
+          "tick": 198,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 157,
+          "shot": null
+        },
+        {
+          "tick": 199,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 157,
+          "shot": null
+        },
+        {
+          "tick": 200,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 156,
+          "shot": null
+        },
+        {
+          "tick": 201,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 156,
+          "shot": null
+        },
+        {
+          "tick": 202,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 155,
+          "shot": null
+        },
+        {
+          "tick": 203,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 155,
+          "shot": null
+        },
+        {
+          "tick": 204,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 154,
+          "shot": null
+        },
+        {
+          "tick": 205,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 154,
+          "shot": null
+        },
+        {
+          "tick": 206,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 153,
+          "shot": null
+        },
+        {
+          "tick": 207,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 153,
+          "shot": null
+        },
+        {
+          "tick": 208,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 152,
+          "shot": null
+        },
+        {
+          "tick": 209,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 152,
+          "shot": null
+        },
+        {
+          "tick": 210,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 151,
+          "shot": null
+        },
+        {
+          "tick": 211,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 151,
+          "shot": null
+        },
+        {
+          "tick": 212,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 150,
+          "shot": null
+        },
+        {
+          "tick": 213,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 150,
+          "shot": null
+        },
+        {
+          "tick": 214,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 149,
+          "shot": null
+        },
+        {
+          "tick": 215,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 149,
+          "shot": null
+        },
+        {
+          "tick": 216,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 148,
+          "shot": null
+        },
+        {
+          "tick": 217,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 148,
+          "shot": null
+        },
+        {
+          "tick": 218,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 147,
+          "shot": null
+        },
+        {
+          "tick": 219,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 147,
+          "shot": null
+        },
+        {
+          "tick": 220,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 146,
+          "shot": null
+        },
+        {
+          "tick": 221,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 146,
+          "shot": null
+        },
+        {
+          "tick": 222,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 145,
+          "shot": null
+        },
+        {
+          "tick": 223,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 145,
+          "shot": null
+        },
+        {
+          "tick": 224,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 144,
+          "shot": null
+        },
+        {
+          "tick": 225,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 144,
+          "shot": null
+        },
+        {
+          "tick": 226,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 143,
+          "shot": null
+        },
+        {
+          "tick": 227,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 143,
+          "shot": null
+        },
+        {
+          "tick": 228,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 142,
+          "shot": null
+        },
+        {
+          "tick": 229,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 142,
+          "shot": null
+        },
+        {
+          "tick": 230,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 141,
+          "shot": null
+        },
+        {
+          "tick": 231,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 141,
+          "shot": null
+        },
+        {
+          "tick": 232,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 140,
+          "shot": null
+        },
+        {
+          "tick": 233,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 140,
+          "shot": null
+        },
+        {
+          "tick": 234,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 139,
+          "shot": null
+        },
+        {
+          "tick": 235,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 139,
+          "shot": null
+        },
+        {
+          "tick": 236,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 138,
+          "shot": null
+        },
+        {
+          "tick": 237,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 138,
+          "shot": null
+        },
+        {
+          "tick": 238,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 137,
+          "shot": null
+        },
+        {
+          "tick": 239,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 137,
+          "shot": null
+        },
+        {
+          "tick": 240,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 136,
+          "shot": null
+        },
+        {
+          "tick": 241,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 136,
+          "shot": null
+        },
+        {
+          "tick": 242,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 135,
+          "shot": null
+        },
+        {
+          "tick": 243,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 135,
+          "shot": null
+        },
+        {
+          "tick": 244,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 134,
+          "shot": null
+        },
+        {
+          "tick": 245,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 134,
+          "shot": null
+        },
+        {
+          "tick": 246,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 133,
+          "shot": null
+        },
+        {
+          "tick": 247,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 133,
+          "shot": null
+        },
+        {
+          "tick": 248,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 132,
+          "shot": null
+        },
+        {
+          "tick": 249,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 132,
+          "shot": null
+        },
+        {
+          "tick": 250,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 131,
+          "shot": null
+        },
+        {
+          "tick": 251,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 131,
+          "shot": null
+        },
+        {
+          "tick": 252,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 130,
+          "shot": null
+        },
+        {
+          "tick": 253,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 130,
+          "shot": null
+        },
+        {
+          "tick": 254,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 129,
+          "shot": null
+        },
+        {
+          "tick": 255,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 129,
+          "shot": null
+        },
+        {
+          "tick": 256,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 128,
+          "shot": null
+        },
+        {
+          "tick": 257,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 128,
+          "shot": null
+        },
+        {
+          "tick": 258,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 127,
+          "shot": null
+        },
+        {
+          "tick": 259,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 127,
+          "shot": null
+        },
+        {
+          "tick": 260,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 126,
+          "shot": null
+        },
+        {
+          "tick": 261,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 126,
+          "shot": null
+        },
+        {
+          "tick": 262,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 125,
+          "shot": null
+        },
+        {
+          "tick": 263,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 125,
+          "shot": null
+        },
+        {
+          "tick": 264,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 124,
+          "shot": null
+        },
+        {
+          "tick": 265,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 124,
+          "shot": null
+        },
+        {
+          "tick": 266,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 123,
+          "shot": null
+        },
+        {
+          "tick": 267,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 123,
+          "shot": null
+        },
+        {
+          "tick": 268,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 122,
+          "shot": null
+        },
+        {
+          "tick": 269,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 122,
+          "shot": null
+        },
+        {
+          "tick": 270,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 121,
+          "shot": null
+        },
+        {
+          "tick": 271,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 121,
+          "shot": null
+        },
+        {
+          "tick": 272,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 120,
+          "shot": null
+        },
+        {
+          "tick": 273,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 120,
+          "shot": null
+        },
+        {
+          "tick": 274,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 119,
+          "shot": null
+        },
+        {
+          "tick": 275,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 119,
+          "shot": null
+        },
+        {
+          "tick": 276,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 118,
+          "shot": null
+        },
+        {
+          "tick": 277,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 118,
+          "shot": null
+        },
+        {
+          "tick": 278,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 117,
+          "shot": null
+        },
+        {
+          "tick": 279,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 117,
+          "shot": null
+        },
+        {
+          "tick": 280,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 116,
+          "shot": null
+        },
+        {
+          "tick": 281,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 116,
+          "shot": null
+        },
+        {
+          "tick": 282,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 115,
+          "shot": null
+        },
+        {
+          "tick": 283,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 115,
+          "shot": null
+        },
+        {
+          "tick": 284,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 114,
+          "shot": null
+        },
+        {
+          "tick": 285,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 114,
+          "shot": null
+        },
+        {
+          "tick": 286,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 113,
+          "shot": null
+        },
+        {
+          "tick": 287,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 113,
+          "shot": null
+        },
+        {
+          "tick": 288,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 112,
+          "shot": null
+        },
+        {
+          "tick": 289,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 112,
+          "shot": null
+        },
+        {
+          "tick": 290,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 111,
+          "shot": null
+        },
+        {
+          "tick": 291,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 111,
+          "shot": null
+        },
+        {
+          "tick": 292,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 110,
+          "shot": null
+        },
+        {
+          "tick": 293,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 110,
+          "shot": null
+        },
+        {
+          "tick": 294,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 109,
+          "shot": null
+        },
+        {
+          "tick": 295,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 109,
+          "shot": null
+        },
+        {
+          "tick": 296,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 108,
+          "shot": null
+        },
+        {
+          "tick": 297,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 108,
+          "shot": null
+        },
+        {
+          "tick": 298,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 107,
+          "shot": null
+        },
+        {
+          "tick": 299,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 107,
+          "shot": null
+        },
+        {
+          "tick": 300,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 106,
+          "shot": null
+        },
+        {
+          "tick": 301,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 106,
+          "shot": null
+        },
+        {
+          "tick": 302,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 105,
+          "shot": null
+        },
+        {
+          "tick": 303,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 105,
+          "shot": null
+        },
+        {
+          "tick": 304,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 104,
+          "shot": null
+        },
+        {
+          "tick": 305,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 104,
+          "shot": null
+        },
+        {
+          "tick": 306,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 103,
+          "shot": null
+        },
+        {
+          "tick": 307,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 103,
+          "shot": null
+        },
+        {
+          "tick": 308,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 102,
+          "shot": null
+        },
+        {
+          "tick": 309,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 102,
+          "shot": null
+        },
+        {
+          "tick": 310,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 101,
+          "shot": null
+        },
+        {
+          "tick": 311,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 101,
+          "shot": null
+        },
+        {
+          "tick": 312,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 100,
+          "shot": null
+        },
+        {
+          "tick": 313,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 100,
+          "shot": null
+        },
+        {
+          "tick": 314,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 99,
+          "shot": null
+        },
+        {
+          "tick": 315,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 99,
+          "shot": null
+        },
+        {
+          "tick": 316,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 98,
+          "shot": null
+        },
+        {
+          "tick": 317,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 98,
+          "shot": null
+        },
+        {
+          "tick": 318,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 97,
+          "shot": null
+        },
+        {
+          "tick": 319,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 97,
+          "shot": null
+        },
+        {
+          "tick": 320,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 321,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 322,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 323,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 324,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 325,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 326,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 327,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 328,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 329,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 330,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 331,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 332,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 333,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 334,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 335,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 336,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 337,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 338,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 339,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 340,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 341,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 342,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 343,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 344,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 345,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 346,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 347,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 348,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 349,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 350,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 351,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 352,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 353,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 354,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 355,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 356,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 357,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 358,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 359,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 360,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 361,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 362,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 363,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 364,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 365,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 366,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 367,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 368,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 369,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 370,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 371,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 372,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 373,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 374,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 375,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 376,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 377,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 378,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 379,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 380,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 381,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 382,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 383,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 384,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 385,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 386,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 387,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 388,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 389,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 390,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 391,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 392,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 393,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 394,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 395,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 396,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 397,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 398,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 399,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 400,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 401,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 402,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 403,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 404,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 405,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 406,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 407,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 408,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 409,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 410,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 411,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 412,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 413,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 414,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 415,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 416,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 417,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 418,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 419,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 420,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 421,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 422,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 423,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 424,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 425,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 426,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 427,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 428,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 429,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 430,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 431,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 432,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 433,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 434,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 435,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 436,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 437,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 438,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 439,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 440,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 441,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 442,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 443,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 444,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 445,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 446,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 447,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 448,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 449,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 450,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 451,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 452,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 453,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 454,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 455,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 456,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 457,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 458,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 459,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 460,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 461,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 462,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 463,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 464,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 465,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 466,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 467,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 468,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 469,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 470,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 471,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 472,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 473,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 474,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 475,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 476,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 477,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 478,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 479,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 480,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 481,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 482,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 483,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 484,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 485,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 486,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 487,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 488,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 489,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 490,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 491,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 492,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 493,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 494,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 495,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 496,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 497,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 498,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 499,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 500,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 501,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 502,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 503,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 504,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 505,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 506,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 507,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 508,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 509,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 510,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 511,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 512,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 16,
+          "shot": {
+            "kind": 16,
+            "x": 60,
+            "y": 92,
+            "flags": 1
+          }
+        },
+        {
+          "tick": 513,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 514,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 515,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 516,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 517,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 518,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 519,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 520,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 521,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 522,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 523,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 524,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 525,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 526,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 527,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 528,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 160,
+          "shot": null
+        },
+        {
+          "tick": 529,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 160,
+          "shot": null
+        },
+        {
+          "tick": 530,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 159,
+          "shot": null
+        },
+        {
+          "tick": 531,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 159,
+          "shot": null
+        },
+        {
+          "tick": 532,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 158,
+          "shot": null
+        },
+        {
+          "tick": 533,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 158,
+          "shot": null
+        },
+        {
+          "tick": 534,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 157,
+          "shot": null
+        },
+        {
+          "tick": 535,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 157,
+          "shot": null
+        },
+        {
+          "tick": 536,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 156,
+          "shot": null
+        },
+        {
+          "tick": 537,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 156,
+          "shot": null
+        },
+        {
+          "tick": 538,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 155,
+          "shot": null
+        },
+        {
+          "tick": 539,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 155,
+          "shot": null
+        },
+        {
+          "tick": 540,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 154,
+          "shot": null
+        },
+        {
+          "tick": 541,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 154,
+          "shot": null
+        },
+        {
+          "tick": 542,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 153,
+          "shot": null
+        },
+        {
+          "tick": 543,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 153,
+          "shot": null
+        },
+        {
+          "tick": 544,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 152,
+          "shot": null
+        },
+        {
+          "tick": 545,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 152,
+          "shot": null
+        },
+        {
+          "tick": 546,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 151,
+          "shot": null
+        },
+        {
+          "tick": 547,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 151,
+          "shot": null
+        },
+        {
+          "tick": 548,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 150,
+          "shot": null
+        },
+        {
+          "tick": 549,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 150,
+          "shot": null
+        },
+        {
+          "tick": 550,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 149,
+          "shot": null
+        },
+        {
+          "tick": 551,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 149,
+          "shot": null
+        },
+        {
+          "tick": 552,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 148,
+          "shot": null
+        },
+        {
+          "tick": 553,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 148,
+          "shot": null
+        },
+        {
+          "tick": 554,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 147,
+          "shot": null
+        },
+        {
+          "tick": 555,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 147,
+          "shot": null
+        },
+        {
+          "tick": 556,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 146,
+          "shot": null
+        },
+        {
+          "tick": 557,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 146,
+          "shot": null
+        },
+        {
+          "tick": 558,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 145,
+          "shot": null
+        },
+        {
+          "tick": 559,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 145,
+          "shot": null
+        },
+        {
+          "tick": 560,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 144,
+          "shot": null
+        },
+        {
+          "tick": 561,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 144,
+          "shot": null
+        },
+        {
+          "tick": 562,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 143,
+          "shot": null
+        },
+        {
+          "tick": 563,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 143,
+          "shot": null
+        },
+        {
+          "tick": 564,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 142,
+          "shot": null
+        },
+        {
+          "tick": 565,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 142,
+          "shot": null
+        },
+        {
+          "tick": 566,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 141,
+          "shot": null
+        },
+        {
+          "tick": 567,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 141,
+          "shot": null
+        },
+        {
+          "tick": 568,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 140,
+          "shot": null
+        },
+        {
+          "tick": 569,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 140,
+          "shot": null
+        },
+        {
+          "tick": 570,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 139,
+          "shot": null
+        },
+        {
+          "tick": 571,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 139,
+          "shot": null
+        },
+        {
+          "tick": 572,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 138,
+          "shot": null
+        },
+        {
+          "tick": 573,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 138,
+          "shot": null
+        },
+        {
+          "tick": 574,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 137,
+          "shot": null
+        },
+        {
+          "tick": 575,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 137,
+          "shot": null
+        },
+        {
+          "tick": 576,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 136,
+          "shot": null
+        },
+        {
+          "tick": 577,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 136,
+          "shot": null
+        },
+        {
+          "tick": 578,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 135,
+          "shot": null
+        },
+        {
+          "tick": 579,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 135,
+          "shot": null
+        },
+        {
+          "tick": 580,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 134,
+          "shot": null
+        },
+        {
+          "tick": 581,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 134,
+          "shot": null
+        },
+        {
+          "tick": 582,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 133,
+          "shot": null
+        },
+        {
+          "tick": 583,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 133,
+          "shot": null
+        },
+        {
+          "tick": 584,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 132,
+          "shot": null
+        },
+        {
+          "tick": 585,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 132,
+          "shot": null
+        },
+        {
+          "tick": 586,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 131,
+          "shot": null
+        },
+        {
+          "tick": 587,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 131,
+          "shot": null
+        },
+        {
+          "tick": 588,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 130,
+          "shot": null
+        },
+        {
+          "tick": 589,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 130,
+          "shot": null
+        },
+        {
+          "tick": 590,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 129,
+          "shot": null
+        },
+        {
+          "tick": 591,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 129,
+          "shot": null
+        },
+        {
+          "tick": 592,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 128,
+          "shot": null
+        },
+        {
+          "tick": 593,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 128,
+          "shot": null
+        },
+        {
+          "tick": 594,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 127,
+          "shot": null
+        },
+        {
+          "tick": 595,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 127,
+          "shot": null
+        },
+        {
+          "tick": 596,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 126,
+          "shot": null
+        },
+        {
+          "tick": 597,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 126,
+          "shot": null
+        },
+        {
+          "tick": 598,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 125,
+          "shot": null
+        },
+        {
+          "tick": 599,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 125,
+          "shot": null
+        }
+      ]
+    },
+    {
+      "name": "hard_left",
+      "left": true,
+      "repeat_delay": 96,
+      "rows": [
+        {
+          "tick": 0,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 1,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 2,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 3,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 4,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 5,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 6,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 7,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 8,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 9,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 10,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 11,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 12,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 13,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 14,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 15,
+          "x": 44,
+          "y": 96,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 16,
+          "x": 44,
+          "y": 95,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 17,
+          "x": 44,
+          "y": 95,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 18,
+          "x": 44,
+          "y": 94,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 19,
+          "x": 44,
+          "y": 94,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 20,
+          "x": 44,
+          "y": 93,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 21,
+          "x": 44,
+          "y": 93,
+          "phase": 0,
+          "timer": 0,
+          "shot": null
+        },
+        {
+          "tick": 22,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 23,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 24,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 25,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 26,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 27,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 28,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 29,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 30,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 31,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 32,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 33,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 34,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 35,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 36,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 37,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 38,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 39,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 40,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 41,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 42,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 43,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 44,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 45,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 46,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 47,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 48,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 49,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 50,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 51,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 52,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 53,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 54,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 55,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 56,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 57,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 58,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 59,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 60,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 61,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 62,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 63,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 64,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 65,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 66,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 67,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 68,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 69,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 70,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 71,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 72,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 73,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 74,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 75,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 76,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 77,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 78,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 79,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 80,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 81,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 82,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 83,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 84,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 85,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 86,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 87,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 88,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 89,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 90,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 91,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 92,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 93,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 94,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 95,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 96,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 97,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 98,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 99,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 100,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 101,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 102,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 103,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 104,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 105,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 106,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 107,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 108,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 109,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 110,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 111,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 112,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 113,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 114,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 115,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 116,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 117,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 118,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 119,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 120,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 121,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 122,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 123,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 124,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 125,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 126,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 127,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 128,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 129,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 130,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 131,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 132,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 133,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 134,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 135,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 136,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 137,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 138,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 139,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 140,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 141,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 142,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 143,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 144,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 145,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 146,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 147,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 148,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 149,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 150,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 151,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 152,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 153,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 154,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 155,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 156,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 157,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 158,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 159,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 160,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 161,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 162,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 163,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 164,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 165,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 166,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 167,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 168,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 169,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 170,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 171,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 172,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 173,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 174,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 175,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 176,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 16,
+          "shot": {
+            "kind": 16,
+            "x": 28,
+            "y": 92,
+            "flags": 65
+          }
+        },
+        {
+          "tick": 177,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 178,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 179,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 180,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 181,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 182,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 183,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 184,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 185,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 186,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 187,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 188,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 189,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 190,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 191,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 192,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 193,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 194,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 195,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 196,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 197,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 198,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 199,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 200,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 201,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 202,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 203,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 204,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 205,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 206,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 207,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 208,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 209,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 210,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 211,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 212,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 213,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 214,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 215,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 216,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 217,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 218,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 219,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 220,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 221,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 222,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 223,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 224,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 225,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 226,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 227,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 228,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 229,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 230,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 231,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 232,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 233,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 234,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 235,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 236,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 237,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 238,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 239,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 240,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 241,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 242,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 243,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 244,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 245,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 246,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 247,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 248,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 249,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 250,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 251,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 252,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 253,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 254,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 255,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 256,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 257,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 258,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 259,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 260,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 261,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 262,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 263,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 264,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 265,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 266,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 267,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 268,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 269,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 270,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 271,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 272,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 273,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 274,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 275,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 276,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 277,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 278,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 279,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 280,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 281,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 282,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 283,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 284,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 285,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 286,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 287,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 288,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 289,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 290,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 291,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 292,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 293,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 294,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 295,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 296,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 297,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 298,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 299,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 300,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 301,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 302,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 303,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 304,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 305,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 306,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 307,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 308,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 309,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 310,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 311,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 312,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 313,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 314,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 315,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 316,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 317,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 318,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 319,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 320,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 321,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 322,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 323,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 324,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 325,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 326,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 327,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 328,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 329,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 330,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 331,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 332,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 333,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 334,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 335,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 336,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 337,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 338,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 339,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 340,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 341,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 342,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 343,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 344,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 345,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 346,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 347,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 348,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 349,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 350,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 351,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 352,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 353,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 354,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 355,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 356,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 357,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 358,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 359,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 360,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 361,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 362,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 363,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 364,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 365,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 366,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 367,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 368,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 369,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 370,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 371,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 372,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 373,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 374,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 375,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 376,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 377,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 378,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 379,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 380,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 381,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 382,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 383,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 384,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 16,
+          "shot": {
+            "kind": 16,
+            "x": 28,
+            "y": 92,
+            "flags": 65
+          }
+        },
+        {
+          "tick": 385,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 386,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 387,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 388,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 389,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 390,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 391,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 392,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 393,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 394,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 395,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 396,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 397,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 398,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 399,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 400,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 401,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 96,
+          "shot": null
+        },
+        {
+          "tick": 402,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 403,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 95,
+          "shot": null
+        },
+        {
+          "tick": 404,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 405,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 94,
+          "shot": null
+        },
+        {
+          "tick": 406,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 407,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 93,
+          "shot": null
+        },
+        {
+          "tick": 408,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 409,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 92,
+          "shot": null
+        },
+        {
+          "tick": 410,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 411,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 91,
+          "shot": null
+        },
+        {
+          "tick": 412,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 413,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 90,
+          "shot": null
+        },
+        {
+          "tick": 414,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 415,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 89,
+          "shot": null
+        },
+        {
+          "tick": 416,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 417,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 88,
+          "shot": null
+        },
+        {
+          "tick": 418,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 419,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 87,
+          "shot": null
+        },
+        {
+          "tick": 420,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 421,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 86,
+          "shot": null
+        },
+        {
+          "tick": 422,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 423,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 85,
+          "shot": null
+        },
+        {
+          "tick": 424,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 425,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 84,
+          "shot": null
+        },
+        {
+          "tick": 426,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 427,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 83,
+          "shot": null
+        },
+        {
+          "tick": 428,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 429,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 82,
+          "shot": null
+        },
+        {
+          "tick": 430,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 431,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 81,
+          "shot": null
+        },
+        {
+          "tick": 432,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 433,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 80,
+          "shot": null
+        },
+        {
+          "tick": 434,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 435,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 79,
+          "shot": null
+        },
+        {
+          "tick": 436,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 437,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 78,
+          "shot": null
+        },
+        {
+          "tick": 438,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 439,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 77,
+          "shot": null
+        },
+        {
+          "tick": 440,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 441,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 76,
+          "shot": null
+        },
+        {
+          "tick": 442,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 443,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 75,
+          "shot": null
+        },
+        {
+          "tick": 444,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 445,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 74,
+          "shot": null
+        },
+        {
+          "tick": 446,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 447,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 73,
+          "shot": null
+        },
+        {
+          "tick": 448,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 449,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 72,
+          "shot": null
+        },
+        {
+          "tick": 450,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 451,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 71,
+          "shot": null
+        },
+        {
+          "tick": 452,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 453,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 70,
+          "shot": null
+        },
+        {
+          "tick": 454,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 455,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 69,
+          "shot": null
+        },
+        {
+          "tick": 456,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 457,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 68,
+          "shot": null
+        },
+        {
+          "tick": 458,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 459,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 67,
+          "shot": null
+        },
+        {
+          "tick": 460,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 461,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 66,
+          "shot": null
+        },
+        {
+          "tick": 462,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 463,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 65,
+          "shot": null
+        },
+        {
+          "tick": 464,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 465,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 64,
+          "shot": null
+        },
+        {
+          "tick": 466,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 467,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 63,
+          "shot": null
+        },
+        {
+          "tick": 468,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 469,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 62,
+          "shot": null
+        },
+        {
+          "tick": 470,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 471,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 61,
+          "shot": null
+        },
+        {
+          "tick": 472,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 473,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 60,
+          "shot": null
+        },
+        {
+          "tick": 474,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 475,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 59,
+          "shot": null
+        },
+        {
+          "tick": 476,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 477,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 58,
+          "shot": null
+        },
+        {
+          "tick": 478,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 479,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 57,
+          "shot": null
+        },
+        {
+          "tick": 480,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 481,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 56,
+          "shot": null
+        },
+        {
+          "tick": 482,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 483,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 55,
+          "shot": null
+        },
+        {
+          "tick": 484,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 485,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 54,
+          "shot": null
+        },
+        {
+          "tick": 486,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 487,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 53,
+          "shot": null
+        },
+        {
+          "tick": 488,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 489,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 52,
+          "shot": null
+        },
+        {
+          "tick": 490,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 491,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 51,
+          "shot": null
+        },
+        {
+          "tick": 492,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 493,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 50,
+          "shot": null
+        },
+        {
+          "tick": 494,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 495,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 49,
+          "shot": null
+        },
+        {
+          "tick": 496,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 497,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 48,
+          "shot": null
+        },
+        {
+          "tick": 498,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 499,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 47,
+          "shot": null
+        },
+        {
+          "tick": 500,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 501,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 46,
+          "shot": null
+        },
+        {
+          "tick": 502,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 503,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 45,
+          "shot": null
+        },
+        {
+          "tick": 504,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 505,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 44,
+          "shot": null
+        },
+        {
+          "tick": 506,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 507,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 43,
+          "shot": null
+        },
+        {
+          "tick": 508,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 509,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 42,
+          "shot": null
+        },
+        {
+          "tick": 510,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 511,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 41,
+          "shot": null
+        },
+        {
+          "tick": 512,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 513,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 40,
+          "shot": null
+        },
+        {
+          "tick": 514,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 515,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 39,
+          "shot": null
+        },
+        {
+          "tick": 516,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 517,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 38,
+          "shot": null
+        },
+        {
+          "tick": 518,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 519,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 37,
+          "shot": null
+        },
+        {
+          "tick": 520,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 521,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 36,
+          "shot": null
+        },
+        {
+          "tick": 522,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 523,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 35,
+          "shot": null
+        },
+        {
+          "tick": 524,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 525,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 34,
+          "shot": null
+        },
+        {
+          "tick": 526,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 527,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 33,
+          "shot": null
+        },
+        {
+          "tick": 528,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 529,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 32,
+          "shot": null
+        },
+        {
+          "tick": 530,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 531,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 31,
+          "shot": null
+        },
+        {
+          "tick": 532,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 533,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 30,
+          "shot": null
+        },
+        {
+          "tick": 534,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 535,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 29,
+          "shot": null
+        },
+        {
+          "tick": 536,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 537,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 28,
+          "shot": null
+        },
+        {
+          "tick": 538,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 539,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 27,
+          "shot": null
+        },
+        {
+          "tick": 540,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 541,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 26,
+          "shot": null
+        },
+        {
+          "tick": 542,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 543,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 25,
+          "shot": null
+        },
+        {
+          "tick": 544,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 545,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 24,
+          "shot": null
+        },
+        {
+          "tick": 546,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 547,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 23,
+          "shot": null
+        },
+        {
+          "tick": 548,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 549,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 22,
+          "shot": null
+        },
+        {
+          "tick": 550,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 551,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 21,
+          "shot": null
+        },
+        {
+          "tick": 552,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 553,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 20,
+          "shot": null
+        },
+        {
+          "tick": 554,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 555,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 19,
+          "shot": null
+        },
+        {
+          "tick": 556,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 557,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 18,
+          "shot": null
+        },
+        {
+          "tick": 558,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 559,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 17,
+          "shot": null
+        },
+        {
+          "tick": 560,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 561,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 16,
+          "shot": null
+        },
+        {
+          "tick": 562,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 563,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 564,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 565,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 566,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 567,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 568,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 569,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 570,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 571,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 572,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 573,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 574,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 575,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 9,
+          "shot": null
+        },
+        {
+          "tick": 576,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 577,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 8,
+          "shot": null
+        },
+        {
+          "tick": 578,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 579,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 7,
+          "shot": null
+        },
+        {
+          "tick": 580,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 581,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 6,
+          "shot": null
+        },
+        {
+          "tick": 582,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 583,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 5,
+          "shot": null
+        },
+        {
+          "tick": 584,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 585,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 4,
+          "shot": null
+        },
+        {
+          "tick": 586,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 587,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 3,
+          "shot": null
+        },
+        {
+          "tick": 588,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 589,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 2,
+          "shot": null
+        },
+        {
+          "tick": 590,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 591,
+          "x": 44,
+          "y": 92,
+          "phase": 1,
+          "timer": 1,
+          "shot": null
+        },
+        {
+          "tick": 592,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 16,
+          "shot": {
+            "kind": 16,
+            "x": 28,
+            "y": 92,
+            "flags": 65
+          }
+        },
+        {
+          "tick": 593,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 15,
+          "shot": null
+        },
+        {
+          "tick": 594,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 14,
+          "shot": null
+        },
+        {
+          "tick": 595,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 13,
+          "shot": null
+        },
+        {
+          "tick": 596,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 12,
+          "shot": null
+        },
+        {
+          "tick": 597,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 11,
+          "shot": null
+        },
+        {
+          "tick": 598,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 10,
+          "shot": null
+        },
+        {
+          "tick": 599,
+          "x": 44,
+          "y": 92,
+          "phase": 2,
+          "timer": 9,
+          "shot": null
+        }
+      ]
+    }
+  ],
+  "provenance": "Isolated original f619 callback in saved reference recompilation. Slot4; source init f60c; parent active from tick16. Child type16 spawns are recorded then removed to isolate turret lifecycle. Repeat delay is supplied global9a.",
+  "source_prg_sha256": "360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb"
+}

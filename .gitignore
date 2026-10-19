@@ -15,7 +15,5 @@ __pycache__/
 *.ogg
 
 # Game assets are intentionally part of the repository.
-!/assets/game-data.bin
-!/assets/tiles.bin
 !/assets/music/*.ogg
 !/assets/sfx/*.ogg

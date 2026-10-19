@@ -1,0 +1,41 @@
+{
+  "provenance": "Original d43f invoked immediately before original full-frame dispatch at frames1500/1501; includes b395 countdown in first callback frame. Native remaining delay excludes that first frame.",
+  "samples": [
+    {
+      "source_frame_before_callback": 1500,
+      "stage": 2,
+      "updates_including_callback_frame": 509,
+      "remaining_updates_after_callback_frame": 508
+    },
+    {
+      "source_frame_before_callback": 1500,
+      "stage": 8,
+      "updates_including_callback_frame": 509,
+      "remaining_updates_after_callback_frame": 508
+    },
+    {
+      "source_frame_before_callback": 1500,
+      "stage": 13,
+      "updates_including_callback_frame": 139,
+      "remaining_updates_after_callback_frame": 138
+    },
+    {
+      "source_frame_before_callback": 1501,
+      "stage": 2,
+      "updates_including_callback_frame": 510,
+      "remaining_updates_after_callback_frame": 509
+    },
+    {
+      "source_frame_before_callback": 1501,
+      "stage": 8,
+      "updates_including_callback_frame": 510,
+      "remaining_updates_after_callback_frame": 509
+    },
+    {
+      "source_frame_before_callback": 1501,
+      "stage": 13,
+      "updates_including_callback_frame": 140,
+      "remaining_updates_after_callback_frame": 139
+    }
+  ]
+}

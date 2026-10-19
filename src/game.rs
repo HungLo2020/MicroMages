@@ -1,255 +1,1035 @@
-//! Native game state and frame scheduling for the statically translated routines.
-//! There is no instruction fetch, opcode decoding, CPU clock or ROM interpreter.
-use crate::{Controllers, audio::Audio, video::Video};
-use std::path::Path;
+//! Campaign state and screen transitions, independent of input devices and rendering.
+use crate::{
+    assets::Assets,
+    events::{GameEvent, Music},
+    input::{InputFrame, PlayerInput},
+    world::{RunResult, World},
+};
+use std::sync::Arc;
 
-mod translated {
-    include!(concat!(env!("OUT_DIR"), "/native_game.rs"));
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Screen {
+    Intro,
+    Title,
+    PlayerSelect,
+    Password,
+    Loading,
+    Playing,
+    StageClear,
+    GameOver,
+    Ending,
 }
 
+#[derive(Clone)]
 pub struct Game {
-    pub memory: Box<[u8; 65536]>,
-    pub video: Video,
-    pub audio: Option<Audio>,
-    controllers: Controllers,
-    pub a: u8,
-    pub x: u8,
-    pub y: u8,
-    sp: u8,
-    c: bool,
-    z: bool,
-    n: bool,
-    v: bool,
-    interrupt_mask: bool,
-    decimal: bool,
-    block: u16,
-    frame_ready: bool,
+    pub screen: Screen,
+    pub world: Option<World>,
     pub frame: u64,
-    pub blocks_executed: u64,
-    #[cfg(test)]
-    test_start: Option<(u8, u8, u8)>,
-    #[cfg(test)]
-    test_started: bool,
+    pub player_count: usize,
+    pub hard: bool,
+    pub screen_ticks: u64,
+    pub password: [u8; 4],
+    pub password_cursor: usize,
+    pub presentation_enabled: bool,
+    pub game_over_continue: bool,
+    assets: Arc<Assets>,
+    previous: [PlayerInput; 4],
+    transition_ticks: u16,
+}
+impl Game {
+    pub fn new(assets: Arc<Assets>) -> Self {
+        Self {
+            screen: Screen::Intro,
+            world: None,
+            frame: 0,
+            player_count: 1,
+            hard: false,
+            screen_ticks: 0,
+            password: [0; 4],
+            password_cursor: 0,
+            presentation_enabled: false,
+            game_over_continue: true,
+            assets,
+            previous: [PlayerInput::default(); 4],
+            transition_ticks: 0,
+        }
+    }
+    pub fn start(
+        &mut self,
+        stage: usize,
+        players: usize,
+        hard: bool,
+    ) -> Result<Vec<GameEvent>, String> {
+        if !(1..=4).contains(&players) {
+            return Err("player count must be 1..4".into());
+        }
+        let level = self
+            .assets
+            .level(stage, hard)
+            .ok_or_else(|| format!("no playable stage {stage}, hard={hard}"))?
+            .clone();
+        let music = Music::from_name(&level.music).ok_or("unknown level music")?;
+        let mut world = World::new(level, players);
+        world.seed_random(self.frame);
+        self.world = Some(world);
+        self.player_count = players;
+        self.hard = hard;
+        self.screen = Screen::Playing;
+        self.screen_ticks = 0;
+        self.presentation_enabled = false;
+        self.transition_ticks = 0;
+        Ok(vec![GameEvent::Music(music)])
+    }
+    pub fn update(&mut self, buttons: [u8; 4]) -> Vec<GameEvent> {
+        self.frame += 1;
+        self.screen_ticks += 1;
+        let mut inputs = [InputFrame::default(); 4];
+        for id in 0..4 {
+            let held = PlayerInput::from_buttons(buttons[id]);
+            inputs[id] = InputFrame::between(self.previous[id], held);
+            self.previous[id] = held;
+        }
+        let mut events = Vec::new();
+        match self.screen {
+            Screen::Intro => {
+                if self.screen_ticks == 5 {
+                    events.push(GameEvent::Music(Music::Intro));
+                }
+                if self.screen_ticks >= u64::from(crate::scenes::INTRO_TICKS)
+                    || inputs.iter().any(|i| i.pressed.jump)
+                {
+                    if self.screen_ticks < 5 {
+                        events.push(GameEvent::Music(Music::Intro));
+                    }
+                    self.screen = Screen::Title;
+                    self.screen_ticks = 0;
+                }
+            }
+            Screen::Title => {
+                if inputs.iter().any(|i| i.pressed.jump) {
+                    self.screen = Screen::PlayerSelect;
+                    self.password = [0; 4];
+                    self.password_cursor = 0;
+                }
+            }
+            Screen::PlayerSelect => {
+                if inputs.iter().any(|i| i.pressed.right || i.pressed.up) {
+                    self.player_count = (self.player_count % 4) + 1;
+                }
+                if inputs.iter().any(|i| i.pressed.left || i.pressed.down) {
+                    self.player_count = if self.player_count == 1 {
+                        4
+                    } else {
+                        self.player_count - 1
+                    };
+                }
+                if inputs.iter().any(|i| i.pressed.fire) {
+                    self.hard = !self.hard;
+                }
+                if inputs.iter().any(|i| i.pressed.jump) {
+                    self.screen = Screen::Password;
+                }
+            }
+            Screen::Password => {
+                if inputs.iter().any(|i| i.pressed.right) {
+                    self.password_cursor = (self.password_cursor + 1).min(3);
+                }
+                if inputs.iter().any(|i| i.pressed.left) {
+                    self.password_cursor = self.password_cursor.saturating_sub(1);
+                }
+                if inputs.iter().any(|i| i.pressed.up) {
+                    self.password[self.password_cursor] =
+                        self.password[self.password_cursor] % 9 + 1;
+                }
+                if inputs.iter().any(|i| i.pressed.down) {
+                    self.password[self.password_cursor] =
+                        if self.password[self.password_cursor] <= 1 {
+                            9
+                        } else {
+                            self.password[self.password_cursor] - 1
+                        };
+                }
+                if inputs.iter().any(|i| i.pressed.fire) {
+                    self.hard = !self.hard;
+                }
+                if inputs.iter().any(|i| i.pressed.jump) {
+                    if let Some((stage, hard)) = password_destination(self.password, self.hard) {
+                        events.extend(
+                            self.start(stage, self.player_count, hard)
+                                .expect("validated password stage"),
+                        );
+                        self.presentation_enabled = true;
+                        self.begin_loading();
+                    } else {
+                        self.password = [0; 4];
+                        events.push(GameEvent::Sound(crate::events::Sound::DamageEnemy));
+                    }
+                }
+            }
+            Screen::Loading => {
+                if self.screen_ticks == 294 {
+                    let level = &self.world.as_ref().expect("loading requires a level").level;
+                    events.push(GameEvent::Music(
+                        Music::from_name(&level.music).expect("validated level music"),
+                    ));
+                }
+                if self.screen_ticks >= u64::from(crate::scenes::LOADING_TICKS) {
+                    self.screen = Screen::Playing;
+                    self.screen_ticks = 0;
+                }
+            }
+            Screen::Playing => {
+                let previous_lives = self.world.as_ref().expect("playing requires a level").lives;
+                let result = self
+                    .world
+                    .as_mut()
+                    .expect("playing requires a level")
+                    .step(inputs, &mut events);
+                if result == RunResult::Complete {
+                    self.screen = Screen::StageClear;
+                    self.screen_ticks = 0;
+                    // B395 decrements the half-rate counter on the callback
+                    // frame itself. `frame` already counts that completed tick.
+                    let consumed = if (self.frame - 1).is_multiple_of(2) {
+                        2
+                    } else {
+                        1
+                    };
+                    self.transition_ticks =
+                        self.world.as_mut().unwrap().begin_stage_clear() - consumed;
+                    if self.world.as_ref().unwrap().level.id == 11 {
+                        // B401 also starts the segmented lift script this frame.
+                        self.screen_ticks = 1;
+                    }
+                    events.push(GameEvent::StageCompleted);
+                    let level = &self.world.as_ref().unwrap().level;
+                    events.push(if level.boss && level.id != 11 && level.id != 13 {
+                        GameEvent::Music(Music::Fanfare)
+                    } else {
+                        GameEvent::FadeMusic
+                    });
+                } else if result == RunResult::GameOver {
+                    self.screen = Screen::GameOver;
+                    self.screen_ticks = 0;
+                    self.game_over_continue = true;
+                    events.push(GameEvent::GameOver);
+                    events.push(GameEvent::StopMusic);
+                } else if self.presentation_enabled
+                    && self.world.as_ref().unwrap().lives < previous_lives
+                {
+                    // B3CF routes a surviving team wipe through the same tower
+                    // scorecard as an ordinary floor transition (D03F).
+                    self.begin_loading();
+                }
+            }
+            Screen::StageClear => {
+                if let Some(world) = &mut self.world {
+                    world.step_after_clear(inputs, &mut events);
+                }
+                let segmented = self
+                    .world
+                    .as_ref()
+                    .is_some_and(|world| world.level.id == 11);
+                if segmented && self.screen_ticks == 211 {
+                    self.world.as_mut().unwrap().begin_segmented_ascent();
+                }
+                if segmented && self.screen_ticks >= 212 {
+                    if self.world.as_mut().unwrap().lift_after_segmented_boss() {
+                        self.transition_ticks = self.transition_ticks.min(2);
+                    } else {
+                        // B770 holds the countdown while any mage remains onscreen.
+                        self.transition_ticks = 3;
+                    }
+                }
+                self.transition_ticks = self.transition_ticks.saturating_sub(1);
+                if self.transition_ticks == 0 {
+                    self.advance(&mut events);
+                }
+            }
+            Screen::GameOver => {
+                if self.screen_ticks < 120 {
+                    return events;
+                }
+                if inputs.iter().any(|i| i.pressed.up) {
+                    self.game_over_continue = true;
+                }
+                if inputs.iter().any(|i| i.pressed.down) {
+                    self.game_over_continue = false;
+                }
+                if inputs.iter().any(|i| i.pressed.jump) {
+                    if self.game_over_continue {
+                        // Continue restores the last tower password, not the
+                        // failed floor or its checkpoint (E1DA / E24D / B317).
+                        let stage = (self
+                            .world
+                            .as_ref()
+                            .expect("game over requires a run")
+                            .level
+                            .id
+                            / 3
+                            * 3)
+                        .min(9);
+                        let presentation = self.presentation_enabled;
+                        events.extend(
+                            self.start(stage, self.player_count, self.hard)
+                                .expect("validated continue stage"),
+                        );
+                        self.presentation_enabled = presentation;
+                        if presentation {
+                            self.begin_loading();
+                        }
+                    } else {
+                        self.return_to_title();
+                        events.push(GameEvent::Music(Music::Intro));
+                    }
+                }
+            }
+            Screen::Ending => {
+                if self.hard {
+                    match self.screen_ticks {
+                        390 => events.push(GameEvent::Music(Music::Fanfare)),
+                        2148 => events.push(GameEvent::Music(Music::Dreamy)),
+                        _ => {}
+                    }
+                }
+                if !self.hard && self.screen_ticks >= 120 && inputs.iter().any(|i| i.pressed.jump) {
+                    // EC34 / EC62 enter hard mode through B31B, preserving
+                    // scores and reserve lives rather than starting a new run.
+                    let run = self.world.as_ref().expect("ending requires a run");
+                    let scores = run.player_scores;
+                    let score = run.score;
+                    let lives = run.lives;
+                    let presentation = self.presentation_enabled;
+                    events.extend(
+                        self.start(0, self.player_count, true)
+                            .expect("validated hard campaign"),
+                    );
+                    let run = self.world.as_mut().unwrap();
+                    run.player_scores = scores;
+                    run.score = score;
+                    run.lives = lives;
+                    self.presentation_enabled = presentation;
+                    if presentation {
+                        self.begin_loading();
+                    }
+                }
+            }
+        }
+        if self.screen == Screen::Loading && self.screen_ticks == 0 {
+            events.retain(|event| !matches!(event, GameEvent::Music(_)));
+            events.push(GameEvent::StopMusic);
+        }
+        events
+    }
+    pub fn begin_loading(&mut self) {
+        self.screen = Screen::Loading;
+        self.screen_ticks = 0;
+    }
+    pub fn return_to_title(&mut self) {
+        self.screen = Screen::Title;
+        self.screen_ticks = 0;
+        self.world = None;
+    }
+    fn advance(&mut self, events: &mut Vec<GameEvent>) {
+        let run = self
+            .world
+            .as_ref()
+            .expect("stage transition requires level");
+        let next = run.level.id + 1;
+        let score = run.score;
+        let player_scores = run.player_scores;
+        let presentation = self.presentation_enabled;
+        let lives = run.lives;
+        let rewards = run.rewards;
+        let portal_reward_collected = run.portal_reward_collected;
+        let equipment: Vec<_> = run
+            .players
+            .iter()
+            .map(|p| (p.health.max(1), p.feather))
+            .collect();
+        if self.assets.level(next, self.hard).is_none() {
+            self.screen = Screen::Ending;
+            self.screen_ticks = 0;
+            events.push(GameEvent::Victory);
+            events.push(GameEvent::StopMusic);
+            return;
+        }
+        events.extend(
+            self.start(next, self.player_count, self.hard)
+                .expect("validated campaign level"),
+        );
+        let run = self.world.as_mut().unwrap();
+        run.score = score;
+        run.player_scores = player_scores;
+        run.lives = lives;
+        run.rewards = rewards;
+        run.portal_reward_collected = portal_reward_collected;
+        if !(self.hard && next == 13) {
+            for (player, (health, feather)) in run.players.iter_mut().zip(equipment) {
+                player.health = health;
+                player.feather = feather;
+            }
+        }
+        self.presentation_enabled = presentation;
+        if presentation {
+            self.begin_loading();
+        }
+    }
 }
 
-impl Game {
-    pub fn new(assets: &Path, sound: bool) -> Self {
-        let mut memory = Box::new([0; 65536]);
-        memory[0x8000..]
-            .copy_from_slice(include_bytes!(concat!(env!("OUT_DIR"), "/game-data.bin")));
-        let audio = if sound {
-            match Audio::new(assets) {
-                Ok(audio) => Some(audio),
-                Err(error) => {
-                    eprintln!("Audio unavailable: {error}");
-                    None
-                }
-            }
-        } else {
-            None
-        };
-        Self {
-            memory,
-            video: Video::new(include_bytes!(concat!(env!("OUT_DIR"), "/tiles.bin"))),
-            audio,
-            controllers: Controllers::default(),
-            a: 0,
-            x: 0,
-            y: 0,
-            sp: 0,
-            c: false,
-            z: false,
-            n: false,
-            v: false,
-            interrupt_mask: false,
-            decimal: false,
-            block: 0x8f72,
-            frame_ready: false,
-            frame: 0,
-            blocks_executed: 0,
-            #[cfg(test)]
-            test_start: None,
-            #[cfg(test)]
-            test_started: false,
-        }
-    }
-
-    pub fn buttons(&mut self, masks: [u8; 4]) {
-        for (i, value) in masks.into_iter().enumerate() {
-            self.controllers.clear_buttons(i, u32::MAX).unwrap();
-            self.controllers.set_buttons(i, value.into()).unwrap();
-        }
-    }
-
-    /// The original main routine waits at $8fc0 for its frame flag ($80).
-    /// We call its recovered frame routine directly once per native update.
-    pub fn update(&mut self) -> Result<(), String> {
-        self.frame_ready = false;
-        let mut sent_frame = false;
-        for _ in 0..200_000 {
-            if ((self.block == 0x8fc0 || self.block == 0xbf3c) && self.memory[0x80] == 0)
-                || (self.block == 0xbf45 && self.memory[0x82] != 0)
-            {
-                if sent_frame {
-                    return Err("Frame routine returned without its frame marker".into());
-                }
-                if self.block == 0xbf45 {
-                    self.memory[0x80] = 0;
-                }
-                self.video.set_vblank(true);
-                self.push_word(self.block);
-                self.push(self.flags() & !0x10);
-                self.interrupt_mask = true;
-                self.block = 0xbf86;
-                sent_frame = true;
-            }
-            let block = self.block;
-            self.block = translated::dispatch(self, block)?;
-            self.blocks_executed += 1;
-            if self.frame_ready {
-                self.frame += 1;
-                if let Some(audio) = &mut self.audio {
-                    audio.update();
-                }
-                return Ok(());
-            }
-        }
-        Err(format!(
-            "Game failed to reach its frame boundary: block ${:04x}, flag80={:02x}, flag81={:02x}",
-            self.block, self.memory[0x80], self.memory[0x81]
-        ))
-    }
-
-    fn read(&mut self, addr: u16) -> u8 {
-        match addr {
-            0..=0x1fff => self.memory[(addr & 0x7ff) as usize],
-            0x2002 => {
-                // Boot's vblank synchronization is satisfied by the native host.
-                // In-game frame scheduling uses the recovered $80 handshake above.
-                self.video.set_vblank(true);
-                self.video.read_register(addr)
-            }
-            0x2000..=0x2007 => self.video.read_register(addr),
-            0x4016 => self.controllers.read_port(0).unwrap(),
-            0x4017 => self.controllers.read_port(1).unwrap(),
-            0x8000..=0xffff => self.memory[addr as usize],
-            _ => 0xff,
-        }
-    }
-
-    fn write(&mut self, addr: u16, value: u8) {
-        match addr {
-            0..=0x1fff => self.memory[(addr & 0x7ff) as usize] = value,
-            0x2000..=0x2007 => self.video.write_register(addr, value),
-            0x4014 => {
-                let base = (value as usize * 256) & 0x7ff;
-                self.video.dma(&self.memory[base..base + 256]);
-            }
-            0x4016 => self.controllers.write_strobe(value),
-            _ => {}
-        }
-    }
-
-    fn pointer(&self, address: u8) -> u16 {
-        self.memory[address as usize] as u16
-            | ((self.memory[address.wrapping_add(1) as usize] as u16) << 8)
-    }
-    fn nz(&mut self, value: u8) {
-        self.n = value & 128 != 0;
-        self.z = value == 0;
-    }
-    fn add(&mut self, value: u8) {
-        let result = self.a as u16 + value as u16 + self.c as u16;
-        self.v = (!(self.a ^ value) & (self.a ^ result as u8) & 0x80) != 0;
-        self.c = result > 255;
-        self.a = result as u8;
-        self.nz(self.a);
-    }
-    fn push(&mut self, value: u8) {
-        self.memory[0x100 + self.sp as usize] = value;
-        self.sp = self.sp.wrapping_sub(1);
-    }
-    fn pop(&mut self) -> u8 {
-        self.sp = self.sp.wrapping_add(1);
-        self.memory[0x100 + self.sp as usize]
-    }
-    fn push_word(&mut self, value: u16) {
-        self.push((value >> 8) as u8);
-        self.push(value as u8);
-    }
-    fn pop_word(&mut self) -> u16 {
-        let low = self.pop() as u16;
-        low | (self.pop() as u16) << 8
-    }
-    fn flags(&self) -> u8 {
-        self.c as u8
-            | ((self.z as u8) << 1)
-            | ((self.interrupt_mask as u8) << 2)
-            | ((self.decimal as u8) << 3)
-            | 0x20
-            | ((self.v as u8) << 6)
-            | ((self.n as u8) << 7)
-    }
-    fn set_flags(&mut self, value: u8) {
-        self.c = value & 1 != 0;
-        self.z = value & 2 != 0;
-        self.interrupt_mask = value & 4 != 0;
-        self.decimal = value & 8 != 0;
-        self.v = value & 64 != 0;
-        self.n = value & 128 != 0;
-    }
-    fn on_transfer(&mut self, target: u16) {
-        #[cfg(test)]
-        if target == 0xb317
-            && let Some((level, players, mode)) = self.test_start.take()
-        {
-            // Same new-game entry used by the recovered menu/password code.
-            self.memory[0xbc] = level;
-            self.memory[3] = players - 1;
-            self.memory[0x6f] = mode;
-            self.test_started = true;
-        }
-        if let Some(audio) = &mut self.audio {
-            audio.hook(target, self.a, self.x, self.y);
-        }
+/// Original password table at E24D, decoded into display-order digits and stages.
+fn password_destination(digits: [u8; 4], selected_hard: bool) -> Option<(usize, bool)> {
+    match digits {
+        [0, 0, 0, 0] => Some((0, selected_hard)),
+        [1, 5, 1, 1] => Some((0, false)),
+        [2, 8, 6, 9] => Some((3, false)),
+        [3, 6, 4, 5] => Some((6, false)),
+        [7, 6, 4, 1] => Some((9, false)),
+        [1, 3, 9, 4] => Some((0, true)),
+        [6, 4, 1, 1] => Some((3, true)),
+        [4, 9, 1, 3] => Some((6, true)),
+        [2, 5, 5, 6] => Some((9, true)),
+        _ => None,
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::{
+        events::Sound,
+        physics::{Body, Vec2},
+        player::{PlayerEvent, PlayerState},
+        world::{Prop, PropKind},
+    };
+    fn game() -> Game {
+        Game::new(Arc::new(
+            Assets::load(&crate::assets::default_root()).unwrap(),
+        ))
+    }
+    #[test]
+    fn continue_restarts_the_password_tower_with_fresh_run_state() {
+        for hard in [false, true] {
+            for stage in 0..if hard { 14 } else { 13 } {
+                let mut game = game();
+                game.start(stage, 4, hard).unwrap();
+                game.presentation_enabled = true;
+                let world = game.world.as_mut().unwrap();
+                world.score = 50;
+                world.player_scores = [10, 10, 10, 20];
+                world.lives = 0;
+                world.players[0].feather = true;
+                game.screen = Screen::GameOver;
+                game.screen_ticks = 120;
+                game.update([1, 0, 0, 0]);
+                assert_eq!(game.screen, Screen::Loading);
+                let world = game.world.as_ref().unwrap();
+                assert_eq!(world.level.id, (stage / 3 * 3).min(9));
+                assert_eq!((world.level.hard, world.players.len()), (hard, 4));
+                assert_eq!(
+                    (world.score, world.player_scores, world.lives),
+                    (0, [0; 4], 3)
+                );
+                assert!(world.players.iter().all(|player| !player.feather));
+            }
+        }
+    }
 
     #[test]
-    fn all_levels_and_bosses_execute_native_callbacks() {
-        for mode in [0, 0x80] {
-            for level in 0..14 {
-                let mut game = Game::new(Path::new(env!("MICRO_MAGES_BUILD_ASSETS")), false);
-                game.test_start = Some((level, 4, mode));
-                let mut random = 0x12345678u32;
-                for frame in 0..1800 {
-                    let mut buttons = [0; 4];
-                    if (120..126).contains(&frame) || (240..246).contains(&frame) {
-                        buttons[0] = 8;
-                    }
-                    if frame > 500 {
-                        random ^= random << 13;
-                        random ^= random >> 17;
-                        random ^= random << 5;
-                        for (i, mask) in buttons.iter_mut().enumerate() {
-                            let bits = (random >> (i * 8)) as u8;
-                            *mask = (bits & 3) | if bits & 4 != 0 { 0x40 } else { 0x80 };
-                        }
-                    }
-                    game.buttons(buttons);
-                    game.update().unwrap_or_else(|e| {
-                        panic!("mode {mode:02x}, level {level}, frame {frame}: {e}")
-                    });
+    fn game_over_end_returns_to_title_instead_of_continuing() {
+        let mut game = game();
+        game.start(5, 2, true).unwrap();
+        game.screen = Screen::GameOver;
+        game.screen_ticks = 120;
+        game.update([32, 0, 0, 0]);
+        assert!(!game.game_over_continue);
+        game.update([1, 0, 0, 0]);
+        assert_eq!(game.screen, Screen::Title);
+        assert!(game.world.is_none());
+    }
+
+    #[test]
+    fn normal_ending_enters_hard_mode_preserving_scores_and_remaining_lives() {
+        let mut game = game();
+        game.start(12, 4, false).unwrap();
+        game.presentation_enabled = true;
+        let run = game.world.as_mut().unwrap();
+        run.score = 10;
+        run.player_scores = [1, 2, 3, 4];
+        run.lives = 1;
+        game.screen = Screen::Ending;
+        game.screen_ticks = 120;
+        game.update([1, 0, 0, 0]);
+        assert_eq!(game.screen, Screen::Loading);
+        let run = game.world.as_ref().unwrap();
+        assert_eq!(
+            (run.level.id, run.level.hard, run.players.len()),
+            (0, true, 4)
+        );
+        assert_eq!(
+            (run.score, run.player_scores, run.lives),
+            (10, [1, 2, 3, 4], 1)
+        );
+    }
+
+    #[test]
+    fn hard_ending_is_not_dismissed_by_gameplay_buttons() {
+        let mut game = game();
+        game.start(13, 1, true).unwrap();
+        game.screen = Screen::Ending;
+        for _ in 0..4 {
+            game.update([0xff; 4]);
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::Ending);
+    }
+
+    #[test]
+    fn hard_ending_music_follows_the_original_cinematic_cues() {
+        let mut game = game();
+        game.start(13, 1, true).unwrap();
+        game.screen = Screen::StageClear;
+        game.transition_ticks = 1;
+        assert!(game.update([0; 4]).contains(&GameEvent::StopMusic));
+        let mut cues = Vec::new();
+        for tick in 1..=2300 {
+            for event in game.update([0; 4]) {
+                if let GameEvent::Music(music) = event {
+                    cues.push((tick, music));
                 }
-                assert!(
-                    game.test_started,
-                    "new-game entry not reached for stage {level}"
-                );
-                assert!(game.video.render().iter().any(|&pixel| pixel != 0));
+            }
+        }
+        assert_eq!(cues, [(390, Music::Fanfare), (2148, Music::Dreamy)]);
+    }
+
+    #[test]
+    fn ordinary_respawn_shows_loading_without_advancing_the_world() {
+        let mut game = game();
+        game.start(0, 1, false).unwrap();
+        game.presentation_enabled = true;
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        run.props.clear();
+        run.player_scores[0] = 12;
+        run.players[0].damage();
+        for _ in 0..128 {
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::Loading);
+        let tick = game.world.as_ref().unwrap().tick;
+        for _ in 0..crate::scenes::LOADING_TICKS {
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::Playing);
+        let run = game.world.as_ref().unwrap();
+        assert_eq!((run.tick, run.lives, run.player_scores[0]), (tick, 2, 12));
+    }
+
+    #[test]
+    fn ordinary_stage_transition_preserves_player_scores_and_shows_loading() {
+        let mut game = game();
+        game.start(0, 4, false).unwrap();
+        game.presentation_enabled = true;
+        let world = game.world.as_mut().unwrap();
+        world.score = 100;
+        world.player_scores = [10, 20, 30, 40];
+        game.screen = Screen::StageClear;
+        game.transition_ticks = 1;
+        let events = game.update([0; 4]);
+        assert_eq!(game.screen, Screen::Loading);
+        assert!(events.contains(&GameEvent::StopMusic));
+        assert!(
+            !events
+                .iter()
+                .any(|event| matches!(event, GameEvent::Music(_)))
+        );
+        let world = game.world.as_ref().unwrap();
+        assert_eq!(world.level.id, 1);
+        assert_eq!(world.player_scores, [10, 20, 30, 40]);
+        assert_eq!(world.tick, 0);
+        let mut music = Vec::new();
+        for tick in 1..=crate::scenes::LOADING_TICKS {
+            for event in game.update([0; 4]) {
+                if let GameEvent::Music(track) = event {
+                    music.push((tick, track));
+                }
+            }
+        }
+        assert_eq!(music, [(294, Music::Spooky)]);
+        assert_eq!(game.screen, Screen::Playing);
+        assert_eq!(game.world.as_ref().unwrap().tick, 0);
+        game.update([0; 4]);
+        assert_eq!(game.world.as_ref().unwrap().tick, 1);
+    }
+    #[test]
+    fn title_selection_starts_four_independent_players() {
+        let mut game = game();
+        for _ in 0..2 {
+            game.update([1, 0, 0, 0]);
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::PlayerSelect);
+        for _ in 0..3 {
+            game.update([128, 0, 0, 0]);
+            game.update([0; 4]);
+        }
+        game.update([1, 0, 0, 0]);
+        game.update([0; 4]);
+        assert_eq!(game.screen, Screen::Password);
+        game.update([1, 0, 0, 0]);
+        assert_eq!(game.player_count, 4);
+        assert_eq!(game.screen, Screen::Loading);
+        for _ in 0..crate::scenes::LOADING_TICKS {
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::Playing);
+        game.update([128, 0, 0, 64]);
+        let run = game.world.as_ref().unwrap();
+        assert!(run.players[0].body.velocity.x > 0.0);
+        assert!(run.players[3].body.velocity.x < 0.0);
+        assert_eq!(run.players[2].body.velocity.x, 0.0);
+    }
+    #[test]
+    fn boot_reaches_title_without_starting_or_skipping_the_intro() {
+        let mut game = game();
+        assert_eq!(game.screen, Screen::Intro);
+        for tick in 1..crate::scenes::INTRO_TICKS {
+            game.update([0; 4]);
+            assert_eq!(game.screen, Screen::Intro, "tick {tick}");
+            assert!(game.world.is_none());
+        }
+        game.update([0; 4]);
+        assert_eq!(game.screen, Screen::Title);
+        for _ in 0..600 {
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::Title);
+        assert!(game.world.is_none());
+    }
+    #[test]
+    fn intro_skip_requires_release_before_confirming_title() {
+        let mut game = game();
+        for _ in 0..120 {
+            game.update([1, 0, 0, 0]);
+        }
+        assert_eq!(game.screen, Screen::Title);
+        game.update([0; 4]);
+        game.update([1, 0, 0, 0]);
+        assert_eq!(game.screen, Screen::PlayerSelect);
+    }
+    #[test]
+    fn password_digits_wrap_one_through_nine_like_original_entry() {
+        let mut game = game();
+        game.screen = Screen::Password;
+        for expected in [1, 2, 3, 4, 5, 6, 7, 8, 9, 1] {
+            game.update([16, 0, 0, 0]);
+            game.update([0; 4]);
+            assert_eq!(game.password[0], expected);
+        }
+        game.update([32, 0, 0, 0]);
+        game.update([0; 4]);
+        assert_eq!(game.password[0], 9);
+        for _ in 0..8 {
+            game.update([128, 0, 0, 0]);
+            game.update([0; 4]);
+        }
+        assert_eq!(game.password_cursor, 3);
+        for _ in 0..8 {
+            game.update([64, 0, 0, 0]);
+            game.update([0; 4]);
+        }
+        assert_eq!(game.password_cursor, 0);
+    }
+    #[test]
+    fn original_passwords_select_towers_and_invalid_codes_do_not_start() {
+        for (digits, stage, hard) in [
+            ([2, 8, 6, 9], 3, false),
+            ([3, 6, 4, 5], 6, false),
+            ([7, 6, 4, 1], 9, false),
+            ([1, 3, 9, 4], 0, true),
+            ([6, 4, 1, 1], 3, true),
+            ([4, 9, 1, 3], 6, true),
+            ([2, 5, 5, 6], 9, true),
+        ] {
+            let mut game = game();
+            game.screen = Screen::Password;
+            game.password = digits;
+            game.update([1, 0, 0, 0]);
+            assert_eq!(game.screen, Screen::Loading);
+            let world = game.world.as_ref().unwrap();
+            assert_eq!((world.level.id, world.level.hard), (stage, hard));
+            let pos = world.players[0].body.position;
+            for _ in 0..crate::scenes::LOADING_TICKS - 1 {
+                game.update([128; 4]);
+            }
+            assert_eq!(game.screen, Screen::Loading);
+            assert_eq!(game.world.as_ref().unwrap().players[0].body.position, pos);
+            assert_eq!(game.world.as_ref().unwrap().tick, 0);
+            game.update([0; 4]);
+            assert_eq!(game.screen, Screen::Playing);
+        }
+        let mut game = game();
+        game.screen = Screen::Password;
+        game.password = [9; 4];
+        let events = game.update([1, 0, 0, 0]);
+        assert_eq!(game.screen, Screen::Password);
+        assert!(game.world.is_none());
+        assert_eq!(game.password, [0; 4]);
+        assert!(events.contains(&GameEvent::Sound(Sound::DamageEnemy)));
+    }
+    #[test]
+    fn normal_campaign_ends_before_hard_final_boss() {
+        for (hard, last) in [(false, 12), (true, 13)] {
+            let mut game = game();
+            game.start(last, 1, hard).unwrap();
+            game.screen = Screen::StageClear;
+            game.transition_ticks = 1;
+            let events = game.update([0; 4]);
+            assert_eq!(game.screen, Screen::Ending);
+            assert!(events.contains(&GameEvent::Victory));
+        }
+        let mut game = game();
+        game.start(12, 1, true).unwrap();
+        game.screen = Screen::StageClear;
+        game.transition_ticks = 1;
+        game.update([0; 4]);
+        assert_eq!(game.world.as_ref().unwrap().level.id, 13);
+        assert_eq!(game.screen, Screen::Playing);
+    }
+    #[test]
+    fn checkpoint_respawn_consumes_one_life_and_preserves_score() {
+        let mut game = game();
+        game.start(0, 1, false).unwrap();
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        run.props.clear();
+        run.checkpoint = Vec2::new(100.0, 600.0);
+        run.score = 200;
+        run.players[0].damage();
+        for _ in 0..128 {
+            game.update([0; 4]);
+        }
+        let run = game.world.as_ref().unwrap();
+        assert_eq!(run.players[0].body.position, run.checkpoint);
+        assert_eq!(run.lives, 2);
+        assert_eq!(run.score, 200);
+        assert_eq!(run.players[0].state, PlayerState::Alive);
+    }
+    #[test]
+    fn last_life_transitions_to_game_over_once() {
+        let mut game = game();
+        game.start(0, 1, false).unwrap();
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        run.props.clear();
+        run.lives = 0;
+        run.players[0].damage();
+        let mut count = 0;
+        for _ in 0..150 {
+            count += game
+                .update([0; 4])
+                .iter()
+                .filter(|&&e| e == GameEvent::GameOver)
+                .count();
+        }
+        assert_eq!(game.screen, Screen::GameOver);
+        assert_eq!(count, 1);
+    }
+    #[test]
+    fn portal_requires_ground_contact_and_finishes_after_sixteen_ticks() {
+        let mut game = game();
+        game.start(0, 1, false).unwrap();
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        let start = run.players[0].body.position;
+        let destination = Vec2::new(200.0, start.y - 80.0);
+        run.props = [start, destination]
+            .into_iter()
+            .map(|position| Prop {
+                pickup: None,
+                kind: PropKind::Portal(0x2e),
+                source_kind: 0x2e,
+                body: Body::new(position, Vec2::new(8.0, 8.0)),
+                active: true,
+                flip_x: false,
+            })
+            .collect();
+        let mut events = Vec::new();
+        run.update_props([InputFrame::default(); 4], &mut events);
+        assert!(
+            !run.players[0].is_warping(),
+            "airborne contact cannot enter portal"
+        );
+        run.players[0].body.grounded = true;
+        run.update_props([InputFrame::default(); 4], &mut events);
+        assert!(run.players[0].is_warping());
+        assert_eq!(run.players[0].body.position, start);
+        assert_eq!(events, vec![GameEvent::Sound(Sound::Portal)]);
+        for _ in 0..16 {
+            game.update([0; 4]);
+        }
+        let player = &game.world.as_ref().unwrap().players[0];
+        assert!(!player.is_warping());
+        assert_eq!(player.body.position, destination);
+        assert_eq!(player.body.velocity.y, -3.0);
+    }
+    #[test]
+    fn player_spells_do_not_hurt_teammates_and_cannot_exceed_two() {
+        let mut game = game();
+        game.start(0, 2, false).unwrap();
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        run.props.clear();
+        run.level.collision.fill(0);
+        run.players[1].body.position = run.players[0].body.position;
+        let event = PlayerEvent::Shot {
+            direction: Vec2::new(1.0, 0.0),
+            charged: false,
+        };
+        let mut events = Vec::new();
+        for _ in 0..10 {
+            run.player_events(0, vec![event], &mut events);
+        }
+        assert_eq!(run.projectiles.len(), 2);
+        run.update_projectiles(&mut events);
+        assert_eq!(run.players[1].health, 1);
+        assert_eq!(run.players[1].state, PlayerState::Alive);
+    }
+    #[test]
+    fn exit_transitions_once_and_preserves_campaign_stats() {
+        let mut game = game();
+        game.start(0, 1, false).unwrap();
+        let run = game.world.as_mut().unwrap();
+        run.enemies.clear();
+        run.level.collision.fill(0);
+        run.score = 300;
+        run.lives = 2;
+        run.props = vec![Prop {
+            pickup: None,
+            kind: PropKind::Exit,
+            source_kind: 0x1c,
+            body: run.players[0].body,
+            active: true,
+            flip_x: false,
+        }];
+        let events = game.update([0; 4]);
+        assert!(events.contains(&GameEvent::StageCompleted));
+        assert!(events.contains(&GameEvent::FadeMusic));
+        assert!(!events.contains(&GameEvent::Music(Music::Fanfare)));
+        assert!(events.contains(&GameEvent::Sound(Sound::LevelExit)));
+        assert!(events.contains(&GameEvent::Sound(Sound::LevelExitAlternate)));
+        assert_eq!(game.screen, Screen::StageClear);
+        for _ in 0..256 {
+            game.update([0; 4]);
+        }
+        let run = game.world.as_ref().unwrap();
+        assert_eq!(run.level.id, 1);
+        assert_eq!(run.score, 302);
+        assert_eq!(run.player_scores, [2, 0, 0, 0]);
+        assert_eq!(run.lives, 2);
+    }
+    #[test]
+    fn clear_countdown_accounts_for_callback_frame_phase() {
+        let reference: serde_json::Value = serde_json::from_str(include_str!(
+            "../tests/fixtures/boss_clear_counter_reference.json"
+        ))
+        .unwrap();
+        for sample in reference["samples"].as_array().unwrap() {
+            let stage = sample["stage"].as_u64().unwrap() as usize;
+            let mut game = game();
+            game.start(stage, 1, true).unwrap();
+            game.frame = sample["source_frame_before_callback"].as_u64().unwrap();
+            let world = game.world.as_mut().unwrap();
+            world.props.clear();
+            for enemy in &mut world.enemies {
+                enemy.health = 0;
+            }
+            game.update([0; 4]);
+            assert_eq!(game.screen, Screen::StageClear);
+            assert_eq!(
+                u64::from(game.transition_ticks),
+                sample["remaining_updates_after_callback_frame"]
+                    .as_u64()
+                    .unwrap()
+            );
+        }
+    }
+
+    #[test]
+    fn exit_countdown_keeps_teammates_live_without_restarting_a_wipe() {
+        let mut game = game();
+        game.start(0, 2, false).unwrap();
+        let world = game.world.as_mut().unwrap();
+        world.enemies.clear();
+        world.level.collision.fill(0);
+        world.players[1].body.position.x = 40.0;
+        world.props = vec![Prop {
+            pickup: None,
+            kind: PropKind::Exit,
+            source_kind: 0x1c,
+            body: world.players[0].body,
+            active: true,
+            flip_x: false,
+        }];
+        game.update([0; 4]);
+        assert_eq!(game.screen, Screen::StageClear);
+        let before = game.world.as_ref().unwrap().players[1].body.position.x;
+        for _ in 0..12 {
+            game.update([0, 0x80, 0, 0]);
+        }
+        assert!(game.world.as_ref().unwrap().players[1].body.position.x > before);
+        let world = game.world.as_mut().unwrap();
+        world.players[1].body = world.props[0].body;
+        game.update([0; 4]);
+        let world = game.world.as_mut().unwrap();
+        assert_eq!(world.player_scores, [2, 2, 0, 0]);
+        assert!(world.players[1].is_exiting());
+        let lives = world.lives;
+        for player in &mut world.players {
+            player.state = PlayerState::Dead;
+        }
+        for _ in 0..150 {
+            game.update([0; 4]);
+        }
+        assert_eq!(game.screen, Screen::StageClear);
+        assert_eq!(game.world.as_ref().unwrap().lives, lives);
+        assert_eq!(game.world.as_ref().unwrap().player_scores, [2, 2, 0, 0]);
+    }
+
+    #[test]
+    fn segmented_completion_waits_for_the_original_lift_out_sequence() {
+        let mut game = game();
+        game.start(11, 1, true).unwrap();
+        let world = game.world.as_mut().unwrap();
+        world.enemies.clear();
+        world.props.clear();
+        world.camera.position.y = 0.0;
+        world.players[0] = crate::player::Player::new(0, Vec2::new(124.0, 144.0));
+        world.level.collision[22 * 32..23 * 32].fill(1);
+        game.screen = Screen::StageClear;
+        game.screen_ticks = 0;
+        game.transition_ticks = 510;
+        for tick in 1..=334 {
+            game.update([0; 4]);
+            assert_eq!(game.screen, Screen::StageClear, "tick {tick}");
+        }
+        assert_eq!(
+            game.world.as_ref().unwrap().players[0].state,
+            PlayerState::Dead
+        );
+        game.update([0; 4]);
+        assert_eq!(game.screen, Screen::Playing);
+        assert_eq!(game.world.as_ref().unwrap().level.id, 12);
+    }
+
+    #[test]
+    fn every_campaign_stage_runs_deterministically_with_four_players() {
+        let assets = Arc::new(Assets::load(&crate::assets::default_root()).unwrap());
+        for hard in [false, true] {
+            for id in 0..if hard { 14 } else { 13 } {
+                let mut a = Game::new(assets.clone());
+                let mut b = Game::new(assets.clone());
+                a.start(id, 4, hard).unwrap();
+                b.start(id, 4, hard).unwrap();
+                for tick in 0..600 {
+                    let input = std::array::from_fn(|player| {
+                        let phase = tick + player * 17;
+                        (if phase % 90 < 45 { 128 } else { 64 })
+                            | (if phase % 40 < 20 { 1 } else { 0 })
+                            | (if phase % 60 < 30 { 2 } else { 0 })
+                    });
+                    assert_eq!(a.update(input), b.update(input));
+                }
+                let a = a.world.as_ref().unwrap();
+                let b = b.world.as_ref().unwrap();
+                for (a, b) in a.players.iter().zip(&b.players) {
+                    assert_eq!(a.body, b.body);
+                    assert!(a.body.position.x.is_finite() && a.body.position.y.is_finite());
+                }
+            }
+        }
+    }
+    #[test]
+    fn stage_transition_preserves_each_players_health_and_feather() {
+        for hard in [false, true] {
+            for count in 1..=4 {
+                let mut game = game();
+                game.start(0, count, hard).unwrap();
+                let run = game.world.as_mut().unwrap();
+                for player in &mut run.players {
+                    player.health = 1 + (player.id % 2) as u8;
+                    player.feather = player.id % 2 == 0;
+                }
+                game.screen = Screen::StageClear;
+                game.transition_ticks = 1;
+                game.update([0; 4]);
+                let run = game.world.as_ref().unwrap();
+                assert_eq!(run.level.id, 1);
+                for player in &run.players {
+                    assert_eq!(player.health, 1 + (player.id % 2) as u8);
+                    assert_eq!(player.feather, player.id % 2 == 0);
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn entering_the_final_flight_arena_heals_and_removes_feathers() {
+        for count in 1..=4 {
+            let mut game = game();
+            game.start(12, count, true).unwrap();
+            let world = game.world.as_mut().unwrap();
+            world.score = 125;
+            world.lives = 1;
+            for player in &mut world.players {
+                player.health = 1;
+                player.feather = true;
+            }
+            game.screen = Screen::StageClear;
+            game.transition_ticks = 1;
+            game.update([0; 4]);
+            let world = game.world.as_ref().unwrap();
+            assert_eq!(world.level.id, 13);
+            assert_eq!((world.score, world.lives), (125, 1));
+            for player in &world.players {
+                assert!(player.flying());
+                assert_eq!(player.health, 2);
+                assert!(!player.feather);
+            }
+        }
+    }
+    #[test]
+    fn three_reserve_lives_allow_four_attempts_in_both_modes() {
+        for hard in [false, true] {
+            for count in 1..=4 {
+                let mut game = game();
+                game.start(0, count, hard).unwrap();
+                for attempt in 0..4 {
+                    let world = game.world.as_mut().unwrap();
+                    world.enemies.clear();
+                    world.props.clear();
+                    for player in &mut world.players {
+                        player.invulnerability = 0;
+                        player.damage();
+                    }
+                    let mut game_over_events = 0;
+                    for _ in 0..128 {
+                        game_over_events += game
+                            .update([0; 4])
+                            .iter()
+                            .filter(|&&e| e == GameEvent::GameOver)
+                            .count();
+                    }
+                    assert_eq!(game_over_events, usize::from(attempt == 3));
+                    assert_eq!(
+                        game.screen,
+                        if attempt == 3 {
+                            Screen::GameOver
+                        } else {
+                            Screen::Playing
+                        }
+                    );
+                }
             }
         }
     }

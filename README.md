@@ -1,138 +1,125 @@
-# Micro Mages — native Rust reconstruction
+# Micro Mages — native Rust
 
 ```sh
 cargo run
 ```
 
-This opens the game in a native Linux window with keyboard/gamepad input and native
-Ogg audio playback. Enter skips the intro and confirms menu choices. The repository's extracted
-PC game logic is translated into Rust at **build time**, then compiled
-by rustc. No NES emulator, CPU instruction interpreter, Wine, Proton, or original
-executable is launched by this program.
+A native Rust reconstruction with explicit players, enemies, projectiles, terrain,
+and campaign state. Gameplay runs at a fixed 60 Hz; rendering, input devices and
+audio are separate. Cargo builds ordinary Rust source. There is no instruction
+translator, CPU state, original executable, emulator, or program-image asset in
+the build or runtime.
 
 ## Controls
 
-| Action | Player 1 | Player 2 | Player 3 | Gamepad |
-| --- | --- | --- | --- | --- |
-| Move / menu | Arrow keys | WASD | IJKL | D-pad / left stick |
-| A action / confirm | Z or Enter | G | N | South button |
-| B action | X | H | M | West / East button |
-| Settings / pause | Escape or P | Y | O | Start |
-| Select | Tab | T | U | Select |
+| Action | Player 1 | Player 2 | Player 3 | Player 4 | Gamepad |
+| --- | --- | --- | --- | --- | --- |
+| Move / aim | Arrow keys | WASD | IJKL | Numpad 8/4/6/2 | D-pad / left stick |
+| Jump / confirm | Z or Enter | G | N | Numpad 0 | South |
+| Shoot / charge | X | H | M | Numpad decimal | West / East |
+| Settings / pause | Escape or P | Y | O | Numpad Enter | Start |
 
-Up to four gamepads are supported. Keyboard and gamepad input can be combined.
-Player count is selected in the game's menu. Escape, P, or any gamepad's Start
-opens the native settings menu and pauses gameplay and audio. The menu provides
-Resume, separate music/effects volume, a Controls page, Restart (with confirmation),
-and an explicit Quit Game option. Use up/down to select, left/right to adjust
-volume, and Enter/Z or the gamepad's South button to confirm. Escape/Start or
-X/the gamepad's B button goes back. Volume choices last for the current run and
-survive a restart from this menu. Resize the window to change display size.
+Confirm skips the opening and advances through the title, player selection,
+and password prompt. Use arrows to select one to four players; the Shoot action
+(X for Player 1) toggles normal/hard mode. Confirm an empty password to start, or enter an original tower
+password with up/down and left/right. Up to four gamepads are supported. Hold jump for a higher jump;
+jump against a wall to kick away. Hold shoot and release for a charged spell;
+up/down aims vertically. A feather enables floating and absorbs a hit. Ghosts
+can fly and fire freezing shots, then collect a fairy or feather to revive.
+The hard-mode final arena uses directional flight and fires spells rightward.
 
-## What was reconstructed
+Settings provide resume, separate music/effects volume, controls, restart
+confirmation and quit. Settings consume their own input and freeze simulation
+and audio. Volume settings last for the current process.
 
-The installed PC game consists of an embedded game program, a custom C++ execution
-wrapper, a tile/sprite compositor, and external Ogg music/effects. Its embedded
-program differs substantially from the separately distributed NES ROM.
+## Editable assets
 
-`build.rs` runs `scripts/compile_game.py` against the verified data in `assets/`.
-The compiler follows recovered control-flow tables and callbacks and emits about
-9,857 original instructions as 3,952 Rust basic blocks. Rust/LLVM compiles these
-blocks to host machine code. The game keeps the original memory layout and
-register-shaped intermediate values, but **does not fetch or decode instructions
-at runtime**. It is an ahead-of-time recompilation, not a hand-rewritten,
-high-level gameplay engine.
+All runtime assets are in [`assets/`](assets/README.md):
 
-The original frame-wait loops become native frame scheduling. The runtime calls
-compiled game routines and composites complete frames; it does not simulate NES
-CPU clocks, scanlines, or an audio chip. Original level, character, enemy, boss,
-collision, and menu logic executes through the translated Rust blocks.
+- `graphics/tiles.png`: original 512-tile sprite/background atlas.
+- `graphics/palette.json`: RGB colors.
+- `graphics/sprites.json`: sprite parts, offsets, flips and palettes.
+- `graphics/animations.json`: named animation frames and durations.
+- `presentation/`: PNG artwork and JSON timelines for the original opening,
+  title, tower scorecards, Game Over, and endings.
+- `levels/levels.json`: 27 playable normal/hard stage definitions, named entity
+  spawns, tile layers, collision materials, and destructible terrain definitions.
+- `music/` and `sfx/`: all nine music tracks and 37 original Ogg sound files.
 
-- `src/game.rs`: frame scheduler, game data/state and native service boundaries.
-- `src/video.rs`: software tile/sprite compositor with the PC palette and scrolling.
-- `src/audio.rs`: native playback of all 9 music tracks and 34 effect mappings.
-- `src/input.rs`: native gamepad connections and four-player controls.
-- `src/menu.rs`: native settings, pause, volume controls and restart/quit actions.
-- `scripts/compile_game.py`: fixed-build static compiler, with original addresses
-  retained in generated comments.
-- `scripts/game_roots.json`: recovered callback and computed-transfer targets.
+No `.bin` game assets remain. JSON and PNG edits are read on startup; no asset
+compiler or Python installation is needed to build or run. The optional Python
+migration tools document how the original assets were recovered and are not
+invoked by Cargo. Source asset provenance is recorded in `assets/manifest.json`; its hashes describe
+the extraction snapshot, rather than restricting later asset edits.
 
-Generated Rust is inspectable at
-`target/debug/build/micro-mages-re-*/out/native_game.rs`. Its `translation.json`
-records the source digest and translation counts. Unknown control transfers fail
-explicitly; there is no interpreter fallback.
+For a packaged executable, place `assets/` beside it. During development the
+checkout's asset directory is used. `MICRO_MAGES_ASSETS=/path/to/assets` explicitly
+selects another directory. Steam and the original installation are unnecessary.
 
-## Assets and prerequisites
+## Code layout
 
-All assets for this PC-game reconstruction live in `assets/`:
-
-- `game-data.bin`: original 32 KiB program and game data, including level and animation tables.
-- `tiles.bin`: original 8 KiB graphics tile data used for sprites, backgrounds and text.
-- `music/`: all 9 original Ogg music tracks.
-- `sfx/`: all 37 original Ogg sound files, including files not currently referenced by playback mappings.
-- `manifest.json`: SHA-256 checksums for every asset and the source executable digest.
-
-The build verifies the asset checksums, translates the repository program data,
-and embeds graphics and game data into the executable. Audio is read from this
-checkout's `assets/` directory at runtime, independently of the working directory.
-Steam and the original installation are no longer needed to build or run.
-Moving the checkout requires rebuilding so the audio directory path is refreshed.
-These are the original game assets, not newly authored replacements.
-
-Build requirements: Rust, Python 3, and the Linux X11/Wayland, ALSA and udev
-development libraries used by the native window/audio/input crates.
-
-## Verification
-
-```sh
-cargo test
-cargo clippy --all-targets -- -D warnings
-cargo run -- --headless --frames 3600 --demo --screenshot /tmp/micro-mages.ppm
-```
-
-The automated suite covers rendering, four-player register behavior, controller
-slots/disconnection, music looping/seeking, and 1,800 frames for each of 14 stage
-selections in normal and hard modes with four-player scripted input. The stage
-selection injection exists only in test builds and uses the recovered new-game
-entry. Normal stage 13 exercises the ending; hard stage 13 exercises the final
-boss selection. A separate 10,000-frame normal gameplay smoke run passed.
-
-All 17 tests and strict Clippy checks pass, including decoding every bundled Ogg
-file. A fresh package build and 3,600-frame gameplay run were traced: neither
-accessed Steam or the original executable. A windowed run from outside the checkout
-also verified local audio loading and native window initialization. These checks
-establish runnable gameplay and broad callback coverage, not complete playthroughs,
-physical testing of every controller, or frame-by-frame parity with the original.
-
-A native settings overlay replaces the PC wrapper's settings dialogs. Configurable
-bindings and persistent configuration have not been recreated. The separate Second Quest ROM is not this build's target.
-
-## Reverse-engineering evidence
-
-REA 6.7.0 and Ghidra 12.1.4 are installed and registered with Codex. The matching
-skill is at `/home/matt/.agents/skills/reverse-engineer-anything`; Codex configuration
-backups were retained. Native analysis can be run without restarting the client:
-
-```sh
-bash scripts/rea.sh doctor --provider ghidra --json
-```
-
-Official project: <https://github.com/morluto/rea>.
-Ghidra lives under `tools/ghidra_12.1.4_PUBLIC`. Its official release ZIP digest was
-verified as `ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db`.
-
-Local, ignored analysis artifacts retain full evidence:
-
-| Evidence | Finding |
+| Module | Responsibility |
 | --- | --- |
-| `analysis/rea-checksum.json` | REA decompilation of checksum function at `0x4014f0` |
-| `analysis/rea-video-write.json` | REA decompilation of PC rendering-register writes |
-| `analysis/audio-hooks-rea.json` | REA decompilation of native music/effect hooks |
-| `analysis/game-flow.json` | Static game control-flow and callback discovery |
-| `analysis/game-levels.json` | Stage selection, game modes and transition fields |
-| `analysis/disassembly.txt` | GNU objdump disassembly of the PC wrapper |
+| `game.rs` | Intro, title, selection/password, campaign progression and transitions |
+| `world.rs` | Entity interactions, checkpoints, lives, pickups and combat |
+| `player.rs` | Movement, jump/float, wall jump, shooting, ghost and revival |
+| `enemy.rs` | Enemy states, boss patterns, damage and freezing |
+| `physics.rs` | Bodies, terrain materials and collision resolution |
+| `projectile.rs`, `pickup.rs` | Spell lifetimes, reward rules and collectible motion/expiry |
+| `camera.rs`, `video.rs` | Camera tracking and PNG tile/sprite drawing |
+| `assets.rs` | JSON/PNG loading, validation and terrain edits |
+| `scenes.rs`, `outcomes.rs` | Native intro/title/loading and outcome presentation assets |
+| `events.rs`, `audio.rs` | Semantic game events and native Ogg playback |
+| `input.rs`, `timing.rs` | Device inputs and fixed simulation timing |
+| `menu.rs`, `window.rs` | Settings UI and native desktop window |
 
-REA could not identify the requested function in the raw 6502 import; that failed
-attempt is recorded separately. The game-program control-flow recovery used static
-disassembly, while REA/Ghidra established native-wrapper behavior. Decompiler output
-is evidence about the shipped artifact, not its original source code.
+There is no address-based dispatch or shared emulated memory. Numeric sprite
+catalog IDs identify artwork; level entity names select behavior. The simulation
+has no window or audio-device dependency and can run headlessly.
+
+## Development and verification
+
+Rust plus the Linux X11/Wayland, ALSA and udev development libraries are required.
+
+```sh
+cargo fmt --check
+cargo test --all-targets
+cargo clippy --all-targets -- -D warnings
+python3 -m unittest discover -s scripts  # optional migration checks; requires Pillow
+cargo run -- --headless --stage 0 --frames 3600 --demo --screenshot /tmp/game.png
+```
+
+`--stage N`, `--hard` and `--players 1..4` select a scenario directly. `--mute`
+disables audio, and `--frames N` bounds a run. PNG and legacy PPM screenshots are
+supported. `--headless` disables devices and runs deterministic simulation ticks.
+`--replay PATH.json` plays recorded controller inputs with native graphics and
+sound; add `--headless` for deterministic offline playback. Replay metadata selects
+the mode and player count; a supplied `stage` starts gameplay directly, while
+omitting `stage` exercises the opening and menus. Playback stops after the
+recorded inputs.
+
+Tests cover gameplay interactions and every playable stage, plus reference-run
+fixtures for player movement, enemy cadence, boss behavior and collectibles.
+Startup and outcome image fixtures check presentation separately from gameplay.
+Asset regressions verify every graphics pixel, the expanded terrain layers,
+and all 27 stage-start palettes and tile maps. Rendering is tested independently
+of simulation, and a packaged-runtime test uses a separate asset directory.
+
+Validation distinguishes reference traces, interaction tests, stress scenarios,
+and completed legal-input replays. The 108-combination stress matrix exercises
+every stage, mode and player count; a bounded stress run is not a completion
+claim. Check current recording coverage with
+`cargo run --example replay_matrix -- --validate-all`.
+
+This is a tested reconstruction, not a claim of complete original-game equivalence.
+Known limits include intermediate loading fade colors, shared actor-slot allocation,
+and the separate secret `7195` challenge mode, which is not implemented.
+
+Evidence and the scope of each comparison are documented in
+[`docs/validation.md`](docs/validation.md),
+[`docs/architecture.md`](docs/architecture.md),
+[`docs/world-behavior.md`](docs/world-behavior.md),
+[`docs/player-behavior.md`](docs/player-behavior.md),
+[`docs/enemy-behavior.md`](docs/enemy-behavior.md), and
+[`docs/pickup-behavior.md`](docs/pickup-behavior.md), and
+[`docs/startup-presentation.md`](docs/startup-presentation.md).

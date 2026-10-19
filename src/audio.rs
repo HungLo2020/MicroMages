@@ -1,5 +1,6 @@
 //! Native playback of the repository's PC-game Ogg assets.
-//! Hook and table addresses are documented in analysis/audio-tables.json.
+//! Receives semantic events from the simulation; no code-address hooks.
+use crate::events::{GameEvent, Music, Sound};
 use rodio::{Decoder, OutputStream, OutputStreamHandle, Sink, Source};
 use std::{
     error::Error,
@@ -144,12 +145,10 @@ pub struct Audio {
     voices: Vec<(usize, Sink)>,
     music: Option<Sink>,
     music_seek: Option<(Arc<AtomicUsize>, usize)>,
-    pending_music: Option<u8>,
     fade: u16,
     music_volume: f32,
     effects_volume: f32,
     host_paused: bool,
-    game_paused: bool,
 }
 impl Audio {
     pub fn new(root: &Path) -> Result<Self, Box<dyn Error>> {
@@ -166,55 +165,34 @@ impl Audio {
             voices: Vec::new(),
             music: None,
             music_seek: None,
-            pending_music: None,
             fade: 0,
             music_volume: 1.0,
             effects_volume: 1.0,
             host_paused: false,
-            game_paused: false,
         })
     }
 
-    /// Called at the original game's routine boundaries, before executing the routine.
-    pub fn hook(&mut self, destination: u16, a: u8, _x: u8, y: u8) {
-        match destination {
-            0x91c9 => self.pending_music = Some(a),
-            0x9100 | 0x912e => {
-                if let Some(id) = self.pending_music.take() {
-                    self.play_music(id);
-                } else {
-                    self.music = None;
-                    self.music_seek = None;
-                    self.fade = 0;
-                }
+    pub fn handle(&mut self, event: GameEvent) {
+        match event {
+            GameEvent::Sound(sound) => self.play_sfx(sound, 0),
+            GameEvent::Music(music) => self.play_music(music),
+            GameEvent::StopMusic => {
+                self.music = None;
+                self.music_seek = None;
+                self.fade = 0;
             }
-            0x91c5 => self.fade = 1,
-            0x91c8 => {
-                if let Some((seek, position)) = &self.music_seek {
-                    seek.store(*position, Ordering::Relaxed);
-                }
-            }
-            0x9208 => {
-                self.game_paused = true;
-                self.sync_music();
-            }
-            0x9215 => {
-                self.game_paused = false;
-                self.sync_music();
-            }
-            0x9230 => self.play_sfx(a as usize, y as i8),
-            0x9232 => self.play_sfx(a as usize, 0),
-            _ => {}
+            GameEvent::FadeMusic => self.fade = 1,
+            GameEvent::GameOver | GameEvent::Victory | GameEvent::StageCompleted => {}
         }
     }
-    fn play_music(&mut self, id: u8) {
-        let Some(&(name, looping, start, end)) = MUSIC.get(id as usize) else {
+    fn play_music(&mut self, music: Music) {
+        let id = music.index();
+        let Some(&(name, looping, start, end)) = MUSIC.get(id) else {
             return;
         };
         self.music = None;
         self.music_seek = None;
         self.fade = 0;
-        self.game_paused = false;
         let Ok(sample) = Sample::load(&self.root.join(name)) else {
             return;
         };
@@ -231,7 +209,8 @@ impl Audio {
         self.music = Some(sink);
         self.sync_music();
     }
-    fn play_sfx(&mut self, id: usize, pitch: i8) {
+    fn play_sfx(&mut self, sound: Sound, pitch: i8) {
+        let id = sound.index();
         let Some(sample) = self.sfx.get(id) else {
             return;
         };
@@ -278,7 +257,7 @@ impl Audio {
         }
     }
 
-    /// The host menu pauses playback without discarding the game's own pause state.
+    /// Pause preserves the current playback position.
     pub fn settings(&mut self, music: u8, effects: u8, paused: bool) {
         self.music_volume = music.min(100) as f32 / 100.0;
         self.effects_volume = effects.min(100) as f32 / 100.0;
@@ -297,7 +276,7 @@ impl Audio {
     fn sync_music(&self) {
         if let Some(sink) = &self.music {
             sink.set_volume(0.85 * self.music_volume * (256 - self.fade) as f32 / 256.0);
-            if self.host_paused || self.game_paused {
+            if self.host_paused {
                 sink.pause();
             } else {
                 sink.play();
@@ -311,7 +290,7 @@ mod tests {
     use super::*;
     #[test]
     fn repository_audio_assets_decode() {
-        let root = Path::new(env!("MICRO_MAGES_BUILD_ASSETS"));
+        let root = crate::assets::default_root();
         for (folder, expected) in [("music", 9), ("sfx", 37)] {
             let files: Vec<_> = std::fs::read_dir(root.join(folder))
                 .unwrap()

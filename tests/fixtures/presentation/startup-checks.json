@@ -1,0 +1,22 @@
+[
+  {
+    "ticks": 120,
+    "screen": "Intro",
+    "image": "original-0120.png"
+  },
+  {
+    "ticks": 600,
+    "screen": "Intro",
+    "image": "original-0600.png"
+  },
+  {
+    "ticks": 900,
+    "screen": "Intro",
+    "image": "original-0900.png"
+  },
+  {
+    "ticks": 960,
+    "screen": "Title",
+    "image": "original-0960.png"
+  }
+]

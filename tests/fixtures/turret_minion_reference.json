@@ -1,0 +1,1806 @@
+{
+  "source_callback": "d2cb",
+  "initial_center": [
+    88,
+    64
+  ],
+  "solid_metatile_columns": [
+    4,
+    7
+  ],
+  "solid_metatile_row": 5,
+  "cases": [
+    {
+      "hard": false,
+      "rows": [
+        {
+          "tick": 0,
+          "x256": 22528,
+          "y256": 16421,
+          "vx256": 0,
+          "vy256": 37,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 1,
+          "x256": 22528,
+          "y256": 16495,
+          "vx256": 0,
+          "vy256": 74,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 2,
+          "x256": 22528,
+          "y256": 16606,
+          "vx256": 0,
+          "vy256": 111,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 3,
+          "x256": 22528,
+          "y256": 16754,
+          "vx256": 0,
+          "vy256": 148,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 4,
+          "x256": 22528,
+          "y256": 16939,
+          "vx256": 0,
+          "vy256": 185,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 5,
+          "x256": 22528,
+          "y256": 17161,
+          "vx256": 0,
+          "vy256": 222,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 6,
+          "x256": 22528,
+          "y256": 17420,
+          "vx256": 0,
+          "vy256": 259,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 7,
+          "x256": 22528,
+          "y256": 17716,
+          "vx256": 0,
+          "vy256": 296,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 8,
+          "x256": 22528,
+          "y256": 18049,
+          "vx256": 0,
+          "vy256": 333,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 9,
+          "x256": 22528,
+          "y256": 18419,
+          "vx256": 0,
+          "vy256": 370,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 10,
+          "x256": 22528,
+          "y256": 18826,
+          "vx256": 0,
+          "vy256": 407,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 11,
+          "x256": 22528,
+          "y256": 19270,
+          "vx256": 0,
+          "vy256": 444,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 12,
+          "x256": 22528,
+          "y256": 19495,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 13,
+          "x256": 22528,
+          "y256": 19276,
+          "vx256": 0,
+          "vy256": -219,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 14,
+          "x256": 22680,
+          "y256": 19094,
+          "vx256": 152,
+          "vy256": -182,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 15,
+          "x256": 22832,
+          "y256": 18949,
+          "vx256": 152,
+          "vy256": -145,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 16,
+          "x256": 22984,
+          "y256": 18841,
+          "vx256": 152,
+          "vy256": -108,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 17,
+          "x256": 23136,
+          "y256": 18770,
+          "vx256": 152,
+          "vy256": -71,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 18,
+          "x256": 23288,
+          "y256": 18736,
+          "vx256": 152,
+          "vy256": -34,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 19,
+          "x256": 23440,
+          "y256": 18739,
+          "vx256": 152,
+          "vy256": 3,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 20,
+          "x256": 23592,
+          "y256": 18779,
+          "vx256": 152,
+          "vy256": 40,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 21,
+          "x256": 23744,
+          "y256": 18856,
+          "vx256": 152,
+          "vy256": 77,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 22,
+          "x256": 23896,
+          "y256": 18970,
+          "vx256": 152,
+          "vy256": 114,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 23,
+          "x256": 24048,
+          "y256": 19121,
+          "vx256": 152,
+          "vy256": 151,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 24,
+          "x256": 24200,
+          "y256": 19309,
+          "vx256": 152,
+          "vy256": 188,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 25,
+          "x256": 24352,
+          "y256": 19534,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 26,
+          "x256": 24504,
+          "y256": 19571,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 27,
+          "x256": 24656,
+          "y256": 19608,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 28,
+          "x256": 24808,
+          "y256": 19645,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 29,
+          "x256": 24960,
+          "y256": 19682,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 30,
+          "x256": 25112,
+          "y256": 19463,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 31,
+          "x256": 25264,
+          "y256": 19500,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 32,
+          "x256": 25416,
+          "y256": 19537,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 33,
+          "x256": 25568,
+          "y256": 19574,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 34,
+          "x256": 25720,
+          "y256": 19611,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 35,
+          "x256": 25872,
+          "y256": 19648,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 36,
+          "x256": 26024,
+          "y256": 19685,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 37,
+          "x256": 26176,
+          "y256": 19466,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 38,
+          "x256": 26328,
+          "y256": 19503,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 39,
+          "x256": 26480,
+          "y256": 19540,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 40,
+          "x256": 26632,
+          "y256": 19577,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 41,
+          "x256": 26784,
+          "y256": 19614,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 42,
+          "x256": 26936,
+          "y256": 19651,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 43,
+          "x256": 27088,
+          "y256": 19688,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 44,
+          "x256": 27240,
+          "y256": 19469,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 45,
+          "x256": 27392,
+          "y256": 19506,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 46,
+          "x256": 27544,
+          "y256": 19543,
+          "vx256": 152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 47,
+          "x256": 27696,
+          "y256": 19580,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 48,
+          "x256": 27848,
+          "y256": 19617,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 49,
+          "x256": 27744,
+          "y256": 19654,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 50,
+          "x256": 27592,
+          "y256": 19691,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 51,
+          "x256": 27440,
+          "y256": 19472,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 52,
+          "x256": 27288,
+          "y256": 19509,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 53,
+          "x256": 27136,
+          "y256": 19546,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 54,
+          "x256": 26984,
+          "y256": 19583,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 55,
+          "x256": 26832,
+          "y256": 19620,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 56,
+          "x256": 26680,
+          "y256": 19657,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 57,
+          "x256": 26528,
+          "y256": 19694,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 58,
+          "x256": 26376,
+          "y256": 19475,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 59,
+          "x256": 26224,
+          "y256": 19512,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 60,
+          "x256": 26072,
+          "y256": 19549,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 61,
+          "x256": 25920,
+          "y256": 19586,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 62,
+          "x256": 25768,
+          "y256": 19623,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 63,
+          "x256": 25616,
+          "y256": 19660,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 64,
+          "x256": 25464,
+          "y256": 19697,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 65,
+          "x256": 25312,
+          "y256": 19478,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 66,
+          "x256": 25160,
+          "y256": 19515,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 67,
+          "x256": 25008,
+          "y256": 19552,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 68,
+          "x256": 24856,
+          "y256": 19589,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 69,
+          "x256": 24704,
+          "y256": 19626,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 70,
+          "x256": 24552,
+          "y256": 19663,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 71,
+          "x256": 24400,
+          "y256": 19700,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 72,
+          "x256": 24248,
+          "y256": 19481,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 73,
+          "x256": 24096,
+          "y256": 19518,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 74,
+          "x256": 23944,
+          "y256": 19555,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 75,
+          "x256": 23792,
+          "y256": 19592,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 76,
+          "x256": 23640,
+          "y256": 19629,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 77,
+          "x256": 23488,
+          "y256": 19666,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 78,
+          "x256": 23336,
+          "y256": 19703,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 79,
+          "x256": 23184,
+          "y256": 19484,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 80,
+          "x256": 23032,
+          "y256": 19521,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 81,
+          "x256": 22880,
+          "y256": 19558,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 82,
+          "x256": 22728,
+          "y256": 19595,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 83,
+          "x256": 22576,
+          "y256": 19632,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 84,
+          "x256": 22424,
+          "y256": 19669,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 85,
+          "x256": 22272,
+          "y256": 19706,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 86,
+          "x256": 22120,
+          "y256": 19487,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 87,
+          "x256": 21968,
+          "y256": 19524,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 88,
+          "x256": 21816,
+          "y256": 19561,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 89,
+          "x256": 21664,
+          "y256": 19598,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 90,
+          "x256": 21512,
+          "y256": 19635,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 91,
+          "x256": 21360,
+          "y256": 19672,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 92,
+          "x256": 21464,
+          "y256": 19709,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 93,
+          "x256": 21464,
+          "y256": 19709,
+          "vx256": -152,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 255,
+          "alive": false
+        }
+      ]
+    },
+    {
+      "hard": true,
+      "rows": [
+        {
+          "tick": 0,
+          "x256": 22528,
+          "y256": 16421,
+          "vx256": 0,
+          "vy256": 37,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 1,
+          "x256": 22528,
+          "y256": 16495,
+          "vx256": 0,
+          "vy256": 74,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 2,
+          "x256": 22528,
+          "y256": 16606,
+          "vx256": 0,
+          "vy256": 111,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 3,
+          "x256": 22528,
+          "y256": 16754,
+          "vx256": 0,
+          "vy256": 148,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 4,
+          "x256": 22528,
+          "y256": 16939,
+          "vx256": 0,
+          "vy256": 185,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 5,
+          "x256": 22528,
+          "y256": 17161,
+          "vx256": 0,
+          "vy256": 222,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 6,
+          "x256": 22528,
+          "y256": 17420,
+          "vx256": 0,
+          "vy256": 259,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 7,
+          "x256": 22528,
+          "y256": 17716,
+          "vx256": 0,
+          "vy256": 296,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 8,
+          "x256": 22528,
+          "y256": 18049,
+          "vx256": 0,
+          "vy256": 333,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 9,
+          "x256": 22528,
+          "y256": 18419,
+          "vx256": 0,
+          "vy256": 370,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 10,
+          "x256": 22528,
+          "y256": 18826,
+          "vx256": 0,
+          "vy256": 407,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 11,
+          "x256": 22528,
+          "y256": 19270,
+          "vx256": 0,
+          "vy256": 444,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 12,
+          "x256": 22528,
+          "y256": 19495,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 0,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 13,
+          "x256": 22528,
+          "y256": 19276,
+          "vx256": 0,
+          "vy256": -219,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 14,
+          "x256": 22696,
+          "y256": 19094,
+          "vx256": 168,
+          "vy256": -182,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 15,
+          "x256": 22864,
+          "y256": 18949,
+          "vx256": 168,
+          "vy256": -145,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 16,
+          "x256": 23032,
+          "y256": 18841,
+          "vx256": 168,
+          "vy256": -108,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 17,
+          "x256": 23200,
+          "y256": 18770,
+          "vx256": 168,
+          "vy256": -71,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 18,
+          "x256": 23368,
+          "y256": 18736,
+          "vx256": 168,
+          "vy256": -34,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 19,
+          "x256": 23536,
+          "y256": 18739,
+          "vx256": 168,
+          "vy256": 3,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 20,
+          "x256": 23704,
+          "y256": 18779,
+          "vx256": 168,
+          "vy256": 40,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 21,
+          "x256": 23872,
+          "y256": 18856,
+          "vx256": 168,
+          "vy256": 77,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 22,
+          "x256": 24040,
+          "y256": 18970,
+          "vx256": 168,
+          "vy256": 114,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 23,
+          "x256": 24208,
+          "y256": 19121,
+          "vx256": 168,
+          "vy256": 151,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 24,
+          "x256": 24376,
+          "y256": 19309,
+          "vx256": 168,
+          "vy256": 188,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 25,
+          "x256": 24544,
+          "y256": 19534,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 26,
+          "x256": 24712,
+          "y256": 19571,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 27,
+          "x256": 24880,
+          "y256": 19608,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 28,
+          "x256": 25048,
+          "y256": 19645,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 29,
+          "x256": 25216,
+          "y256": 19682,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 30,
+          "x256": 25384,
+          "y256": 19463,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 31,
+          "x256": 25552,
+          "y256": 19500,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 32,
+          "x256": 25720,
+          "y256": 19537,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 33,
+          "x256": 25888,
+          "y256": 19574,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 34,
+          "x256": 26056,
+          "y256": 19611,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 35,
+          "x256": 26224,
+          "y256": 19648,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 36,
+          "x256": 26392,
+          "y256": 19685,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 37,
+          "x256": 26560,
+          "y256": 19466,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 38,
+          "x256": 26728,
+          "y256": 19503,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 39,
+          "x256": 26896,
+          "y256": 19540,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 40,
+          "x256": 27064,
+          "y256": 19577,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 41,
+          "x256": 27232,
+          "y256": 19614,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 42,
+          "x256": 27400,
+          "y256": 19651,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 43,
+          "x256": 27568,
+          "y256": 19688,
+          "vx256": 168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 44,
+          "x256": 27736,
+          "y256": 19469,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 1,
+          "alive": true
+        },
+        {
+          "tick": 45,
+          "x256": 27648,
+          "y256": 19506,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 46,
+          "x256": 27480,
+          "y256": 19543,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 47,
+          "x256": 27312,
+          "y256": 19580,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 48,
+          "x256": 27144,
+          "y256": 19617,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 49,
+          "x256": 26976,
+          "y256": 19654,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 50,
+          "x256": 26808,
+          "y256": 19691,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 51,
+          "x256": 26640,
+          "y256": 19472,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 52,
+          "x256": 26472,
+          "y256": 19509,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 53,
+          "x256": 26304,
+          "y256": 19546,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 54,
+          "x256": 26136,
+          "y256": 19583,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 55,
+          "x256": 25968,
+          "y256": 19620,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 56,
+          "x256": 25800,
+          "y256": 19657,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 57,
+          "x256": 25632,
+          "y256": 19694,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 58,
+          "x256": 25464,
+          "y256": 19475,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 59,
+          "x256": 25296,
+          "y256": 19512,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 60,
+          "x256": 25128,
+          "y256": 19549,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 61,
+          "x256": 24960,
+          "y256": 19586,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 62,
+          "x256": 24792,
+          "y256": 19623,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 63,
+          "x256": 24624,
+          "y256": 19660,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 64,
+          "x256": 24456,
+          "y256": 19697,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 65,
+          "x256": 24288,
+          "y256": 19478,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 66,
+          "x256": 24120,
+          "y256": 19515,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 67,
+          "x256": 23952,
+          "y256": 19552,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 68,
+          "x256": 23784,
+          "y256": 19589,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 69,
+          "x256": 23616,
+          "y256": 19626,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 70,
+          "x256": 23448,
+          "y256": 19663,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 71,
+          "x256": 23280,
+          "y256": 19700,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 72,
+          "x256": 23112,
+          "y256": 19481,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 73,
+          "x256": 22944,
+          "y256": 19518,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 74,
+          "x256": 22776,
+          "y256": 19555,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 75,
+          "x256": 22608,
+          "y256": 19592,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 76,
+          "x256": 22440,
+          "y256": 19629,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 77,
+          "x256": 22272,
+          "y256": 19666,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 78,
+          "x256": 22104,
+          "y256": 19703,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 79,
+          "x256": 21936,
+          "y256": 19484,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 80,
+          "x256": 21768,
+          "y256": 19521,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 81,
+          "x256": 21600,
+          "y256": 19558,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 82,
+          "x256": 21432,
+          "y256": 19595,
+          "vx256": 0,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 0,
+          "alive": true
+        },
+        {
+          "tick": 83,
+          "x256": 21432,
+          "y256": 19595,
+          "vx256": -168,
+          "vy256": 0,
+          "phase": 1,
+          "turns_remaining": 255,
+          "alive": false
+        }
+      ]
+    }
+  ],
+  "provenance": "Isolated original d2cb callback in saved reference recompilation. Slot4, initial facing right. Solid metatile15 forms floor row5 and walls columns4,7. Full lifetime including two wall reversals. Source coordinates are integer fixed-point units /256.",
+  "source_prg_sha256": "360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb"
+}
