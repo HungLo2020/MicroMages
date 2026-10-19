@@ -54,8 +54,6 @@ def main():
     if api("commits/main")["sha"] != commit:
         print("A newer commit is on main; this run will not replace latest.")
         return
-    if api("immutable-releases")["enabled"]:
-        raise RuntimeError("Repository release immutability must be disabled for rolling latest")
     files = [Path("dist/MicroMages-latest-linux-x64.zip"),
              Path("dist/MicroMages-latest-linux-x64.zip.sha256")]
     for path in files:
