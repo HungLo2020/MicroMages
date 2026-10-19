@@ -9,6 +9,7 @@ import subprocess
 import tempfile
 import zipfile
 from pathlib import Path
+from verify_artwork import verify_artwork
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLED = {
@@ -20,6 +21,7 @@ SYSTEM = {"libc.so.6", "libm.so.6", "libpthread.so.0", "libdl.so.2", "librt.so.1
 
 
 def package(binary, output, revision):
+    verify_artwork(ROOT / "packaging/artwork")
     if platform.system() != "Linux" or platform.machine() != "x86_64":
         raise ValueError("Package on Linux x86_64")
     dynamic = subprocess.check_output(["readelf", "-d", str(binary)], text=True)
@@ -36,7 +38,9 @@ def package(binary, output, revision):
         executable.chmod(0o755)
         shutil.copytree(ROOT / "assets", app / "assets")
         shutil.copy2(ROOT / "README.md", app / "README.md")
-        shutil.copy2(ROOT / "packaging/basalt.json", app / "basalt.json")
+        (app / "basalt").mkdir()
+        for name in ["cover.png", "icon.png", "sources.json"]:
+            shutil.copy2(ROOT / "packaging/artwork" / name, app / "basalt" / name)
         found = set()
         for line in subprocess.check_output(["ldd", str(binary)], text=True).splitlines():
             parts = line.split()

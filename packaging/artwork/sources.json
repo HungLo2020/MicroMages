@@ -1,0 +1,21 @@
+{
+  "store_page": "https://store.steampowered.com/app/1065020/Micro_Mages/",
+  "credit": "Micro Mages artwork © Morphcat Games. Original artwork; not a new license grant.",
+  "retrieved": "2026-10-19",
+  "sources": [
+    {
+      "file": "source/steam-cover.jpg",
+      "url": "https://cdn.akamai.steamstatic.com/steam/apps/1065020/library_600x900_2x.jpg",
+      "sha256": "d6241c0928f2908daa50490fc45384dc6f6360a533865d51ba080daf2fe5aaaf"
+    },
+    {
+      "file": "source/steam-icon.ico",
+      "url": "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/1065020/aae36ff6ae29665d13c2d66e2af339318831cf86.ico",
+      "sha256": "541b250e492cd932bcbbf3e912d5443a391633f413e87bef3e98da9b27a66075"
+    }
+  ],
+  "outputs": {
+    "cover.png": "Full 600×900 source resized proportionally to 800×1200, centered on a black 900×1200 RGB canvas. No crop or distortion.",
+    "icon.png": "Original 48×48 RGBA ICO frame enlarged 10× with nearest-neighbor sampling, centered on transparent 512×512 canvas."
+  }
+}

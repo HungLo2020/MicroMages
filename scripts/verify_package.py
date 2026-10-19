@@ -9,6 +9,7 @@ import sys
 import tempfile
 import zipfile
 from pathlib import Path, PurePosixPath
+from verify_artwork import verify_artwork
 
 
 def extract(archive, destination):
@@ -43,6 +44,10 @@ def verify(archive):
         temporary = Path(directory)
         root = temporary / "library with spaces/MicroMages"
         extract(archive, root)
+        verify_artwork(root / "app/basalt")
+        source = Path(__file__).resolve().parents[1] / "packaging/artwork"
+        for name in ["cover.png", "icon.png"]:
+            assert (root / "app/basalt" / name).read_bytes() == (source / name).read_bytes()
         before = snapshot(root / "app")
         for p in (root / "app").rglob("*"):
             p.chmod((p.stat().st_mode & 0o555) if p.is_file() else 0o555)

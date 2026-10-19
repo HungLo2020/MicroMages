@@ -1,9 +1,9 @@
 # Basalt packaging and releases
 
 Micro Mages follows [Basalt standard 1](https://github.com/HungLo2020/Basalt/blob/main/STANDARDS.md).
-The catalog definition is [packaging/basalt.json](../packaging/basalt.json), using
-schema 2, standard 1, no custom layout and no maintenance scripts. The executable
-path stays `app/bin/micromages`, compatible with the previous catalog entry.
+The catalog definition is maintained in Basalt's `resources/games/micromages.json`,
+using schema 2, standard 1, no custom layout and no maintenance scripts. It is not
+bundled with the game. The executable path stays `app/bin/micromages`.
 
 ## Installed layout
 
@@ -15,7 +15,9 @@ MicroMages/
     lib/                     ALSA, udev and GCC unwind libraries
     licenses/                bundled native-library notices
     build-info.json          source commit and platform
-    basalt.json
+    basalt/cover.png         official Steam cover, adapted to 900×1200
+    basalt/icon.png          transparent 512×512 purple mage
+    basalt/sources.json      artwork attribution and provenance
     README.md
   data/
     save/                    reserved for user progress/content
@@ -105,3 +107,17 @@ Compliance: release contains only app; app is read-only at runtime; all automati
 user files stay in data; preferences are portable and atomic; empty data initializes;
 paths are relocatable; launch is offline and argument-free; normal quit returns 0;
 controller support is retained; no custom updater; catalog uses schema 2/standard 1.
+
+## Launcher artwork
+
+The checked-in [artwork](../packaging/artwork/README.md) comes from the official
+Steam release. Packaging copies it to `app/basalt/`, where Basalt discovers it
+automatically after installation. The catalog has no `artwork.cover_url`: artwork
+ships inside the game release and requires no separate download. Source URLs in
+the bundled provenance file are attribution only. No changes to Basalt are needed.
+
+The existing workflow now validates exact 3:4 cover geometry, minimum resolution,
+opacity and the 2 MB limit, plus square transparent icons. Tests verify source
+hashes and reproducible resizing; the ZIP check verifies that shipped PNGs match
+the repository images byte for byte. No game runtime or release naming changes
+are required. Artwork stays under `app/`, outside saves, backups and sync.
