@@ -1121,11 +1121,10 @@ impl World {
                             }
                         }
                     }
-                    PropKind::Flame => {
-                        if !player.damage().is_empty() {
-                            output.push(GameEvent::Sound(Sound::Hurt));
-                        }
-                    }
+                    // Source flame update $d2f5 skips the contact-damage call
+                    // at $d2f2. Wall torches animate and can be extinguished by
+                    // shots, but touching them is harmless.
+                    PropKind::Flame => {}
                     PropKind::Gem(value) => {
                         self.score += value;
                         self.player_scores[player.id] += value;
@@ -1301,6 +1300,81 @@ mod tests {
         world.level.collision.fill(0);
         world.level.metatiles.fill(0);
         world
+    }
+    #[test]
+    fn first_level_wall_torches_do_not_hurt_any_player() {
+        let assets = crate::assets::Assets::load(&crate::assets::default_root()).unwrap();
+        for hard in [false, true] {
+            for count in 1..=4 {
+                let mut world = World::new(assets.level(0, hard).unwrap().clone(), count);
+                world.props.retain(|prop| prop.kind == PropKind::Flame);
+                assert_eq!(world.props.len(), 8);
+                for index in 0..world.props.len() {
+                    let position = world.props[index].body.position;
+                    for health in [1, 2] {
+                        for player in &mut world.players {
+                            *player = Player::new(player.id, position);
+                            player.health = health;
+                            player.invulnerability = 0;
+                        }
+                        let mut events = Vec::new();
+                        for tick in 0..256 {
+                            world.tick = tick;
+                            assert!(!world.update_props([InputFrame::default(); 4], &mut events));
+                        }
+                        for player in &world.players {
+                            assert_eq!(
+                                player.health, health,
+                                "hard={hard}, torch={index}, player={}",
+                                player.id
+                            );
+                            assert_eq!(player.state, PlayerState::Alive);
+                            assert_eq!(player.invulnerability, 0);
+                        }
+                        assert!(events.is_empty());
+                        assert!(world.props[index].active);
+                    }
+                }
+            }
+        }
+    }
+    #[test]
+    fn wall_torches_allow_player_contact_and_still_extinguish_when_shot() {
+        let assets = crate::assets::Assets::load(&crate::assets::default_root()).unwrap();
+        for hard in [false, true] {
+            let level = assets.level(0, hard).unwrap();
+            for spawn in level.spawns.iter().filter(|s| s.entity == Entity::Flame) {
+                for charged in [false, true] {
+                    let mut world = World::new(level.clone(), 1);
+                    world.enemies.clear();
+                    world.props.retain(|p| p.kind == PropKind::Flame);
+                    world.camera.position.y = spawn.y - 120.;
+                    let player = &mut world.players[0];
+                    player.body.position = Vec2::new(spawn.x - 4., spawn.y - 4.);
+                    player.invulnerability = 0;
+                    let mut events = Vec::new();
+                    // Keep the actual level terrain and run the complete world
+                    // update, so tile damage cannot hide behind a prop-only test.
+                    world.step([InputFrame::default(); 4], &mut events);
+                    assert_eq!(world.players[0].state, PlayerState::Alive);
+                    assert_eq!(world.players[0].health, 1);
+                    assert!(!events.contains(&GameEvent::Sound(Sound::Hurt)));
+                    events.clear();
+                    world.projectiles.push(Projectile::spell(
+                        0,
+                        Vec2::new(spawn.x - 6., spawn.y),
+                        Vec2::new(1., 0.),
+                        charged,
+                    ));
+                    world.update_projectiles(&mut events);
+                    assert_eq!(world.props.iter().filter(|p| !p.active).count(), 1);
+                    assert_eq!(events, vec![GameEvent::Sound(Sound::Extinguish)]);
+                    events.clear();
+                    world.update_projectiles(&mut events);
+                    assert!(events.is_empty(), "extinguishing must happen only once");
+                }
+            }
+        }
     }
     #[test]
     fn segmented_boss_lift_matches_original_player_trace() {

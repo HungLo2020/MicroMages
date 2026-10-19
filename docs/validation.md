@@ -23,8 +23,18 @@ python3 -m unittest discover -s scripts
 cargo run --example replay_matrix -- --validate-all
 ```
 
-Final regression run: all 164 Rust tests and nine Python asset-tool tests pass.
-Formatting, strict all-target Clippy and `git diff --check` also pass.
+The original audit passed 164 Rust tests and nine Python asset-tool tests, plus
+formatting, strict all-target Clippy and `git diff --check`.
+
+The 2026-10-19 torch-contact follow-up adds two regressions and reruns all 166 Rust
+tests and all 112 completion recordings. It verifies that every first-level wall
+torch is harmless on contact, including both difficulties and one through four
+players, while shots still extinguish flames. Original callback evidence and a
+positive-control probe are recorded in `enemy-behavior.md`. The normal four-player
+recording was replaced because the old route depended on the incorrect damage.
+On Rust 1.99.1, strict Clippy reports six pre-existing `chunks_exact_to_as_chunks`
+lints in image decoding/tests; all-target Clippy passes with only that new lint
+allowed. Formatting and `git diff --check` pass.
 
 All 108 individual stage/mode/player combinations have passed fresh verification,
 including 513,820 controller-input frames and every subsequent stage/ending
@@ -91,7 +101,7 @@ integration test requires complete normal/hard campaigns with one/four players.
 | Mode | Players | Ticks | Result |
 | --- | --- | --- | --- |
 | Normal | 1 | 60,049 | Ending; one reserve remaining |
-| Normal | 4 | 69,169 | Ending; three reserves remaining |
+| Normal | 4 | 56,319 | Ending; two reserves remaining |
 | Hard | 1 | 66,801 | Ending; three reserves remaining |
 | Hard | 4 | 61,399 | Ending; three reserves remaining |
 

@@ -80,7 +80,7 @@ The extracted levels contain all of the following; props must not be routed to h
 - 04 checkpoint: bc6d saves checkpoint position and plays sound21.
 - 1c level exit: c228 switches player state, plays exit sounds, and starts128tick transition.
 - 2e/30/33 paired portals: e28f searches another matching type; e2d0 relocates the player.
-- 28 flame: c527 extinguishes on hit (sound13).
+- 28 flame: c527 extinguishes on hit (sound13); player contact is harmless.
 - 19 wall spike: c317 removes it when its supporting solid tile disappears.
 - 1a horizontal wind: d264 pushes players1pixel/tick in a73pixel horizontal,19pixel vertical neighborhood.
 - 1f wind current: e5b5 emits particles and applies directional movement.
@@ -89,6 +89,29 @@ The extracted levels contain all of the following; props must not be routed to h
 - 2f segmented arena controller: b5ca, thirty one-hit segments in a6×5grid; native implementation now uses independent segment collision and health tracking.
 - 31 boss entrance trigger: 994e sets game state4, which lifts players and closes the arena before activating the boss.
 - 21 player start.
+
+### Wall-torch contact regression (2026-10-19)
+
+The native prop interaction incorrectly called `player.damage()` near a flame.
+The source type 40 (`0x28`) descriptor at `$c505` instead selects update `$d2f5`,
+initialization `$c50b` and projectile-hit callback `$c527`. Update `$d2f5` calls
+animation/render `$a3b9` and screen-bounds handling `$823e`. It skips the contact
+damage call to `$857b` at the adjacent entry point `$d2f2`.
+
+An isolated execution probe used the archived program from commit `224eb87`
+(SHA-256 `360cc9ac03244ba14a7452031fcd9da3a10aa69fed2c84e201c240d689eb4adb`).
+Player slot 0 and initialized flame slot 4 were placed at center (128,100), with
+player health 2 and no invulnerability. Calling the actual flame update for 120
+ticks left health 2, invulnerability 0, player state 0 and flame type 40. Calling
+the adjacent contact-damaging entry point with the same setup instead produced
+health 1 and invulnerability 110, providing a positive control. This probe checks
+the callback in isolation, not a complete original-game playthrough.
+
+Native regression tests overlap every actual first-level torch with one through
+four players in both difficulties, at one and two health. Separate complete-world
+updates retain the original level terrain and verify harmless contact, then check
+that ordinary and charged shots still extinguish each torch exactly once. The
+contact regression failed with health 0 before the fix and passes afterward.
 - 0f/11/15/17/20 share pickup callback9325;11 swaps player positions,20 grants fairy/resurrection, others award score via b87c.
 
 Source18 is a separate Leaper and24 a non-damaging SummoningPlatform; alias13(Chaser) preserves its exact descriptor in `Enemy::source_kind` when loaded by the world. Their canonical kind identifier alone is insufficient for rendering the original variant.
