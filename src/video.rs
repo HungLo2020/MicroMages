@@ -685,7 +685,9 @@ mod tests {
             let mut bytes = vec![0; reader.output_buffer_size()];
             let info = reader.next_frame(&mut bytes).unwrap();
             let expected: Vec<u32> = bytes[..info.buffer_size()]
-                .chunks_exact(3)
+                .as_chunks::<3>()
+                .0
+                .iter()
                 .map(|c| u32::from(c[0]) << 16 | u32::from(c[1]) << 8 | u32::from(c[2]))
                 .collect();
             let mut renderer = Video::new();
@@ -876,7 +878,9 @@ mod tests {
             let mut bytes = vec![0; reader.output_buffer_size()];
             let info = reader.next_frame(&mut bytes).unwrap();
             let expected: Vec<u32> = bytes[..info.buffer_size()]
-                .chunks_exact(3)
+                .as_chunks::<3>()
+                .0
+                .iter()
                 .map(|c| u32::from(c[0]) << 16 | u32::from(c[1]) << 8 | u32::from(c[2]))
                 .collect();
             let mut game = Game::new(assets.clone());

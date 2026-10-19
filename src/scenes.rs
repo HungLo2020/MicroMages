@@ -37,7 +37,9 @@ impl Presentation {
             );
         }
         let pixels = bytes[..info.buffer_size()]
-            .chunks_exact(3)
+            .as_chunks::<3>()
+            .0
+            .iter()
             .map(|c| u32::from(c[0]) << 16 | u32::from(c[1]) << 8 | u32::from(c[2]))
             .collect();
         let read = |name: &str| -> Result<Timeline, String> {
@@ -82,7 +84,9 @@ impl Presentation {
             return Err("loading.png must be 256x240 RGB".into());
         }
         let loading = bytes[..info_loading.buffer_size()]
-            .chunks_exact(3)
+            .as_chunks::<3>()
+            .0
+            .iter()
             .map(|c| u32::from(c[0]) << 16 | u32::from(c[1]) << 8 | u32::from(c[2]))
             .collect();
         Ok(Self {

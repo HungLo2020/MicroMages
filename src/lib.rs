@@ -13,6 +13,7 @@ pub mod pickup;
 pub mod player;
 pub mod projectile;
 pub mod scenes;
+pub mod storage;
 pub mod timing;
 pub mod video;
 pub mod world;

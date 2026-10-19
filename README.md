@@ -30,7 +30,7 @@ The hard-mode final arena uses directional flight and fires spells rightward.
 
 Settings provide resume, separate music/effects volume, controls, restart
 confirmation and quit. Settings consume their own input and freeze simulation
-and audio. Volume settings last for the current process.
+and audio. Music/effects volumes persist in `data/config/shared/preferences.json`.
 
 ## Editable assets
 
@@ -52,9 +52,11 @@ migration tools document how the original assets were recovered and are not
 invoked by Cargo. Source asset provenance is recorded in `assets/manifest.json`; its hashes describe
 the extraction snapshot, rather than restricting later asset edits.
 
-For a packaged executable, place `assets/` beside it. During development the
-checkout's asset directory is used. `MICRO_MAGES_ASSETS=/path/to/assets` explicitly
-selects another directory. Steam and the original installation are unnecessary.
+Releases use `app/bin/micromages` and `app/assets/`. Run the executable directly or
+launch through Basalt; no arguments, Steam, network, or terminal interaction are
+needed. During development the checkout's asset directory is used.
+`MICRO_MAGES_ASSETS=/path/to/assets` explicitly selects another directory.
+See [Basalt packaging and releases](docs/basalt.md) for paths, dependencies and CI.
 
 ## Code layout
 

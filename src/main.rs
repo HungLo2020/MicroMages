@@ -3,6 +3,7 @@ use micro_mages_re::{
     audio::Audio,
     events::GameEvent,
     game::Game,
+    storage::{Paths, Preferences},
     video::{HEIGHT, WIDTH},
 };
 use minifb::{Key, KeyRepeat, Scale, Window, WindowOptions};
@@ -138,6 +139,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("--headless requires --frames N".into());
     }
     let assets = Arc::new(Assets::load(&assets::default_root())?);
+    let paths = Paths::discover()?;
+    paths.create_user_directories()?;
+    let preferences_file = paths.preferences_file();
+    let mut preferences = Preferences::load_or_create(&preferences_file)?;
     let mut game = Game::new(assets.clone());
     if !(1..=4).contains(&players) {
         return Err("--players must be 1..4".into());
@@ -155,6 +160,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         None
     };
+    if let Some(audio) = &mut audio {
+        audio.settings(preferences.music, preferences.effects, false);
+    }
     let initial = if let Some(stage) = stage {
         game.start(stage, players, hard)?
     } else {
@@ -189,6 +197,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         Some(micro_mages_re::input::Pads::new())
     };
     let mut menu = menu::Menu::new();
+    menu.music = preferences.music;
+    menu.effects = preferences.effects;
     let mut displayed = vec![0; WIDTH * HEIGHT];
     let mut ticks = 0;
     let mut replay_tick = 0usize;
@@ -277,6 +287,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         let ui = menu.handle(if demo { [0; 4] } else { inputs }, toggle_menu);
+        if (menu.music, menu.effects) != (preferences.music, preferences.effects) {
+            preferences.music = menu.music;
+            preferences.effects = menu.effects;
+            preferences.save(&preferences_file)?;
+        }
         match ui.command {
             menu::Command::Quit => break,
             menu::Command::Restart => {

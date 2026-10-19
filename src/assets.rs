@@ -284,7 +284,7 @@ impl Atlas {
             return Err("tiles.png must be a 128x256 RGBA atlas".into());
         }
         let mut pixels = Vec::with_capacity(128 * 256);
-        for rgba in bytes[..info.buffer_size()].chunks_exact(4) {
+        for rgba in bytes[..info.buffer_size()].as_chunks::<4>().0.iter() {
             if rgba[0] != rgba[1] || rgba[0] != rgba[2] || rgba[0] % 85 != 0 {
                 return Err("tiles.png uses palette intensities 0, 85, 170, 255".into());
             }
@@ -385,7 +385,19 @@ pub fn default_root() -> PathBuf {
     if let Some(root) = std::env::var_os("MICRO_MAGES_ASSETS") {
         return root.into();
     }
+    if let Some(app) = std::env::var_os("BASALT_APP_DIR") {
+        return PathBuf::from(app).join("assets");
+    }
+    if let Some(root) = std::env::var_os("BASALT_GAME_DIR") {
+        return PathBuf::from(root).join("app/assets");
+    }
     if let Ok(exe) = std::env::current_exe() {
+        if let Some(bin) = exe.parent()
+            && bin.file_name().is_some_and(|s| s == "bin")
+            && let Some(app) = bin.parent()
+        {
+            return app.join("assets");
+        }
         let beside = exe.parent().unwrap_or(Path::new(".")).join("assets");
         if beside.is_dir() {
             return beside;
