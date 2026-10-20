@@ -7,6 +7,9 @@ use std::{
     path::{Path, PathBuf},
 };
 
+/// The arena-entry script clears this tile row before lifting the players.
+pub(crate) const BOSS_ENTRANCE_ROW: usize = 36;
+
 /// Entity identities are editable names in the level files; numeric `kind`
 /// values only select the recovered sprite catalog.
 #[derive(Clone, Copy, Debug, Deserialize, PartialEq, Eq)]
@@ -131,6 +134,15 @@ impl Level {
             {
                 return Err(format!("{}: spawn outside level bounds", self.name));
             }
+        }
+        if self.height <= BOSS_ENTRANCE_ROW
+            && self.spawns.iter().any(|s| s.entity == Entity::BossEntrance)
+        {
+            return Err(format!(
+                "{}: boss entrance requires at least {} tile rows",
+                self.name,
+                BOSS_ENTRANCE_ROW + 2
+            ));
         }
         if self.metatiles.len() != count / 4
             || self
@@ -319,6 +331,16 @@ impl Assets {
                 || animation.frames.iter().any(|f| f.duration == 0)
             {
                 return Err(format!("invalid animation {}", animation.id));
+            }
+            if animation
+                .frames
+                .iter()
+                .any(|f| f.attachment.as_ref().is_some_and(|a| a.tile >= 512))
+            {
+                return Err(format!(
+                    "invalid animation {}: attachment tile must be below 512",
+                    animation.id
+                ));
             }
         }
         for sprite in &sprites.sprites {

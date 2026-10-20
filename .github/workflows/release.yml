@@ -19,7 +19,7 @@ jobs:
       - name: Install build and test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libasound2-dev libudev-dev libx11-dev libxkbcommon-dev libwayland-dev python3-pil xvfb xdotool
+          sudo apt-get install -y libasound2-dev libudev-dev libsdl2-dev python3-pil xvfb xdotool openbox
           rustup update stable --no-self-update
           rustup default stable
           rustup component add rustfmt clippy
@@ -30,8 +30,6 @@ jobs:
           cargo test --locked --all-targets
           python3 -m unittest discover -s scripts
       - name: Build Linux x64
-        env:
-          RUSTFLAGS: '-C link-arg=-Wl,-rpath,$ORIGIN/../lib'
         run: cargo build --locked --release
       - name: Package and verify the shipped ZIP
         env:
@@ -39,6 +37,7 @@ jobs:
         run: |
           python3 scripts/package_linux.py --revision "$REVISION"
           python3 scripts/verify_package.py dist/MicroMages-latest-linux-x64.zip
+          python3 scripts/verify_audio.py dist/MicroMages-latest-linux-x64.zip
           xvfb-run -a python3 scripts/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

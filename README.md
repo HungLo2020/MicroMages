@@ -12,25 +12,55 @@ the build or runtime.
 
 ## Controls
 
+These are the defaults. Open **Settings → Controls** to choose a player and
+keyboard or gamepad, then select an action and press its new key or button.
+Release the confirmation button before entering a binding. Conflicting bindings
+are rejected; each player's device bindings can be reset independently.
+The left stick continues to provide directional movement.
+
 | Action | Player 1 | Player 2 | Player 3 | Player 4 | Gamepad |
 | --- | --- | --- | --- | --- | --- |
-| Move / aim | Arrow keys | WASD | IJKL | Numpad 8/4/6/2 | D-pad / left stick |
-| Jump / confirm | Z or Enter | G | N | Numpad 0 | South |
-| Shoot / charge | X | H | M | Numpad decimal | West / East |
-| Settings / pause | Escape or P | Y | O | Numpad Enter | Start |
+| Move / aim | WASD | Arrow keys | IJKL | Numpad 8/4/6/2 | D-pad / left stick |
+| Jump / confirm | G | Z or Enter | N | Numpad 0 | South |
+| Shoot / charge | H | X | M | Numpad decimal | West / East |
+| Settings / pause | Escape or Y | P | O | Numpad Enter | Start |
 
 Confirm skips the opening and advances through the title, player selection,
 and password prompt. Use arrows to select one to four players; the Shoot action
-(X for Player 1) toggles normal/hard mode. Confirm an empty password to start, or enter an original tower
+(H by default for Player 1) toggles normal/hard mode. Confirm an empty password to start, or enter an original tower
 password with up/down and left/right. Up to four gamepads are supported. Hold jump for a higher jump;
 jump against a wall to kick away. Hold shoot and release for a charged spell;
 up/down aims vertically. A feather enables floating and absorbs a hit. Ghosts
 can fly and fire freezing shots, then collect a fairy or feather to revive.
 The hard-mode final arena uses directional flight and fires spells rightward.
 
-Settings provide resume, separate music/effects volume, controls, restart
-confirmation and quit. Settings consume their own input and freeze simulation
-and audio. Music/effects volumes persist in `data/config/shared/preferences.json`.
+Settings provide resume, separate music/effects volume, remappable controls,
+display settings, restart confirmation and quit. Settings consume their own input
+and freeze simulation and audio. Their navigation always uses arrows and Enter/Z
+(X/Backspace to go back), or the standard gamepad D-pad/left stick and face buttons.
+Escape always opens settings or goes back, regardless of the gameplay bindings.
+
+**Settings → Display** offers window-size presets, fullscreen, and Sharp or Smooth
+scaling; select **Apply** to save a change. **Alt+Enter** toggles fullscreen directly.
+Fullscreen uses the desktop resolution and remembers your windowed size. Dragging
+the window edges also changes and saves its size.
+The game keeps its original 256×240 image and proportions, scaling to the full
+height with side bars on wide screens. There are no added top or bottom bars,
+cropping, or stretching. Sharp uses nearest-neighbor sampling; Smooth interpolates
+pixels. Narrow windows become shorter to fit the complete image. Fullscreen is
+unavailable on portrait screens too narrow to meet these requirements.
+Existing `integer` configurations load as full-height Sharp scaling.
+
+Following [Basalt standard 1](https://github.com/HungLo2020/Basalt/blob/main/STANDARDS.md),
+controls and audio preferences follow the player; display settings remain local:
+
+- `data/config/shared/controls.json`: keyboard and gamepad bindings for all four players.
+- `data/config/shared/preferences.json`: music/effects volume (existing version-1 files are retained).
+- `data/config/display.json`: remembered window width/height, scaling mode and fullscreen state.
+
+Missing files initialize automatically. Changes are written atomically. The game
+honors `BASALT_SHARED_CONFIG_DIR` and `BASALT_CONFIG_DIR` overrides and writes no
+configuration into `app/` or the user's home configuration directories.
 
 ## Editable assets
 
@@ -56,6 +86,13 @@ Releases use `app/bin/micromages` and `app/assets/`. Run the executable directly
 launch through Basalt; no arguments, Steam, network, or terminal interaction are
 needed. During development the checkout's asset directory is used.
 `MICRO_MAGES_ASSETS=/path/to/assets` explicitly selects another directory.
+Linux runtime requirements: SDL2 **2.0.12 or newer**, host ALSA (`libasound.so.2`),
+udev (`libudev.so.1`), GCC unwind support (`libgcc_s.so.1`), and glibc (release
+baseline **2.35 or newer**). Compatible newer versions are supported; no exact
+system package releases are required. Audio uses the host ALSA configuration and
+plugins, including its PipeWire/PulseAudio integration. No private platform
+libraries are shipped. For development, install `pkg-config`, `libsdl2-dev`,
+`libasound2-dev`, and `libudev-dev` (Debian/Ubuntu names), plus a Rust toolchain.
 See [Basalt packaging and releases](docs/basalt.md) for paths, dependencies and CI.
 
 ## Code layout
@@ -73,6 +110,7 @@ See [Basalt packaging and releases](docs/basalt.md) for paths, dependencies and 
 | `scenes.rs`, `outcomes.rs` | Native intro/title/loading and outcome presentation assets |
 | `events.rs`, `audio.rs` | Semantic game events and native Ogg playback |
 | `input.rs`, `timing.rs` | Device inputs and fixed simulation timing |
+| `controls.rs`, `display.rs`, `storage.rs` | Portable bindings, display scaling, and Basalt configuration |
 | `menu.rs`, `window.rs` | Settings UI and native desktop window |
 
 There is no address-based dispatch or shared emulated memory. Numeric sprite

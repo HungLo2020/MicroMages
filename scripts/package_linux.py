@@ -12,12 +12,11 @@ from pathlib import Path
 from verify_artwork import verify_artwork
 
 ROOT = Path(__file__).resolve().parents[1]
-BUNDLED = {
-    "libasound.so.2": "libasound2*/copyright",
-    "libudev.so.1": "libudev1/copyright",
-    "libgcc_s.so.1": "libgcc-s1/copyright",
+# Platform libraries belong to the host, including ALSA's matching plugins/config.
+HOST_LIBRARIES = {
+    "libasound.so.2", "libudev.so.1", "libgcc_s.so.1", "libSDL2-2.0.so.0",
+    "ld-linux-x86-64.so.2", "libc.so.6", "libm.so.6", "libpthread.so.0", "libdl.so.2", "librt.so.1",
 }
-SYSTEM = {"libc.so.6", "libm.so.6", "libpthread.so.0", "libdl.so.2", "librt.so.1"}
 
 
 def package(binary, output, revision):
@@ -25,13 +24,12 @@ def package(binary, output, revision):
     if platform.system() != "Linux" or platform.machine() != "x86_64":
         raise ValueError("Package on Linux x86_64")
     dynamic = subprocess.check_output(["readelf", "-d", str(binary)], text=True)
-    if "$ORIGIN/../lib" not in dynamic:
-        raise ValueError("Build with RUSTFLAGS='-C link-arg=-Wl,-rpath,$ORIGIN/../lib'")
+    if "(RPATH)" in dynamic or "(RUNPATH)" in dynamic:
+        raise ValueError("Release binaries must use host libraries without an embedded library search path")
     with tempfile.TemporaryDirectory(prefix="micromages-package-") as directory:
         root = Path(directory)
         app = root / "app"
         (app / "bin").mkdir(parents=True)
-        (app / "lib").mkdir()
         (app / "licenses").mkdir()
         executable = app / "bin/micromages"
         shutil.copy2(binary, executable)
@@ -41,26 +39,14 @@ def package(binary, output, revision):
         (app / "basalt").mkdir()
         for name in ["cover.png", "icon.png", "sources.json"]:
             shutil.copy2(ROOT / "packaging/artwork" / name, app / "basalt" / name)
-        found = set()
         for line in subprocess.check_output(["ldd", str(binary)], text=True).splitlines():
-            parts = line.split()
             if "not found" in line:
-                raise ValueError(f"Unresolved dependency: {line}")
-            if len(parts) < 3 or parts[1] != "=>":
-                continue  # kernel vDSO and the system ELF loader
-            name, source = parts[0], Path(parts[2])
-            if name in SYSTEM:
-                continue
-            if name not in BUNDLED:
-                raise ValueError(f"Unclassified runtime dependency: {name}")
-            shutil.copy2(source, app / "lib" / name)
-            found.add(name)
-            notices = list(Path('/usr/share/doc').glob(BUNDLED[name]))
-            if not notices:
-                raise ValueError(f"Missing distribution license notice for {name}")
-            shutil.copy2(notices[0], app / "licenses" / f"{name}.copyright")
-        if found != set(BUNDLED):
-            raise ValueError(f"Expected runtime libraries {set(BUNDLED)}, found {found}")
+                raise ValueError(f"Unresolved host dependency: {line}")
+        needed = {line.split("[")[1].split("]")[0] for line in dynamic.splitlines() if "(NEEDED)" in line}
+        if not needed <= HOST_LIBRARIES:
+            raise ValueError(f"Unclassified direct host dependencies: {needed - HOST_LIBRARIES}")
+        for notice in (ROOT / "packaging/licenses").glob("*"):
+            shutil.copy2(notice, app / "licenses" / notice.name)
         (app / "build-info.json").write_text(json.dumps({
             "commit": revision, "platform": "linux-x64", "basalt_standard": 1,
         }, indent=2) + "\n")

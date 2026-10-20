@@ -1,6 +1,6 @@
 //! One playable world: entity interaction, terrain, checkpoints, and combat.
 use crate::{
-    assets::{Entity, Level, TerrainChange},
+    assets::{BOSS_ENTRANCE_ROW, Entity, Level, TerrainChange},
     camera::Camera,
     enemy::{BossKind, Enemy, EnemyContext, EnemyKind, EnemyRng, HitResponse, WorldAction},
     events::{GameEvent, Sound},
@@ -394,6 +394,10 @@ impl World {
         output: &mut Vec<GameEvent>,
         clearing: bool,
     ) -> RunResult {
+        // Boss records carry completion timing and segmented reward state.
+        // Ordinary actors have no work left once their destruction is finished.
+        self.enemies
+            .retain(|enemy| enemy.is_alive() || matches!(enemy.kind, EnemyKind::Boss(_)));
         self.tick += 1;
         for particle in &mut self.particles {
             particle.position.x += particle.velocity.x;
@@ -537,20 +541,24 @@ impl World {
             !matches!(self.enemies[i].kind, EnemyKind::Minion | EnemyKind::Chaser)
         });
         for index in update_order {
-            let active_minions = self
-                .enemies
-                .iter()
-                .filter(|e| e.kind == EnemyKind::Minion && e.health > 0)
-                .count();
-            let active_chasers = self
-                .enemies
-                .iter()
-                .filter(|e| {
-                    e.kind == EnemyKind::Chaser
-                        && e.source_kind == EnemyKind::Chaser.source_id()
-                        && e.health > 0
-                })
-                .count();
+            // Only bosses use the summon caps. Count after earlier actors have
+            // updated so a minion escaping this tick releases its slot now.
+            let (active_minions, active_chasers) =
+                if matches!(self.enemies[index].kind, EnemyKind::Boss(_)) {
+                    self.enemies.iter().fold((0, 0), |(minions, chasers), e| {
+                        (
+                            minions + usize::from(e.kind == EnemyKind::Minion && e.health > 0),
+                            chasers
+                                + usize::from(
+                                    e.kind == EnemyKind::Chaser
+                                        && e.source_kind == EnemyKind::Chaser.source_id()
+                                        && e.health > 0,
+                                ),
+                        )
+                    })
+                } else {
+                    (0, 0)
+                };
             let enemy = &mut self.enemies[index];
             if !enemy.is_alive()
                 || (!enemy.needs_viewport_update()
@@ -1078,7 +1086,7 @@ impl World {
                         self.projectiles.clear();
                         self.arena_entry = Some(ArenaEntry::Gathering);
                         self.arena_ticks = 0;
-                        self.level.tiles[36 * self.level.width + 14] = 0;
+                        self.level.tiles[BOSS_ENTRANCE_ROW * self.level.width + 14] = 0;
                         for player in &mut self.players {
                             if player.state == PlayerState::Alive {
                                 player.begin_seek(Vec2::new(111.0 + player.id as f32 * 8.0, 296.0));
@@ -1184,7 +1192,8 @@ impl World {
     fn step_arena_entry(&mut self, output: &mut Vec<GameEvent>) {
         self.arena_ticks += 1;
         if self.arena_ticks <= 24 && self.arena_ticks.is_multiple_of(8) {
-            self.level.tiles[36 * self.level.width + 14 + usize::from(self.arena_ticks / 8)] = 0;
+            self.level.tiles
+                [BOSS_ENTRANCE_ROW * self.level.width + 14 + usize::from(self.arena_ticks / 8)] = 0;
         }
         match self.arena_entry.expect("active arena entry") {
             ArenaEntry::Gathering => {
@@ -1301,6 +1310,65 @@ mod tests {
         world.level.metatiles.fill(0);
         world
     }
+
+    #[test]
+    fn summoned_enemy_storage_stays_bounded_through_repeated_boss_attacks() {
+        let assets = crate::assets::Assets::load(&crate::assets::default_root()).unwrap();
+        let mut world = World::new(assets.level(8, false).unwrap().clone(), 1);
+        world.camera.position.y = 0.;
+        world.players[0].body.position = Vec2::new(124., 180.);
+        world.players[0].invulnerability = u16::MAX;
+        world.props.clear();
+        for enemy in &mut world.enemies {
+            if matches!(enemy.kind, EnemyKind::Boss(_)) {
+                enemy.activate_arena();
+            }
+        }
+        let initial_count = world.enemies.len();
+        let mut saw_minion = false;
+        let mut saw_defeated_minion = false;
+        for tick in 1..=12000 {
+            assert!(
+                world.step([InputFrame::default(); 4], &mut Vec::new()) == RunResult::Continue,
+                "boss encounter ended at tick {tick}"
+            );
+            saw_minion |= world.enemies.iter().any(|e| e.kind == EnemyKind::Minion);
+            saw_defeated_minion |= world
+                .enemies
+                .iter()
+                .any(|e| e.kind == EnemyKind::Minion && !e.is_alive());
+            assert!(
+                world.enemies.len() <= initial_count + 8,
+                "summoned enemies accumulated at tick {tick}: {} entries",
+                world.enemies.len()
+            );
+        }
+        assert!(saw_minion && saw_defeated_minion);
+    }
+
+    #[test]
+    fn enemy_cleanup_preserves_boss_completion_and_depleted_willowisps() {
+        let mut world = world();
+        world.camera.position.y = 0.;
+        world.players[0].body.position = Vec2::new(200., 180.);
+        let mut minion = Enemy::new(EnemyKind::Minion, Vec2::new(124., 68.), false);
+        minion.health = 0;
+        let mut boss = Enemy::new(EnemyKind::Boss(BossKind::Segmented), Vec2::default(), false);
+        boss.health = 0;
+        let mut willowisp = Enemy::new(EnemyKind::Willowisp, Vec2::new(124., 68.), false);
+        willowisp.health = 0;
+        world.enemies.extend([minion, boss, willowisp]);
+
+        assert!(world.step([InputFrame::default(); 4], &mut Vec::new()) == RunResult::Continue);
+        assert_eq!(world.enemies.len(), 2);
+        assert!(world.enemies[0].kind == EnemyKind::Boss(BossKind::Segmented));
+        assert_eq!(world.enemies[0].health, 0);
+        assert!(world.enemies[1].is_alive());
+        assert_eq!(world.enemies[1].kind, EnemyKind::Willowisp);
+        assert!(world.segmented_reward_pending());
+        assert_eq!(world.begin_stage_clear(), 510);
+    }
+
     #[test]
     fn first_level_wall_torches_do_not_hurt_any_player() {
         let assets = crate::assets::Assets::load(&crate::assets::default_root()).unwrap();

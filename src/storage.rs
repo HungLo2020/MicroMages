@@ -70,6 +70,12 @@ impl Paths {
     pub fn preferences_file(&self) -> PathBuf {
         self.shared_config.join("preferences.json")
     }
+    pub fn controls_file(&self) -> PathBuf {
+        self.shared_config.join("controls.json")
+    }
+    pub fn display_file(&self) -> PathBuf {
+        self.config.join("display.json")
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -90,24 +96,7 @@ impl Default for Preferences {
 }
 impl Preferences {
     pub fn load_or_create(path: &Path) -> Result<Self, String> {
-        match fs::read(path) {
-            Ok(bytes) => {
-                let value: Self = serde_json::from_slice(&bytes)
-                    .map_err(|e| format!("{}: {e}", path.display()))?;
-                value
-                    .validate()
-                    .map_err(|e| format!("{}: {e}", path.display()))?;
-                Ok(value)
-            }
-            Err(e) if e.kind() == io::ErrorKind::NotFound => {
-                let value = Self::default();
-                value
-                    .save(path)
-                    .map_err(|e| format!("{}: {e}", path.display()))?;
-                Ok(value)
-            }
-            Err(e) => Err(format!("{}: {e}", path.display())),
-        }
+        load_settings(path, Self::validate)
     }
     fn validate(&self) -> io::Result<()> {
         if self.version != 1 || self.music > 100 || self.effects > 100 {
@@ -123,8 +112,31 @@ impl Preferences {
     }
 }
 
+pub(crate) fn load_settings<T: serde::de::DeserializeOwned + Serialize + Default>(
+    path: &Path,
+    validate: impl Fn(&T) -> io::Result<()>,
+) -> Result<T, String> {
+    let load = || -> Result<T, Box<dyn std::error::Error>> {
+        match fs::read(path) {
+            Ok(bytes) => {
+                let value = serde_json::from_slice(&bytes)?;
+                validate(&value)?;
+                Ok(value)
+            }
+            Err(error) if error.kind() == io::ErrorKind::NotFound => {
+                let value = T::default();
+                validate(&value)?;
+                atomic_write(path, &serde_json::to_vec_pretty(&value)?)?;
+                Ok(value)
+            }
+            Err(error) => Err(error.into()),
+        }
+    };
+    load().map_err(|error| format!("{}: {error}", path.display()))
+}
+
 /// The temporary file stays on the destination filesystem, making rename atomic.
-fn atomic_write(path: &Path, bytes: &[u8]) -> io::Result<()> {
+pub(crate) fn atomic_write(path: &Path, bytes: &[u8]) -> io::Result<()> {
     static NEXT: AtomicU64 = AtomicU64::new(0);
     let parent = path
         .parent()
@@ -196,6 +208,14 @@ mod tests {
             Path::new("/library/BASALT_SHARED_CONFIG_DIR")
         );
         assert_eq!(paths.cache, Path::new("/library/BASALT_CACHE_DIR"));
+        assert_eq!(
+            paths.controls_file(),
+            Path::new("/library/BASALT_SHARED_CONFIG_DIR/controls.json")
+        );
+        assert_eq!(
+            paths.display_file(),
+            Path::new("/library/BASALT_CONFIG_DIR/display.json")
+        );
         assert!(Paths::resolve(Path::new("/app/bin/game"), |_| Some("relative".into())).is_err());
     }
     #[test]

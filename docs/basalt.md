@@ -12,8 +12,7 @@ MicroMages/
   app/
     bin/micromages
     assets/                  PNG, JSON and Ogg game assets
-    lib/                     ALSA, udev and GCC unwind libraries
-    licenses/                bundled native-library notices
+    licenses/                third-party notices
     build-info.json          source commit and platform
     basalt/cover.png         official Steam cover, adapted to 900×1200
     basalt/icon.png          transparent 512×512 purple mage
@@ -21,7 +20,11 @@ MicroMages/
     README.md
   data/
     save/                    reserved for user progress/content
-    config/shared/preferences.json
+    config/
+      display.json           window dimensions, scaling and fullscreen (local)
+      shared/
+        preferences.json     music and effects volumes
+        controls.json        four-player keyboard/gamepad bindings
     cache/
 ```
 
@@ -31,16 +34,29 @@ Runtime never writes to `app/` or Basalt's own files. Directory locations honor
 executables locate the install root from their own `app/bin/` path, independent
 of the working directory. Development uses the checkout's `data/` (gitignored).
 
-Music and effects volumes are portable player preferences in the version-1
-shared configuration. Defaults are compiled into the executable in `app/` and
+Music and effects volumes and keyboard/gamepad bindings are portable player
+preferences in separate version-1 shared configuration files. Display dimensions
+and scaling live in `data/config/display.json`, outside the synced shared set.
+They honor `BASALT_CONFIG_DIR` and `BASALT_SHARED_CONFIG_DIR` independently.
+Defaults are compiled into the executable in `app/` and
 written only when the configuration is missing. Changes are written to a sibling
 temporary file, flushed, and atomically renamed. Existing valid files are retained;
 malformed or unsupported newer versions produce a clear error instead of being
-overwritten. There were no persisted settings in older releases to migrate.
+overwritten. Existing version-1 audio preferences keep their format and contents;
+the controls and display files are created only when missing. Display Apply
+changes the window immediately; manual resizing is saved after a short debounce
+or on normal exit. Sharp (nearest-neighbor) and Smooth (linear) scaling fill the
+entire height while preserving the native 256×240 image and proportions. Only side
+bars are added; narrow windows become shorter to fit the whole image. Existing
+`integer` settings load as Sharp. Fullscreen uses the desktop resolution, retaining
+the windowed size for restoration; Alt+Enter toggles it. Portrait displays too
+narrow for full-height output use windowed mode. Binding capture blocks menu and
+gameplay actions until completion or cancellation, and Escape remains reserved
+for settings navigation.
 
 Progress currently uses the original tower passwords; this release does not add
-saved mid-level sessions. There are no machine-specific settings or runtime cache
-files yet. Their directories are created for the standard layout. Explicit developer
+saved mid-level sessions. Runtime caches are not currently generated. Their
+directory is created for the standard layout. Explicit developer
 CLI exports such as `--screenshot PATH` write to the user-specified destination.
 No automatic writes occur outside the install root or launcher-provided paths.
 
@@ -48,20 +64,27 @@ No automatic writes occur outside the install root or launcher-provided paths.
 
 The supported artifact is `MicroMages-latest-linux-x64.zip`, containing only `app/`
 at its root. No wrapper, user data, build tools or original executable is shipped.
-ZIP Unix permissions retain executable bits. The binary bundles its Rust runtime;
-ALSA, udev and GCC unwind libraries are supplied under `app/lib` with an ELF
-`$ORIGIN/../lib` search path and distribution license notices. Glibc and the desktop
-X11/Wayland/display/audio drivers remain host facilities. CI builds on Ubuntu 22.04
-for a glibc 2.35 baseline; newer compatible desktop Linux installations are supported.
+ZIP Unix permissions retain executable bits. The binary includes compiled Rust
+code, while all platform shared libraries come from the host: [SDL2 **2.0.12 or newer**](https://wiki.libsdl.org/SDL2/SDL_SetTextureScaleMode), ALSA's `libasound.so.2` ABI, udev's `libudev.so.1` ABI, GCC unwind support,
+and glibc. These ABI names do not pin distribution package versions. Compatible
+newer releases are supported. ALSA uses the host's matching configuration and
+plugins, including its PipeWire/PulseAudio integration. No private ALSA, udev, GCC,
+or SDL library is shipped, and the executable has no RPATH/RUNPATH override.
+Packaging checks direct library dependencies and rejects a private search path;
+ZIP verification rejects shared libraries. Host X11/Wayland and graphics drivers
+are used through SDL2. CI builds on Ubuntu 22.04 for a glibc **2.35 minimum**; a
+release built locally on a newer distribution may require a newer glibc.
+
 The game has no updater; Basalt owns updates, backup and sync.
 
 To build the same package locally (Linux x64 with `readelf`/`ldd` and native build
-dependencies installed):
+dependencies installed; Xvfb, xdotool and Openbox for the desktop check):
 
 ```sh
-RUSTFLAGS='-C link-arg=-Wl,-rpath,$ORIGIN/../lib' cargo build --locked --release
+cargo build --locked --release
 python3 scripts/package_linux.py --revision "$(git rev-parse HEAD)"
 python3 scripts/verify_package.py dist/MicroMages-latest-linux-x64.zip
+python3 scripts/verify_audio.py dist/MicroMages-latest-linux-x64.zip
 xvfb-run -a python3 scripts/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
 ```
 
@@ -73,7 +96,12 @@ and release-promotion tests, builds the optimized executable and verifies the ZI
 The package test runs with read-only application files, outside the checkout, with
 and without Basalt variables. It checks preferences, update preservation and moving
 the entire installation to a path containing spaces. The graphical Xvfb test starts
-with no arguments, changes volume via the real settings UI and quits with status 0.
+with no arguments, changes volume, rebinds Jump, applies a new window size and
+scaling mode, checks fullscreen and restoration, corrects a portrait resize, and
+verifies the settings survive a relaunch.
+Both runs quit through the UI with status 0. A separate audio check runs the packaged
+game through host ALSA with a file-backed PCM and requires non-silent output. It
+uses SDL’s dummy video driver, so CI needs neither speakers nor a sound card.
 
 Successful pushes to `main` (and manual runs on `main`) publish the single mutable
 GitHub release named **Latest**, tagged `latest`. PRs and other branches validate

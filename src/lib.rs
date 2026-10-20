@@ -2,6 +2,8 @@
 pub mod assets;
 pub mod audio;
 pub mod camera;
+pub mod controls;
+pub mod display;
 pub mod enemy;
 pub mod events;
 pub mod font;

@@ -1,12 +1,14 @@
 use micro_mages_re::{
     assets::{self, Assets},
     audio::Audio,
+    controls::Controls,
+    display::DisplaySettings,
     events::GameEvent,
     game::Game,
     storage::{Paths, Preferences},
     video::{HEIGHT, WIDTH},
 };
-use minifb::{Key, KeyRepeat, Scale, Window, WindowOptions};
+use sdl2::keyboard::Scancode as Key;
 use std::{
     env,
     fs::File,
@@ -14,7 +16,7 @@ use std::{
     path::{Path, PathBuf},
     process::ExitCode,
     sync::Arc,
-    time::Instant,
+    time::{Duration, Instant},
 };
 
 mod menu;
@@ -41,10 +43,23 @@ fn screenshot(path: &Path, pixels: &[u32]) -> std::io::Result<()> {
     Ok(())
 }
 
-fn keys(window: &Window, map: [Key; 8]) -> u8 {
-    map.into_iter().enumerate().fold(0, |mask, (bit, key)| {
-        mask | ((window.is_key_down(key) as u8) << bit)
-    })
+fn navigation(keys: &[Key]) -> [u8; 4] {
+    let mut buttons = 0;
+    for (key, bit) in [
+        (Key::Return, 1),
+        (Key::Z, 1),
+        (Key::X, 2),
+        (Key::Backspace, 2),
+        (Key::Up, 16),
+        (Key::Down, 32),
+        (Key::Left, 64),
+        (Key::Right, 128),
+    ] {
+        if keys.contains(&key) {
+            buttons |= bit;
+        }
+    }
+    [buttons, 0, 0, 0]
 }
 
 #[derive(serde::Deserialize)]
@@ -112,7 +127,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             "--help" => {
                 println!(
-                    "Micro Mages — native Rust reconstruction\n\nArrow keys: move | Z/X: action buttons | Enter: confirm | Tab: select\nEsc/P or gamepad Start: settings (resume, audio, controls, restart, quit)\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.png --stage N --players 1..4 --hard --replay FILE.json\nGraphics, game data, and audio are supplied by the repository assets directory.\nGameplay uses native Rust systems and editable PNG/JSON/Ogg assets."
+                    "Micro Mages — native Rust reconstruction\n\nPlayer 1 defaults: WASD + G/H | Player 2: Arrows + Z/X/Enter\nAlt+Enter: fullscreen | Esc or mapped Pause: settings (audio, remappable controls, display, restart, quit)\n\nOptions: --mute --headless --frames N --demo --screenshot FILE.png --stage N --players 1..4 --hard --replay FILE.json\nGraphics, game data, and audio are supplied by the repository assets directory.\nGameplay uses native Rust systems and editable PNG/JSON/Ogg assets."
                 );
                 return Ok(());
             }
@@ -143,6 +158,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     paths.create_user_directories()?;
     let preferences_file = paths.preferences_file();
     let mut preferences = Preferences::load_or_create(&preferences_file)?;
+    let controls_file = paths.controls_file();
+    let mut controls = Controls::load_or_create(&controls_file)?;
+    let display_file = paths.display_file();
+    let mut display_settings = DisplaySettings::load_or_create(&display_file)?;
+    let mut display_dirty = None;
     let mut game = Game::new(assets.clone());
     if !(1..=4).contains(&players) {
         return Err("--players must be 1..4".into());
@@ -177,20 +197,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut window = if headless {
         None
     } else {
-        let mut window = Window::new(
-            "Micro Mages — Rust | Arrows + Z/X | Enter confirm | Esc / Start settings",
-            WIDTH,
-            HEIGHT,
-            WindowOptions {
-                scale: Scale::X4,
-                resize: true,
-                ..WindowOptions::default()
-            },
-        )?;
-        window::configure(&window)?;
-        window.set_target_fps(60);
-        Some(window)
+        Some(window::create(display_settings)?)
     };
+    if let Some(window) = &window
+        && window.settings() != display_settings
+    {
+        display_settings = window.settings();
+        display_dirty = Some(Instant::now());
+    }
+    let texture_creator = window.as_ref().map(window::NativeWindow::texture_creator);
+    let mut texture = texture_creator
+        .as_ref()
+        .map(window::NativeWindow::create_texture)
+        .transpose()?;
     let mut pads = if headless {
         None
     } else {
@@ -199,6 +218,10 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut menu = menu::Menu::new();
     menu.music = preferences.music;
     menu.effects = preferences.effects;
+    menu.controls = controls.clone();
+    menu.display = display_settings;
+    let mut resume_guard = false;
+    let mut fullscreen_guard = false;
     let mut displayed = vec![0; WIDTH * HEIGHT];
     let mut ticks = 0;
     let mut replay_tick = 0usize;
@@ -214,79 +237,85 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }) {
             break;
         }
-        let mut inputs = [0; 4];
+        let mut held_keys = Vec::new();
         let mut toggle_menu = false;
         if let Some(window) = &mut window {
+            window.poll();
             if !window.is_open() {
                 break;
             }
-            toggle_menu = window.is_key_pressed(Key::Escape, KeyRepeat::No)
-                || window.is_key_pressed(Key::P, KeyRepeat::No);
-            inputs[0] = keys(
-                window,
-                [
-                    Key::Z,
-                    Key::X,
-                    Key::Tab,
-                    Key::Enter,
-                    Key::Up,
-                    Key::Down,
-                    Key::Left,
-                    Key::Right,
-                ],
-            );
-            // Enter confirms the game's "press A" prompt. Physical Start belongs
-            // to host settings, as advertised by the original title screen.
-            inputs[0] &= !8;
-            if window.is_key_down(Key::Enter) {
-                inputs[0] |= 1;
+            toggle_menu = window.is_key_pressed(Key::Escape);
+            held_keys = window.get_keys();
+            if window.fullscreen_shortcut() {
+                let requested = DisplaySettings {
+                    fullscreen: !window.settings().fullscreen,
+                    ..window.settings()
+                };
+                if let Err(error) = window.apply(requested) {
+                    eprintln!("Display change failed: {error}");
+                    menu.status = "FULLSCREEN UNAVAILABLE".into();
+                }
+                fullscreen_guard = true;
+                resume_guard = true;
             }
-            inputs[1] = keys(
-                window,
-                [
-                    Key::G,
-                    Key::H,
-                    Key::T,
-                    Key::Y,
-                    Key::W,
-                    Key::S,
-                    Key::A,
-                    Key::D,
-                ],
-            );
-            inputs[2] = keys(
-                window,
-                [
-                    Key::N,
-                    Key::M,
-                    Key::U,
-                    Key::O,
-                    Key::I,
-                    Key::K,
-                    Key::J,
-                    Key::L,
-                ],
-            );
-            inputs[3] = keys(
-                window,
-                [
-                    Key::NumPad0,
-                    Key::NumPadDot,
-                    Key::NumPad5,
-                    Key::NumPadEnter,
-                    Key::NumPad8,
-                    Key::NumPad2,
-                    Key::NumPad4,
-                    Key::NumPad6,
-                ],
-            );
-        }
-        if let Some(pads) = &mut pads {
-            for (mask, pad) in inputs.iter_mut().zip(pads.poll()) {
-                *mask |= pad;
+            if fullscreen_guard {
+                fullscreen_guard = held_keys
+                    .iter()
+                    .any(|key| matches!(key, Key::Return | Key::LAlt | Key::RAlt));
+                held_keys.clear();
+            }
+            let settings = window.settings();
+            if settings != display_settings {
+                let previous = display_settings;
+                display_settings = settings;
+                display_dirty = Some(Instant::now());
+                menu.window_resized(previous, display_settings);
             }
         }
-        let ui = menu.handle(if demo { [0; 4] } else { inputs }, toggle_menu);
+        let pad_state = pads.as_mut().map(|pads| pads.sample()).unwrap_or_default();
+        let keyboard_masks = controls.keyboard_masks(&held_keys);
+        let pad_masks = controls.gamepad_masks(&pad_state.buttons, pad_state.sticks);
+        let mut inputs = keyboard_masks;
+        for (mask, pad) in inputs.iter_mut().zip(pad_masks) {
+            *mask |= pad;
+        }
+        if resume_guard && !menu.open {
+            if inputs.iter().all(|&mask| mask == 0) {
+                resume_guard = false;
+            }
+            inputs = [0; 4];
+        }
+        if menu.open {
+            resume_guard = true;
+            inputs = navigation(&held_keys);
+            // Fixed navigation wins over overlapping gameplay rebinds. Other
+            // mapped Pause keys/buttons can still close the settings menu.
+            if inputs[0] == 0 {
+                for (mask, keyboard) in inputs.iter_mut().zip(keyboard_masks) {
+                    *mask |= keyboard & 8;
+                }
+            }
+            for (id, pad) in pad_state.navigation().into_iter().enumerate() {
+                inputs[id] |= if pad == 0 { pad_masks[id] & 8 } else { pad };
+            }
+        }
+        let ui = menu.handle_input(
+            if demo { [0; 4] } else { inputs },
+            toggle_menu,
+            &held_keys,
+            &pad_state.buttons,
+        );
+        if ui.paused {
+            resume_guard = true;
+        }
+        if menu.controls != controls {
+            menu.controls.save(&controls_file)?;
+            controls = menu.controls.clone();
+        }
+        if display_dirty.is_some_and(|time: Instant| time.elapsed() >= Duration::from_millis(500)) {
+            display_settings.save(&display_file)?;
+            display_dirty = None;
+        }
         if (menu.music, menu.effects) != (preferences.music, preferences.effects) {
             preferences.music = menu.music;
             preferences.effects = menu.effects;
@@ -298,6 +327,23 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 game = Game::new(assets.clone());
                 if let Some(audio) = &mut audio {
                     audio.handle(GameEvent::StopMusic);
+                }
+            }
+            menu::Command::ApplyDisplay(settings) => {
+                if let Some(window) = &mut window {
+                    match window.apply(settings) {
+                        Ok(()) => {
+                            display_settings = window.settings();
+                            menu.display = display_settings;
+                            display_settings.save(&display_file)?;
+                            display_dirty = None;
+                            menu.status = "DISPLAY SAVED".into();
+                        }
+                        Err(error) => {
+                            eprintln!("Display change failed: {error}");
+                            menu.status = "DISPLAY CHANGE FAILED".into();
+                        }
+                    }
                 }
             }
             menu::Command::None => {}
@@ -342,10 +388,18 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         } else {
             pixels
         });
-        if let Some(window) = &mut window {
-            window.update_with_buffer(&displayed, WIDTH, HEIGHT)?;
+        if let (Some(window), Some(texture)) = (&mut window, &mut texture) {
+            window.present(texture, &displayed, display_settings.scaling)?;
+            if let Some(remaining) =
+                Duration::from_secs_f64(1.0 / 60.0).checked_sub(last_frame.elapsed())
+            {
+                std::thread::sleep(remaining);
+            }
         }
         ticks += 1;
+    }
+    if display_dirty.is_some() {
+        display_settings.save(&display_file)?;
     }
     if let Some(path) = capture {
         screenshot(&path, &displayed)?;

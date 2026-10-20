@@ -24,6 +24,129 @@ fn copy_tree(source: &Path, destination: &Path) {
         }
     }
 }
+
+#[test]
+fn invalid_attachments_and_short_boss_entrances_fail_cleanly_at_startup() {
+    let suffix = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let package = Package(std::env::temp_dir().join(format!(
+        "micro-mages-invalid-assets-{}-{suffix}",
+        std::process::id()
+    )));
+    let assets = package.0.join("assets");
+    copy_tree(
+        &Path::new(env!("CARGO_MANIFEST_DIR")).join("assets"),
+        &assets,
+    );
+    let launch = || {
+        Command::new(env!("CARGO_BIN_EXE_micro-mages-re"))
+            .env("MICRO_MAGES_ASSETS", &assets)
+            .env("BASALT_GAME_DIR", &package.0)
+            .env_remove("BASALT_APP_DIR")
+            .env_remove("BASALT_SAVE_DIR")
+            .env_remove("BASALT_CONFIG_DIR")
+            .env_remove("BASALT_SHARED_CONFIG_DIR")
+            .env_remove("BASALT_CACHE_DIR")
+            .args(["--headless", "--stage", "0", "--frames", "1"])
+            .output()
+            .unwrap()
+    };
+    assert!(launch().status.success(), "unmodified assets must load");
+
+    let animations_path = assets.join("graphics/animations.json");
+    let original_animations = fs::read(&animations_path).unwrap();
+    let mut animations: serde_json::Value = serde_json::from_slice(&original_animations).unwrap();
+    let idle = animations["animations"]
+        .as_array_mut()
+        .unwrap()
+        .iter_mut()
+        .find(|a| a["id"] == "player_idle")
+        .unwrap();
+    idle["frames"][0]["attachment"] =
+        serde_json::json!({"tile": 511, "offset_x": 0, "offset_y": 0});
+    fs::write(&animations_path, serde_json::to_vec(&animations).unwrap()).unwrap();
+    assert!(launch().status.success(), "last valid atlas tile must load");
+    let idle = animations["animations"]
+        .as_array_mut()
+        .unwrap()
+        .iter_mut()
+        .find(|a| a["id"] == "player_idle")
+        .unwrap();
+    idle["frames"][0]["attachment"]["tile"] = serde_json::json!(512);
+    fs::write(&animations_path, serde_json::to_vec(&animations).unwrap()).unwrap();
+    let output = launch();
+    assert_eq!(output.status.code(), Some(1), "must reject before a panic");
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    assert!(
+        stderr.contains("player_idle") && stderr.contains("attachment tile"),
+        "{stderr}"
+    );
+    fs::write(&animations_path, original_animations).unwrap();
+
+    let levels_path = assets.join("levels/levels.json");
+    let original_levels: serde_json::Value =
+        serde_json::from_slice(&fs::read(&levels_path).unwrap()).unwrap();
+    let mut entrance = original_levels["levels"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .flat_map(|level| level["spawns"].as_array().unwrap())
+        .find(|spawn| spawn["entity"] == "boss_entrance")
+        .unwrap()
+        .clone();
+    entrance["x"] = serde_json::json!(128);
+    entrance["y"] = serde_json::json!(128);
+    for (height, with_entrance, valid) in [
+        (32, false, true),
+        (32, true, false),
+        (36, true, false),
+        (38, true, true),
+    ] {
+        let mut levels = original_levels.clone();
+        let level = levels["levels"]
+            .as_array_mut()
+            .unwrap()
+            .iter_mut()
+            .find(|level| level["id"] == 0 && level["hard"] == false)
+            .unwrap();
+        level["height"] = serde_json::json!(height);
+        for layer in ["tiles", "palettes", "collision"] {
+            level[layer].as_array_mut().unwrap().truncate(32 * height);
+        }
+        level["metatiles"]
+            .as_array_mut()
+            .unwrap()
+            .truncate(8 * height);
+        level["player_start"]["x"] = serde_json::json!(128);
+        level["player_start"]["y"] = serde_json::json!(128);
+        level["spawns"] = serde_json::json!([level["player_start"].clone()]);
+        if with_entrance {
+            level["spawns"]
+                .as_array_mut()
+                .unwrap()
+                .push(entrance.clone());
+        }
+        fs::write(&levels_path, serde_json::to_vec(&levels).unwrap()).unwrap();
+        let output = launch();
+        if valid {
+            assert!(
+                output.status.success(),
+                "{}",
+                String::from_utf8_lossy(&output.stderr)
+            );
+        } else {
+            assert_eq!(output.status.code(), Some(1), "must reject before a panic");
+            let stderr = String::from_utf8_lossy(&output.stderr);
+            assert!(
+                stderr.contains("boss entrance requires at least 38 tile rows"),
+                "{stderr}"
+            );
+        }
+    }
+}
+
 #[test]
 fn packaged_game_runs_without_checkout_paths_and_rejects_invalid_assets() {
     let suffix = SystemTime::now()

@@ -44,6 +44,12 @@ def verify(archive):
         temporary = Path(directory)
         root = temporary / "library with spaces/MicroMages"
         extract(archive, root)
+        assert not (root / "app/lib").exists(), "Platform libraries must come from the host"
+        assert not list((root / "app").rglob("*.so*")), "No private shared libraries"
+        dynamic = subprocess.check_output(["readelf", "-d", str(root / "app/bin/micromages")], text=True)
+        assert "(RPATH)" not in dynamic and "(RUNPATH)" not in dynamic, dynamic
+        linked = subprocess.check_output(["ldd", str(root / "app/bin/micromages")], text=True)
+        assert "libasound.so.2 => /" in linked and "not found" not in linked, linked
         verify_artwork(root / "app/basalt")
         source = Path(__file__).resolve().parents[1] / "packaging/artwork"
         for name in ["cover.png", "icon.png"]:
@@ -58,6 +64,15 @@ def verify(archive):
             preferences = root / "data/config/shared/preferences.json"
             custom = '{"version":1,"music":30,"effects":70}\n'
             preferences.write_text(custom)
+            controls = preferences.parent / "controls.json"
+            bindings = json.loads(controls.read_text())
+            bindings["keyboard"][0]["jump"] = ["space"]
+            custom_controls = json.dumps(bindings, indent=2) + "\n"
+            controls.write_text(custom_controls)
+            display = root / "data/config/display.json"
+            custom_display = '{"version":1,"width":1280,"height":720,"scaling":"fit"}\n'
+            display.write_text(custom_display)
+            assert not (preferences.parent / "display.json").exists(), "Display settings must not sync"
             save = root / "data/save/user-content.txt"
             save.write_text("user progress must survive updates")
             env = {"BASALT_GAME_DIR": str(root), "BASALT_APP_DIR": str(root / "app"),
@@ -67,6 +82,8 @@ def verify(archive):
                    "BASALT_CACHE_DIR": str(root / "data/cache")}
             launch(root, root, **env)
             assert preferences.read_text() == custom
+            assert controls.read_text() == custom_controls
+            assert display.read_text() == custom_display
             assert snapshot(root / "app") == before, "Runtime wrote into app"
         finally:
             for p in [root / "app", *(root / "app").rglob("*")]:
@@ -85,6 +102,8 @@ def verify(archive):
         shared = moved / "data/custom-shared"
         launch(moved, temporary, BASALT_SHARED_CONFIG_DIR=str(shared))
         assert json.loads((shared / "preferences.json").read_text())["music"] == 100
+        assert json.loads((shared / "controls.json").read_text())["keyboard"][0]["jump"] == ["g"]
+        assert (moved / "data/config/display.json").read_text() == custom_display
         assert snapshot(moved / "app") == before
         print("Package passed: portable startup, read-only app, preferences, update and relocation")
 

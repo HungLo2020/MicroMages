@@ -29,32 +29,50 @@ impl Pads {
         }
     }
 
-    /// Poll cached native input once per frame. Disconnected players always
-    /// return zero; existing players never shift slots when another unplugs.
-    pub fn poll(&mut self) -> [u8; 4] {
+    /// Poll cached native input once per frame, preserving stable player slots.
+    pub fn sample(&mut self) -> PadState {
+        let mut state = PadState::default();
         let Some(backend) = self.backend.as_mut() else {
-            return [0; 4];
+            return state;
         };
-        // next_event applies the default mapping filters and updates cached state.
         while backend.next_event().is_some() {}
         let connected: Vec<_> = backend.gamepads().map(|(id, _)| id).collect();
         reconcile_slots(&mut self.slots, &connected);
-        let mut masks = [0; 4];
-        for (slot, mask) in self.slots.iter().zip(masks.iter_mut()) {
-            let Some(id) = slot else {
+        for (index, slot) in self.slots.iter().enumerate() {
+            let Some(id) = slot.filter(|id| connected.contains(id)) else {
                 continue;
             };
-            if !connected.contains(id) {
-                continue;
-            }
-            let pad = backend.gamepad(*id);
-            *mask = button_mask(
-                |button| pad.is_pressed(button),
-                pad.value(Axis::LeftStickX),
-                pad.value(Axis::LeftStickY),
-            );
+            let pad = backend.gamepad(id);
+            state.buttons[index] = crate::controls::GamepadButton::ALL
+                .iter()
+                .map(|button| button.native())
+                .filter(|&button| pad.is_pressed(button))
+                .collect();
+            state.sticks[index] = [pad.value(Axis::LeftStickX), pad.value(Axis::LeftStickY)];
         }
-        masks
+        state
+    }
+
+    pub fn poll(&mut self) -> [u8; 4] {
+        self.sample().navigation()
+    }
+}
+
+#[derive(Default)]
+pub struct PadState {
+    pub buttons: [Vec<Button>; 4],
+    pub sticks: [[f32; 2]; 4],
+}
+impl PadState {
+    /// Fixed UI controls remain usable even when gameplay bindings change.
+    pub fn navigation(&self) -> [u8; 4] {
+        std::array::from_fn(|id| {
+            button_mask(
+                |button| self.buttons[id].contains(&button),
+                self.sticks[id][0],
+                self.sticks[id][1],
+            )
+        })
     }
 }
 
