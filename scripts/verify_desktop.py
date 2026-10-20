@@ -31,9 +31,11 @@ def desktop_session():
 def key(window, name):
     subprocess.run(["xdotool", "windowfocus", "--sync", window], check=True)
     subprocess.run(["xdotool", "keydown", name], check=True)
-    time.sleep(0.08)
+    # Software rendering on shared CI runners can take longer than 80 ms per
+    # frame. Hold and release long enough for both input states to be sampled.
+    time.sleep(0.25)
     subprocess.run(["xdotool", "keyup", name], check=True)
-    time.sleep(0.12)
+    time.sleep(0.25)
 
 
 def find_window(process):
@@ -66,7 +68,7 @@ def verify(archive=None, binary=None, screenshot=None):
         process = start()
         try:
             window = find_window(process)
-            time.sleep(0.3)
+            time.sleep(1.0)  # Allow the first software-rendered frame to finish.
             key(window, "Escape")
             key(window, "Down")  # music
             key(window, "Left")
