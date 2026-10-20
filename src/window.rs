@@ -190,8 +190,14 @@ impl NativeWindow {
             Scaling::Smooth => ScaleMode::Linear,
         });
         texture.with_lock(None, |bytes, pitch| {
-            for (source, row) in pixels.chunks_exact(WIDTH).zip(bytes.chunks_mut(pitch)) {
-                for (pixel, destination) in source.iter().zip(row.chunks_exact_mut(4)) {
+            for (source, row) in pixels
+                .as_chunks::<WIDTH>()
+                .0
+                .iter()
+                .zip(bytes.chunks_mut(pitch))
+            {
+                for (pixel, destination) in source.iter().zip(row.as_chunks_mut::<4>().0.iter_mut())
+                {
                     destination.copy_from_slice(&(*pixel | 0xff00_0000).to_ne_bytes());
                 }
             }
