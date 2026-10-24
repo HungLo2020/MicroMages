@@ -29,21 +29,26 @@ in this order, and stop at the first failure:
 cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked --all-targets
+cargo build --locked --no-default-features --release  # headless-only build
 python3 -m unittest discover -s DevUtils
+xvfb-run -a cargo test --test presentation -- --ignored --test-threads=1
 cargo build --locked --release
 python3 DevUtils/package_linux.py --revision "$(git rev-parse HEAD)"
 python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
-python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+xvfb-run -a python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
 xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
 ```
 
 Notes:
 
-- `verify_desktop.py` needs a display; use `xvfb-run` exactly like CI.
-- Missing system packages (`libsdl2-dev libasound2-dev libudev-dev python3-pil
-  xvfb xdotool openbox`) are an environment problem, not a code problem. Tell the
-  user rather than pushing a change you could not validate, and do not weaken or
-  skip tests to get past them.
+- `verify_desktop.py`, `verify_audio.py` and the native presentation tests need a
+  display and a Vulkan 1.3 driver; use `xvfb-run` exactly like CI.
+- Missing system packages (`build-essential cmake ninja-build libasound2-dev
+  libudev-dev libvulkan-dev mesa-vulkan-drivers libxkbcommon-dev libwayland-dev
+  libx11-dev libxrandr-dev libxi-dev libxcursor-dev python3-pil xvfb xdotool
+  openbox`) are an environment problem, not a code problem. Tell the user rather
+  than pushing a change you could not validate, and do not weaken or skip tests to
+  get past them.
 - The packaging step uses `HEAD`; if you are validating before committing, run it
   again after committing so `build-info.json` matches the pushed commit.
 - Fix root causes. Never regenerate `tests/fixtures/` reference data, relax
