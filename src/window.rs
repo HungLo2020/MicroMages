@@ -214,7 +214,7 @@ impl NativeWindow {
             let options: DisplayOptions = scaling.options();
             self.presenter.set_options(options)?;
         }
-        for (destination, &pixel) in self.rgba.chunks_exact_mut(4).zip(pixels) {
+        for (destination, &pixel) in self.rgba.as_chunks_mut::<4>().0.iter_mut().zip(pixels) {
             destination.copy_from_slice(&[
                 (pixel >> 16) as u8,
                 (pixel >> 8) as u8,
