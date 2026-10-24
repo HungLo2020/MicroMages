@@ -1,6 +1,6 @@
 //! Portable, named keyboard and gamepad bindings for each player.
 use gilrs::Button;
-use sdl2::keyboard::Scancode as Key;
+use quasar_input::Key;
 use serde::{Deserialize, Serialize};
 use std::{io, path::Path};
 
@@ -50,7 +50,7 @@ impl Action {
 
 macro_rules! named_buttons {
     ($name:ident, $native:ident, [$($button:ident => $native_button:ident),+ $(,)?]) => {
-        #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+        #[derive(Clone, Copy, Debug, Hash, PartialEq, Eq, Serialize, Deserialize)]
         #[serde(rename_all = "snake_case")]
         pub enum $name { $($button),+ }
         impl $name {
@@ -66,42 +66,42 @@ macro_rules! named_buttons {
 
 // Escape is always available to leave settings, including after a bad rebind.
 named_buttons!(KeyboardKey, Key, [
-    Key0 => Num0,
-    Key1 => Num1,
-    Key2 => Num2,
-    Key3 => Num3,
-    Key4 => Num4,
-    Key5 => Num5,
-    Key6 => Num6,
-    Key7 => Num7,
-    Key8 => Num8,
-    Key9 => Num9,
-    A => A,
-    B => B,
-    C => C,
-    D => D,
-    E => E,
-    F => F,
-    G => G,
-    H => H,
-    I => I,
-    J => J,
-    K => K,
-    L => L,
-    M => M,
-    N => N,
-    O => O,
-    P => P,
-    Q => Q,
-    R => R,
-    S => S,
-    T => T,
-    U => U,
-    V => V,
-    W => W,
-    X => X,
-    Y => Y,
-    Z => Z,
+    Digit0 => Digit0,
+    Digit1 => Digit1,
+    Digit2 => Digit2,
+    Digit3 => Digit3,
+    Digit4 => Digit4,
+    Digit5 => Digit5,
+    Digit6 => Digit6,
+    Digit7 => Digit7,
+    Digit8 => Digit8,
+    Digit9 => Digit9,
+    A => KeyA,
+    B => KeyB,
+    C => KeyC,
+    D => KeyD,
+    E => KeyE,
+    F => KeyF,
+    G => KeyG,
+    H => KeyH,
+    I => KeyI,
+    J => KeyJ,
+    K => KeyK,
+    L => KeyL,
+    M => KeyM,
+    N => KeyN,
+    O => KeyO,
+    P => KeyP,
+    Q => KeyQ,
+    R => KeyR,
+    S => KeyS,
+    T => KeyT,
+    U => KeyU,
+    V => KeyV,
+    W => KeyW,
+    X => KeyX,
+    Y => KeyY,
+    Z => KeyZ,
     F1 => F1,
     F2 => F2,
     F3 => F3,
@@ -117,60 +117,60 @@ named_buttons!(KeyboardKey, Key, [
     F13 => F13,
     F14 => F14,
     F15 => F15,
-    Down => Down,
-    Left => Left,
-    Right => Right,
-    Up => Up,
-    Apostrophe => Apostrophe,
-    Backquote => Grave,
+    Down => ArrowDown,
+    Left => ArrowLeft,
+    Right => ArrowRight,
+    Up => ArrowUp,
+    Apostrophe => Quote,
+    Backquote => Backquote,
     Backslash => Backslash,
     Comma => Comma,
-    Equal => Equals,
-    LeftBracket => LeftBracket,
+    Equal => Equal,
+    LeftBracket => BracketLeft,
     Minus => Minus,
     Period => Period,
-    RightBracket => RightBracket,
+    RightBracket => BracketRight,
     Semicolon => Semicolon,
     Slash => Slash,
     Backspace => Backspace,
     Delete => Delete,
     End => End,
-    Enter => Return,
+    Enter => Enter,
     Home => Home,
     Insert => Insert,
-    Menu => Menu,
+    Menu => ContextMenu,
     PageDown => PageDown,
     PageUp => PageUp,
     Pause => Pause,
     Space => Space,
     Tab => Tab,
-    NumLock => NumLockClear,
+    NumLock => NumLock,
     CapsLock => CapsLock,
     ScrollLock => ScrollLock,
-    LeftShift => LShift,
-    RightShift => RShift,
-    LeftCtrl => LCtrl,
-    RightCtrl => RCtrl,
-    NumPad0 => Kp0,
-    NumPad1 => Kp1,
-    NumPad2 => Kp2,
-    NumPad3 => Kp3,
-    NumPad4 => Kp4,
-    NumPad5 => Kp5,
-    NumPad6 => Kp6,
-    NumPad7 => Kp7,
-    NumPad8 => Kp8,
-    NumPad9 => Kp9,
-    NumPadDot => KpPeriod,
-    NumPadSlash => KpDivide,
-    NumPadAsterisk => KpMultiply,
-    NumPadMinus => KpMinus,
-    NumPadPlus => KpPlus,
-    NumPadEnter => KpEnter,
-    LeftAlt => LAlt,
-    RightAlt => RAlt,
-    LeftSuper => LGui,
-    RightSuper => RGui,
+    LeftShift => ShiftLeft,
+    RightShift => ShiftRight,
+    LeftCtrl => ControlLeft,
+    RightCtrl => ControlRight,
+    NumPad0 => Numpad0,
+    NumPad1 => Numpad1,
+    NumPad2 => Numpad2,
+    NumPad3 => Numpad3,
+    NumPad4 => Numpad4,
+    NumPad5 => Numpad5,
+    NumPad6 => Numpad6,
+    NumPad7 => Numpad7,
+    NumPad8 => Numpad8,
+    NumPad9 => Numpad9,
+    NumPadDot => NumpadDecimal,
+    NumPadSlash => NumpadDivide,
+    NumPadAsterisk => NumpadMultiply,
+    NumPadMinus => NumpadSubtract,
+    NumPadPlus => NumpadAdd,
+    NumPadEnter => NumpadEnter,
+    LeftAlt => AltLeft,
+    RightAlt => AltRight,
+    LeftSuper => SuperLeft,
+    RightSuper => SuperRight,
 ]);
 named_buttons!(GamepadButton, Button, [
     South => South,
@@ -328,7 +328,7 @@ impl Controls {
     }
     pub fn save(&self, path: &Path) -> io::Result<()> {
         self.validate()?;
-        crate::storage::atomic_write(path, &serde_json::to_vec_pretty(self)?)
+        quasar_storage::write_json(path, self)
     }
     pub fn validate(&self) -> io::Result<()> {
         if self.version != 1 {
@@ -353,8 +353,8 @@ impl Controls {
         }
         Ok(())
     }
-    pub fn keyboard_masks(&self, held: &[Key]) -> [u8; 4] {
-        std::array::from_fn(|id| self.keyboard[id].mask(|key| held.contains(&key.native())))
+    pub fn keyboard_masks(&self, held: &[KeyboardKey]) -> [u8; 4] {
+        std::array::from_fn(|id| self.keyboard[id].mask(|key| held.contains(&key)))
     }
     pub fn gamepad_masks(&self, held: &[Vec<Button>; 4], sticks: [[f32; 2]; 4]) -> [u8; 4] {
         std::array::from_fn(|id| {
@@ -422,15 +422,20 @@ mod tests {
         let controls = Controls::default();
         controls.validate().unwrap();
         assert_eq!(
-            controls.keyboard_masks(&[Key::Return, Key::H, Key::I, Key::KpEnter]),
+            controls.keyboard_masks(&[
+                KeyboardKey::Enter,
+                KeyboardKey::H,
+                KeyboardKey::I,
+                KeyboardKey::NumPadEnter,
+            ]),
             [2, 1, 16, 8]
         );
         assert_eq!(
-            controls.keyboard_masks(&[Key::W, Key::H, Key::Y]),
+            controls.keyboard_masks(&[KeyboardKey::W, KeyboardKey::H, KeyboardKey::Y]),
             [16 | 2 | 8, 0, 0, 0]
         );
         assert_eq!(
-            controls.keyboard_masks(&[Key::Up, Key::X, Key::P]),
+            controls.keyboard_masks(&[KeyboardKey::Up, KeyboardKey::X, KeyboardKey::P]),
             [0, 16 | 2 | 8, 0, 0]
         );
         let pads = std::array::from_fn(|_| vec![Button::South, Button::East]);
@@ -444,12 +449,12 @@ mod tests {
         controls
             .bind_key(0, Action::Jump, KeyboardKey::Space)
             .unwrap();
-        assert_eq!(controls.keyboard_masks(&[Key::G]), [0; 4]);
+        assert_eq!(controls.keyboard_masks(&[KeyboardKey::G]), [0; 4]);
         assert_eq!(
-            controls.keyboard_masks(&[Key::Z, Key::Return]),
+            controls.keyboard_masks(&[KeyboardKey::Z, KeyboardKey::Enter]),
             [0, 1, 0, 0]
         );
-        assert_eq!(controls.keyboard_masks(&[Key::Space]), [1, 0, 0, 0]);
+        assert_eq!(controls.keyboard_masks(&[KeyboardKey::Space]), [1, 0, 0, 0]);
         let previous = controls.clone();
         assert!(controls.bind_key(0, Action::Jump, KeyboardKey::Z).is_err());
         assert_eq!(controls, previous);
@@ -464,6 +469,17 @@ mod tests {
                 .bind_button(2, Action::Fire, GamepadButton::South)
                 .is_err()
         );
+    }
+    #[test]
+    fn every_bindable_key_maps_to_a_quasar_physical_key() {
+        for &key in KeyboardKey::ALL {
+            assert_eq!(KeyboardKey::from_native(key.native()), Some(key), "{key:?}");
+        }
+        assert_ne!(
+            KeyboardKey::Enter.native(),
+            KeyboardKey::NumPadEnter.native()
+        );
+        assert_ne!(KeyboardKey::Digit0.native(), KeyboardKey::NumPad0.native());
     }
     #[test]
     fn portable_names_round_trip_and_invalid_or_reserved_bindings_are_rejected() {

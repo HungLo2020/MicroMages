@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Verify the shipped game's audio through host ALSA with a file-backed PCM."""
+"""Verify the shipped game's audio through host ALSA with a file-backed PCM.
+
+Runs the windowed build, so provide a display (CI uses xvfb-run) and a Vulkan 1.3
+driver (Mesa lavapipe is enough).
+"""
 import json
 import os
 import subprocess
@@ -42,7 +46,7 @@ def verify(archive):
                           f'file {json.dumps(str(recording))} format "raw" }}\n')
         env = {k: v for k, v in os.environ.items()
                if not k.startswith("BASALT_") and k != "MICRO_MAGES_ASSETS"}
-        env.update(ALSA_CONFIG_PATH=str(config), SDL_VIDEODRIVER="dummy", SDL_RENDER_DRIVER="software")
+        env.update(ALSA_CONFIG_PATH=str(config))
         try:
             result = subprocess.run([str(root / "app/bin/micromages"), "--stage", "0", "--frames", "120"],
                                     cwd=root, env=env, capture_output=True, text=True, timeout=30)

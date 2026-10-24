@@ -11,6 +11,13 @@ Run the unit tests for these tools with:
 python3 -m unittest discover -s DevUtils
 ```
 
+Native presentation tests live in `tests/presentation.rs`. The Vulkan and window
+checks are ignored by default; run them with a display and a Vulkan 1.3 driver:
+
+```sh
+xvfb-run -a cargo test --test presentation -- --ignored --test-threads=1
+```
+
 ## Asset migration and artwork
 
 | Utility | Purpose |
@@ -28,7 +35,7 @@ python3 -m unittest discover -s DevUtils
 | --- | --- |
 | `package_linux.py` | Builds `dist/MicroMages-latest-linux-x64.zip` from an already-built release binary. |
 | `verify_package.py` | Runs the shipped ZIP with read-only `app/` files and portable user data. |
-| `verify_audio.py` | Verifies audio output through host ALSA with a file-backed PCM. |
+| `verify_audio.py` | Verifies audio output through host ALSA with a file-backed PCM (run under Xvfb). |
 | `verify_desktop.py` | Runs under Xvfb to exercise settings, remapping, resizing and persistence. |
 | `publish_latest.py` | Replaces the mutable `latest` GitHub release after CI validation. |
 | `test_publish_latest.py` | Unit tests for the release asset promotion/rollback logic. |

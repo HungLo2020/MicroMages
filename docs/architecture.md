@@ -8,9 +8,12 @@ It does not drive the current game.
 
 ## Frame flow
 
-1. The host polls keyboard/gamepads and routes settings input.
-2. `FrameClock` schedules 60 simulation updates per second. Pause discards elapsed
-   time; long stalls have bounded catch-up. Headless runs use explicit ticks.
+1. `quasar-window` delivers native window events and physical keyboard state;
+   `gilrs` supplies up to four gamepads. Both are routed into the game's own
+   binding masks and settings input.
+2. `FrameClock` schedules 60 simulation updates per second through
+   `quasar-core::FixedStep`. Pause discards elapsed time; long stalls have bounded
+   catch-up. Headless runs use explicit ticks.
 3. `Game` computes per-player input edges and advances its explicit Intro, Title,
    PlayerSelect, Password, Loading, Playing, StageClear, GameOver or Ending screen.
 4. `World` updates players, resolves terrain contacts, updates active enemies,
@@ -19,8 +22,14 @@ It does not drive the current game.
    keeps the remaining world active while departing players finish their exit.
 5. Typed `GameEvent` values request sounds or music. The simulation never opens
    an audio device or files.
-6. `Video` reads the resulting world and PNG/JSON definitions into a framebuffer.
-   Rendering never advances gameplay. Settings draw over the frozen frame.
+6. `Video` reads the resulting world and PNG/JSON definitions into a 256×240
+   `0x00RRGGBB` framebuffer. Rendering never advances gameplay. Settings draw over
+   the frozen frame.
+7. `quasar-render-2d::FramebufferPresenter` uploads that framebuffer and presents it
+   through VulkanicGAL. `quasar-core::Viewport` fits the 16:15 image to the window
+   or screen, so bars appear only left/right or top/bottom, and nearest or linear
+   sampling follows the Sharp/Smooth setting. Resizing, fullscreen transitions and
+   DPI changes only change the presentation target.
 
 Positions are world pixels, positive Y downward; velocity is pixels per tick.
 Bodies use top-left positions and explicit dimensions. Extracted spawn positions

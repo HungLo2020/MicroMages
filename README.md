@@ -44,12 +44,13 @@ Escape always opens settings or goes back, regardless of the gameplay bindings.
 scaling; select **Apply** to save a change. **Alt+Enter** toggles fullscreen directly.
 Fullscreen uses the desktop resolution and remembers your windowed size. Dragging
 the window edges also changes and saves its size.
-The game keeps its original 256×240 image and proportions, scaling to the full
-height with side bars on wide screens. There are no added top or bottom bars,
-cropping, or stretching. Sharp uses nearest-neighbor sampling; Smooth interpolates
-pixels. Narrow windows become shorter to fit the complete image. Fullscreen is
-unavailable on portrait screens too narrow to meet these requirements.
-Existing `integer` configurations load as full-height Sharp scaling.
+The game keeps its original 256×240 (16:15) image and proportions and presents it
+through Quasar's viewport at the largest size that fits the window or screen.
+Bars appear only on the left and right, or only on the top and bottom, never on
+all four sides, and the image is never cropped or stretched. Sharp uses
+nearest-neighbor sampling; Smooth interpolates pixels. Any window at least
+256×240 is accepted, including square and portrait shapes. Existing `integer`
+configurations load as Sharp scaling.
 
 Following [Basalt standard 1](https://github.com/HungLo2020/Basalt/blob/main/STANDARDS.md),
 controls and audio preferences follow the player; display settings remain local:
@@ -87,13 +88,19 @@ Releases use `app/bin/micromages` and `app/assets/`. Run the executable directly
 launch through Basalt; no arguments, Steam, network, or terminal interaction are
 needed. During development the checkout's asset directory is used.
 `MICRO_MAGES_ASSETS=/path/to/assets` explicitly selects another directory.
-Linux runtime requirements: SDL2 **2.0.12 or newer**, host ALSA (`libasound.so.2`),
-udev (`libudev.so.1`), GCC unwind support (`libgcc_s.so.1`), and glibc (release
-baseline **2.35 or newer**). Compatible newer versions are supported; no exact
-system package releases are required. Audio uses the host ALSA configuration and
-plugins, including its PipeWire/PulseAudio integration. No private platform
-libraries are shipped. For development, install `pkg-config`, `libsdl2-dev`,
-`libasound2-dev`, and `libudev-dev` (Debian/Ubuntu names), plus a Rust toolchain.
+Linux runtime requirements: a **Vulkan 1.3** driver and loader (dynamic
+rendering, synchronization2 and timeline semaphores; Mesa's lavapipe is enough),
+X11 or Wayland with `libxkbcommon`, host ALSA (`libasound.so.2`), udev
+(`libudev.so.1`), the GCC C++ runtime (`libstdc++.so.6`), GCC unwind support
+(`libgcc_s.so.1`), and glibc (release
+baseline **2.35 or newer**). Compatible newer versions are supported. Audio uses
+the host ALSA configuration and plugins, including its PipeWire/PulseAudio
+integration. No private platform libraries are shipped. For development, install
+`pkg-config`, `libasound2-dev`, `libudev-dev`, `libvulkan-dev`,
+`mesa-vulkan-drivers`, `libxkbcommon-dev`, `libwayland-dev`, `libx11-dev`,
+`libxrandr-dev`, `libxi-dev`, `libxcursor-dev`, `cmake`, `ninja-build` and a
+C++ compiler (Debian/Ubuntu names), plus a Rust toolchain (1.94 or newer). The
+first build compiles the shader compiler from source.
 See [Basalt packaging and releases](docs/basalt.md) for paths, dependencies and CI.
 
 ## Code layout
@@ -112,7 +119,7 @@ See [Basalt packaging and releases](docs/basalt.md) for paths, dependencies and 
 | `events.rs`, `audio.rs` | Semantic game events and native Ogg playback |
 | `input.rs`, `timing.rs` | Device inputs and fixed simulation timing |
 | `controls.rs`, `display.rs`, `storage.rs` | Portable bindings, display scaling, and Basalt configuration |
-| `menu.rs`, `window.rs` | Settings UI and native desktop window |
+| `menu.rs`, `window.rs` | Settings UI, and Quasar window/Vulkan framebuffer presentation |
 
 There is no address-based dispatch or shared emulated memory. Numeric sprite
 catalog IDs identify artwork; level entity names select behavior. The simulation
@@ -129,6 +136,11 @@ cargo clippy --all-targets -- -D warnings
 python3 -m unittest discover -s DevUtils  # optional migration checks; requires Pillow
 cargo run -- --headless --stage 0 --frames 3600 --demo --screenshot /tmp/game.png
 ```
+
+Quasar crates are consumed as pinned Git dependencies (`tag = "v0.2.5"`), so the
+first build needs network access to GitHub. `quasar-window` and
+`quasar-render-2d` are optional features: `cargo build --no-default-features`
+produces a headless binary with no windowing or Vulkan dependency.
 
 Development utilities (asset migration, packaging, release publication and
 verification) live in [`DevUtils/`](DevUtils/README.md). This project follows
@@ -214,18 +226,22 @@ a symbolic link to that directory, so add or edit skills only once, there.
 ### Verify like CI
 
 `.github/workflows/release.yml` is the authority. Locally, with
-`pkg-config libsdl2-dev libasound2-dev libudev-dev python3-pil xvfb xdotool openbox`
-installed (Debian/Ubuntu names), run:
+`pkg-config libasound2-dev libudev-dev libvulkan-dev mesa-vulkan-drivers
+libxkbcommon-dev libwayland-dev libx11-dev libxrandr-dev libxi-dev libxcursor-dev
+cmake ninja-build build-essential python3-pil xvfb xdotool openbox` installed
+(Debian/Ubuntu names), run:
 
 ```sh
 cargo fmt --check
 cargo clippy --locked --all-targets -- -D warnings
 cargo test --locked --all-targets
+cargo build --locked --no-default-features --release  # headless-only build
 python3 -m unittest discover -s DevUtils
+xvfb-run -a cargo test --test presentation -- --ignored --test-threads=1
 cargo build --locked --release
 python3 DevUtils/package_linux.py --revision "$(git rev-parse HEAD)"
 python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
-python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+xvfb-run -a python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
 xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
 ```
 

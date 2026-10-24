@@ -45,14 +45,14 @@ malformed or unsupported newer versions produce a clear error instead of being
 overwritten. Existing version-1 audio preferences keep their format and contents;
 the controls and display files are created only when missing. Display Apply
 changes the window immediately; manual resizing is saved after a short debounce
-or on normal exit. Sharp (nearest-neighbor) and Smooth (linear) scaling fill the
-entire height while preserving the native 256×240 image and proportions. Only side
-bars are added; narrow windows become shorter to fit the whole image. Existing
-`integer` settings load as Sharp. Fullscreen uses the desktop resolution, retaining
-the windowed size for restoration; Alt+Enter toggles it. Portrait displays too
-narrow for full-height output use windowed mode. Binding capture blocks menu and
-gameplay actions until completion or cancellation, and Escape remains reserved
-for settings navigation.
+or on normal exit. Sharp (nearest-neighbor) and Smooth (linear) scaling present the
+native 256×240 (16:15) image through Quasar's viewport at the largest size that
+fits, so bars appear only left/right on wide windows or top/bottom on tall ones.
+Square and portrait windows are supported, and the image is never cropped or
+stretched. Existing `integer` settings load as Sharp. Fullscreen uses the desktop
+resolution, retaining the windowed size for restoration; Alt+Enter toggles it.
+Binding capture blocks menu and gameplay actions until completion or cancellation,
+and Escape remains reserved for settings navigation.
 
 Progress currently uses the original tower passwords; this release does not add
 saved mid-level sessions. Runtime caches are not currently generated. Their
@@ -65,15 +65,21 @@ No automatic writes occur outside the install root or launcher-provided paths.
 The supported artifact is `MicroMages-latest-linux-x64.zip`, containing only `app/`
 at its root. No wrapper, user data, build tools or original executable is shipped.
 ZIP Unix permissions retain executable bits. The binary includes compiled Rust
-code, while all platform shared libraries come from the host: [SDL2 **2.0.12 or newer**](https://wiki.libsdl.org/SDL2/SDL_SetTextureScaleMode), ALSA's `libasound.so.2` ABI, udev's `libudev.so.1` ABI, GCC unwind support,
-and glibc. These ABI names do not pin distribution package versions. Compatible
-newer releases are supported. ALSA uses the host's matching configuration and
-plugins, including its PipeWire/PulseAudio integration. No private ALSA, udev, GCC,
-or SDL library is shipped, and the executable has no RPATH/RUNPATH override.
+code, while all platform shared libraries come from the host: a **Vulkan 1.3**
+loader and driver (dynamic rendering, synchronization2 and timeline semaphores),
+X11 or Wayland through winit with `libxkbcommon`, ALSA's `libasound.so.2` ABI,
+udev's `libudev.so.1` ABI, the GCC C++ runtime (`libstdc++.so.6`, linked by the
+statically built shader compiler), GCC unwind support, and glibc. These ABI names do not
+pin distribution package versions. Compatible newer releases are supported. ALSA
+uses the host's matching configuration and plugins, including its
+PipeWire/PulseAudio integration. No private ALSA, udev, GCC, Vulkan or windowing
+library is shipped, and the executable has no RPATH/RUNPATH override.
 Packaging checks direct library dependencies and rejects a private search path;
-ZIP verification rejects shared libraries. Host X11/Wayland and graphics drivers
-are used through SDL2. CI builds on Ubuntu 22.04 for a glibc **2.35 minimum**; a
-release built locally on a newer distribution may require a newer glibc.
+ZIP verification rejects shared libraries. VulkanicGAL is the only graphics
+backend; the shader compiler is linked into the executable at build time, so no
+runtime GLSL compiler is needed. CI builds on Ubuntu 22.04 for a glibc **2.35
+minimum**; a release built locally on a newer distribution may require a newer
+glibc.
 
 The game has no updater; Basalt owns updates, backup and sync.
 
@@ -84,9 +90,13 @@ dependencies installed; Xvfb, xdotool and Openbox for the desktop check):
 cargo build --locked --release
 python3 DevUtils/package_linux.py --revision "$(git rev-parse HEAD)"
 python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
-python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+xvfb-run -a python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
 xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
 ```
+
+The first build fetches the pinned Quasar Git dependency and compiles its shader
+compiler, which needs CMake/Ninja or Make and a C++ compiler. `--no-default-features`
+builds a headless executable without windowing or Vulkan.
 
 ## Continuous validation and rolling latest
 
@@ -98,10 +108,12 @@ and without Basalt variables. It checks preferences, update preservation and mov
 the entire installation to a path containing spaces. The graphical Xvfb test starts
 with no arguments, changes volume, rebinds Jump, applies a new window size and
 scaling mode, checks fullscreen and restoration, corrects a portrait resize, and
-verifies the settings survive a relaunch.
+verifies the settings survive a relaunch, including a portrait window.
 Both runs quit through the UI with status 0. A separate audio check runs the packaged
-game through host ALSA with a file-backed PCM and requires non-silent output. It
-uses SDL’s dummy video driver, so CI needs neither speakers nor a sound card.
+game through host ALSA with a file-backed PCM under Xvfb and requires non-silent
+output, so CI needs neither speakers nor a sound card. The desktop and audio checks
+use Mesa's lavapipe Vulkan driver under Xvfb; a headless build of the same source is
+compiled without default features to keep windowing and Vulkan optional.
 
 Successful pushes to `main` (and manual runs on `main`) publish the single mutable
 GitHub release named **Latest**, tagged `latest`. PRs and other branches validate

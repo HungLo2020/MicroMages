@@ -1,11 +1,12 @@
 //! Portable installation paths and versioned user preferences for Basalt.
+//!
+//! Path discovery and atomic JSON persistence come from `quasar-storage`; this
+//! module keeps the game's file names, schema versions and validation rules.
+use quasar_storage::{GamePaths, read_json, write_json};
 use serde::{Deserialize, Serialize};
 use std::{
-    ffi::OsString,
-    fs::{self, OpenOptions},
-    io::{self, Write},
+    fs, io,
     path::{Path, PathBuf},
-    sync::atomic::{AtomicU64, Ordering},
 };
 
 #[derive(Debug)]
@@ -18,45 +19,31 @@ pub struct Paths {
 }
 impl Paths {
     pub fn discover() -> io::Result<Self> {
-        Self::resolve(&std::env::current_exe()?, |key| std::env::var_os(key))
+        Self::from_game_paths(GamePaths::discover(Some(Path::new(env!(
+            "CARGO_MANIFEST_DIR"
+        ))))?)
     }
 
-    fn resolve(executable: &Path, env: impl Fn(&str) -> Option<OsString>) -> io::Result<Self> {
-        let bin = executable
-            .parent()
-            .ok_or_else(|| io::Error::other("executable has no directory"))?;
-        let packaged_app = bin
-            .parent()
-            .filter(|_| bin.file_name().is_some_and(|s| s == "bin"));
-        let root = env("BASALT_GAME_DIR")
-            .map(PathBuf::from)
-            .unwrap_or_else(|| {
-                packaged_app
-                    .and_then(Path::parent)
-                    .unwrap_or_else(|| {
-                        if bin.join("assets").is_dir() {
-                            bin
-                        } else {
-                            Path::new(env!("CARGO_MANIFEST_DIR"))
-                        }
-                    })
-                    .to_path_buf()
-            });
-        let path = |key, fallback: PathBuf| -> io::Result<PathBuf> {
-            let value = env(key).map(PathBuf::from).unwrap_or(fallback);
+    /// A relative Basalt override is ambiguous, so reject it instead of
+    /// resolving it against an unspecified working directory.
+    fn from_game_paths(paths: GamePaths) -> io::Result<Self> {
+        for (key, value) in [
+            ("BASALT_APP_DIR", &paths.app),
+            ("BASALT_SAVE_DIR", &paths.save),
+            ("BASALT_CONFIG_DIR", &paths.config),
+            ("BASALT_SHARED_CONFIG_DIR", &paths.shared_config),
+            ("BASALT_CACHE_DIR", &paths.cache),
+        ] {
             if !value.is_absolute() {
                 return Err(io::Error::other(format!("{key} must be an absolute path")));
             }
-            Ok(value)
-        };
-        let app = path("BASALT_APP_DIR", root.join("app"))?;
-        let config = path("BASALT_CONFIG_DIR", root.join("data/config"))?;
+        }
         Ok(Self {
-            app,
-            save: path("BASALT_SAVE_DIR", root.join("data/save"))?,
-            shared_config: path("BASALT_SHARED_CONFIG_DIR", config.join("shared"))?,
-            config,
-            cache: path("BASALT_CACHE_DIR", root.join("data/cache"))?,
+            app: paths.app,
+            save: paths.save,
+            config: paths.config,
+            shared_config: paths.shared_config,
+            cache: paths.cache,
         })
     }
 
@@ -108,116 +95,73 @@ impl Preferences {
     }
     pub fn save(&self, path: &Path) -> io::Result<()> {
         self.validate()?;
-        atomic_write(path, &serde_json::to_vec_pretty(self)?)
+        write_json(path, self)
     }
 }
 
+/// Missing files are created from validated defaults; existing files that do
+/// not match the current schema are reported and left untouched.
 pub(crate) fn load_settings<T: serde::de::DeserializeOwned + Serialize + Default>(
     path: &Path,
     validate: impl Fn(&T) -> io::Result<()>,
 ) -> Result<T, String> {
-    let load = || -> Result<T, Box<dyn std::error::Error>> {
-        match fs::read(path) {
-            Ok(bytes) => {
-                let value = serde_json::from_slice(&bytes)?;
+    let load = || -> io::Result<T> {
+        match read_json(path)? {
+            Some(value) => {
                 validate(&value)?;
                 Ok(value)
             }
-            Err(error) if error.kind() == io::ErrorKind::NotFound => {
+            None => {
                 let value = T::default();
                 validate(&value)?;
-                atomic_write(path, &serde_json::to_vec_pretty(&value)?)?;
+                write_json(path, &value)?;
                 Ok(value)
             }
-            Err(error) => Err(error.into()),
         }
     };
     load().map_err(|error| format!("{}: {error}", path.display()))
-}
-
-/// The temporary file stays on the destination filesystem, making rename atomic.
-pub(crate) fn atomic_write(path: &Path, bytes: &[u8]) -> io::Result<()> {
-    static NEXT: AtomicU64 = AtomicU64::new(0);
-    let parent = path
-        .parent()
-        .ok_or_else(|| io::Error::other("missing parent directory"))?;
-    fs::create_dir_all(parent)?;
-    let (temporary, mut file) = loop {
-        let name = format!(
-            ".preferences-{}-{}.tmp",
-            std::process::id(),
-            NEXT.fetch_add(1, Ordering::Relaxed)
-        );
-        let temporary = parent.join(name);
-        match OpenOptions::new()
-            .write(true)
-            .create_new(true)
-            .open(&temporary)
-        {
-            Ok(file) => break (temporary, file),
-            Err(e) if e.kind() == io::ErrorKind::AlreadyExists => continue,
-            Err(e) => return Err(e),
-        }
-    };
-    let result = (|| {
-        file.write_all(bytes)?;
-        file.sync_all()?;
-        drop(file);
-        fs::rename(&temporary, path)?;
-        #[cfg(unix)]
-        fs::File::open(parent)?.sync_all()?;
-        Ok(())
-    })();
-    if result.is_err() {
-        let _ = fs::remove_file(&temporary);
-    }
-    result
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn packaged_paths_do_not_depend_on_working_directory() {
-        let paths = Paths::resolve(
-            Path::new("/library with spaces/MicroMages/app/bin/micro-mages"),
-            |_| None,
-        )
-        .unwrap();
-        assert_eq!(paths.app, Path::new("/library with spaces/MicroMages/app"));
-        assert_eq!(
-            paths.save,
-            Path::new("/library with spaces/MicroMages/data/save")
-        );
-        assert_eq!(
-            paths.shared_config,
-            Path::new("/library with spaces/MicroMages/data/config/shared")
-        );
-    }
-    #[test]
-    fn launcher_overrides_each_category_and_rejects_relative_paths() {
-        let paths = Paths::resolve(Path::new("/other/app/bin/game"), |key| {
-            Some(format!("/library/{key}").into())
-        })
-        .unwrap();
-        assert_eq!(paths.app, Path::new("/library/BASALT_APP_DIR"));
-        assert_eq!(paths.save, Path::new("/library/BASALT_SAVE_DIR"));
-        assert_eq!(paths.config, Path::new("/library/BASALT_CONFIG_DIR"));
-        assert_eq!(
-            paths.shared_config,
-            Path::new("/library/BASALT_SHARED_CONFIG_DIR")
-        );
-        assert_eq!(paths.cache, Path::new("/library/BASALT_CACHE_DIR"));
+    fn file_locations_split_shared_and_machine_local_settings() {
+        let paths = Paths {
+            app: PathBuf::from("/games/MicroMages/app"),
+            save: PathBuf::from("/games/MicroMages/data/save"),
+            config: PathBuf::from("/games/MicroMages/data/config"),
+            shared_config: PathBuf::from("/games/MicroMages/data/config/shared"),
+            cache: PathBuf::from("/games/MicroMages/data/cache"),
+        };
         assert_eq!(
             paths.controls_file(),
-            Path::new("/library/BASALT_SHARED_CONFIG_DIR/controls.json")
+            Path::new("/games/MicroMages/data/config/shared/controls.json")
         );
         assert_eq!(
             paths.display_file(),
-            Path::new("/library/BASALT_CONFIG_DIR/display.json")
+            Path::new("/games/MicroMages/data/config/display.json")
         );
-        assert!(Paths::resolve(Path::new("/app/bin/game"), |_| Some("relative".into())).is_err());
     }
+
+    #[test]
+    fn relative_overrides_are_rejected() {
+        let error = Paths::from_game_paths(GamePaths {
+            root: PathBuf::from("/games/MicroMages"),
+            app: PathBuf::from("app"),
+            save: PathBuf::from("/games/MicroMages/data/save"),
+            config: PathBuf::from("/games/MicroMages/data/config"),
+            shared_config: PathBuf::from("/games/MicroMages/data/config/shared"),
+            cache: PathBuf::from("/games/MicroMages/data/cache"),
+        })
+        .unwrap_err();
+        assert!(
+            error
+                .to_string()
+                .contains("BASALT_APP_DIR must be an absolute path")
+        );
+    }
+
     #[test]
     fn preferences_survive_restarts_and_invalid_data_is_not_overwritten() {
         let dir = std::env::temp_dir().join(format!("mm-preferences-{}", std::process::id()));

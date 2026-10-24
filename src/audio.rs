@@ -1,18 +1,15 @@
 //! Native playback of the repository's PC-game Ogg assets.
 //! Receives semantic events from the simulation; no code-address hooks.
+//!
+//! `quasar-audio` provides decoding, buses, voice handles and loop regions. The
+//! game keeps its own track/effect tables, three-voice replacement rule, fade
+//! curve and pause semantics.
 use crate::events::{GameEvent, Music, Sound};
-use rodio::{Decoder, OutputStream, OutputStreamHandle, Sink, Source};
-use std::{
-    error::Error,
-    fs::File,
-    io::BufReader,
-    path::{Path, PathBuf},
-    sync::{
-        Arc,
-        atomic::{AtomicUsize, Ordering},
-    },
-    time::Duration,
+use quasar_audio::{
+    AudioEngine, BusId, Clip, EngineConfig, LoopMode, LoopRegion, PlaybackConfig, VoiceHandle,
+    VoicePolicy,
 };
+use std::{error::Error, path::Path};
 
 const MUSIC: [(&str, bool, f64, f64); 9] = [
     ("music/mysterious.ogg", true, 0.0, 0.0),
@@ -62,89 +59,47 @@ const SFX: [(&str, u32); 34] = [
     ("sfx/willowisp scream.ogg", 9),
 ];
 
-#[derive(Clone)]
-struct Sample {
-    data: Arc<[f32]>,
-    channels: u16,
-    rate: u32,
-}
-impl Sample {
-    fn load(path: &Path) -> Result<Self, Box<dyn Error>> {
-        let decoder = Decoder::new(BufReader::new(File::open(path)?))?;
-        let channels = decoder.channels();
-        let rate = decoder.sample_rate();
-        let data = decoder.convert_samples::<f32>().collect::<Vec<_>>().into();
-        Ok(Self {
-            data,
-            channels,
-            rate,
-        })
+/// The original has three effect voices, replaced by priority.
+const VOICES: usize = 3;
+const MUSIC_GAIN: f32 = 0.85;
+const FADE_STEPS: u16 = 256;
+/// Dreamy plays slightly flat in the original track table.
+const DREAMY_SPEED: f32 = f32::from_bits(0x3f7f943f);
+
+/// Build the loop policy for a track from its documented seconds.
+///
+/// A whole-track loop starts at frame zero; a region track plays its intro once
+/// and then repeats `start..end`, which is exactly `LoopMode::Region`.
+fn loop_mode(clip: &Clip, looping: bool, start: f64, end: f64) -> LoopMode {
+    if !looping {
+        return LoopMode::None;
     }
-    fn position(&self, seconds: f64) -> usize {
-        ((seconds * self.rate as f64) as usize * self.channels as usize).min(self.data.len())
+    let frames = clip.frames();
+    if frames == 0 || start <= 0.0 || end <= 0.0 {
+        return LoopMode::Whole;
     }
-    fn source(&self, looping: bool, start: f64, end: f64) -> Clip {
-        let end = if end > 0.0 {
-            self.position(end)
-        } else {
-            self.data.len()
-        };
-        Clip {
-            sample: self.clone(),
-            position: 0,
-            loop_range: looping.then_some((self.position(start), end)),
-            seek: Arc::new(AtomicUsize::new(usize::MAX)),
-        }
+    let rate = f64::from(clip.sample_rate());
+    let start = (start * rate) as u64;
+    let end = ((end * rate) as u64).min(frames);
+    if start >= end {
+        // A shorter asset cannot honor the region; play it once like the
+        // previous clip iterator did instead of erroring at playback.
+        return LoopMode::None;
     }
-}
-struct Clip {
-    sample: Sample,
-    position: usize,
-    loop_range: Option<(usize, usize)>,
-    seek: Arc<AtomicUsize>,
-}
-impl Iterator for Clip {
-    type Item = f32;
-    fn next(&mut self) -> Option<f32> {
-        let seek = self.seek.swap(usize::MAX, Ordering::Relaxed);
-        if seek != usize::MAX {
-            self.position = seek;
-        }
-        if let Some((start, end)) = self.loop_range
-            && self.position >= end
-            && start < end
-        {
-            self.position = start;
-        }
-        let value = *self.sample.data.get(self.position)?;
-        self.position += 1;
-        Some(value)
-    }
-}
-impl Source for Clip {
-    fn current_frame_len(&self) -> Option<usize> {
-        None
-    }
-    fn channels(&self) -> u16 {
-        self.sample.channels
-    }
-    fn sample_rate(&self) -> u32 {
-        self.sample.rate
-    }
-    fn total_duration(&self) -> Option<Duration> {
-        None
-    }
+    LoopRegion::new(start, end)
+        .map(LoopMode::Region)
+        .unwrap_or(LoopMode::Whole)
 }
 
 pub struct Audio {
-    // Keep the device alive for the lifetime of its sinks.
-    _stream: OutputStream,
-    handle: OutputStreamHandle,
-    root: PathBuf,
-    sfx: Vec<Sample>,
-    voices: Vec<(usize, Sink)>,
-    music: Option<Sink>,
-    music_seek: Option<(Arc<AtomicUsize>, usize)>,
+    engine: AudioEngine,
+    music_bus: BusId,
+    effects_bus: BusId,
+    /// Music decodes on demand, so the asset root stays available.
+    root: std::path::PathBuf,
+    sfx: Vec<Clip>,
+    voices: [Option<(usize, VoiceHandle)>; VOICES],
+    music: Option<VoiceHandle>,
     fade: u16,
     music_volume: f32,
     effects_volume: f32,
@@ -152,19 +107,27 @@ pub struct Audio {
 }
 impl Audio {
     pub fn new(root: &Path) -> Result<Self, Box<dyn Error>> {
-        let (stream, handle) = OutputStream::try_default()?;
+        let engine = AudioEngine::open(
+            None,
+            EngineConfig {
+                max_voices: 16,
+                ..EngineConfig::default()
+            },
+        )?;
+        let music_bus = engine.create_bus("music", MUSIC_GAIN, 4)?;
+        let effects_bus = engine.create_bus("effects", 1.0, VOICES)?;
         let sfx = SFX
             .iter()
-            .map(|(name, _)| Sample::load(&root.join(name)))
+            .map(|(name, _)| Clip::load(root.join(name)).map_err(Box::<dyn Error>::from))
             .collect::<Result<Vec<_>, _>>()?;
         Ok(Self {
-            _stream: stream,
-            handle,
+            engine,
+            music_bus,
+            effects_bus,
             root: root.to_owned(),
             sfx,
-            voices: Vec::new(),
+            voices: [None, None, None],
             music: None,
-            music_seek: None,
             fade: 0,
             music_volume: 1.0,
             effects_volume: 1.0,
@@ -177,12 +140,16 @@ impl Audio {
             GameEvent::Sound(sound) => self.play_sfx(sound, 0),
             GameEvent::Music(music) => self.play_music(music),
             GameEvent::StopMusic => {
-                self.music = None;
-                self.music_seek = None;
+                self.stop_music();
                 self.fade = 0;
             }
             GameEvent::FadeMusic => self.fade = 1,
             GameEvent::GameOver | GameEvent::Victory | GameEvent::StageCompleted => {}
+        }
+    }
+    fn stop_music(&mut self) {
+        if let Some(voice) = self.music.take() {
+            let _ = self.engine.stop(&voice);
         }
     }
     fn play_music(&mut self, music: Music) {
@@ -190,104 +157,101 @@ impl Audio {
         let Some(&(name, looping, start, end)) = MUSIC.get(id) else {
             return;
         };
-        self.music = None;
-        self.music_seek = None;
+        self.stop_music();
         self.fade = 0;
-        let Ok(sample) = Sample::load(&self.root.join(name)) else {
+        let Ok(clip) = Clip::load(self.root.join(name)) else {
             return;
         };
-        let Ok(sink) = Sink::try_new(&self.handle) else {
-            return;
+        let config = PlaybackConfig {
+            bus: self.music_bus,
+            looping: loop_mode(&clip, looping, start, end),
+            speed: if id == 3 { DREAMY_SPEED } else { 1.0 },
+            policy: VoicePolicy::Reject,
+            ..PlaybackConfig::default()
         };
-        let source = sample.source(looping, start, end);
-        self.music_seek = Some((source.seek.clone(), sample.position(1.596)));
-        sink.set_volume(0.85 * self.music_volume);
-        if id == 3 {
-            sink.set_speed(f32::from_bits(0x3f7f943f));
+        if let Ok(voice) = self.engine.play(clip, config) {
+            self.music = Some(voice);
+            self.sync_music();
         }
-        sink.append(source);
-        self.music = Some(sink);
-        self.sync_music();
     }
     fn play_sfx(&mut self, sound: Sound, pitch: i8) {
         let id = sound.index();
-        let Some(sample) = self.sfx.get(id) else {
+        let Some(clip) = self.sfx.get(id) else {
             return;
         };
-        // The original has three effect voices, with priority-based replacement.
-        let slot = self
+        // Replaying a sound replaces its running instance.
+        for slot in &mut self.voices {
+            if let Some((old, voice)) = slot
+                && *old == id
+            {
+                let _ = self.engine.stop(voice);
+                *slot = None;
+            }
+        }
+        let free = self
             .voices
             .iter()
-            .position(|(_, sink)| sink.empty())
-            .or_else(|| (self.voices.len() < 3).then_some(self.voices.len()))
-            .or_else(|| {
-                self.voices
-                    .iter()
-                    .position(|(old, _)| SFX[id].1 >= SFX[*old].1)
-            });
+            .position(|slot| slot.as_ref().is_none_or(|(_, voice)| !voice.is_active()));
+        let slot = free.or_else(|| {
+            self.voices
+                .iter()
+                .position(|slot| matches!(slot, Some((old, _)) if SFX[id].1 >= SFX[*old].1))
+        });
         let Some(slot) = slot else {
             return;
         };
-        for (old, sink) in &self.voices {
-            if *old == id {
-                sink.stop();
-            }
+        if let Some((_, voice)) = self.voices[slot].take() {
+            let _ = self.engine.stop(&voice);
         }
-        let Ok(sink) = Sink::try_new(&self.handle) else {
-            return;
+        let config = PlaybackConfig {
+            bus: self.effects_bus,
+            speed: (1.0 + f32::from(pitch) * 0.05).max(0.4),
+            policy: VoicePolicy::Reject,
+            ..PlaybackConfig::default()
         };
-        sink.set_speed((1.0 + pitch as f32 * 0.05).max(0.4));
-        sink.set_volume(self.effects_volume);
-        if self.host_paused {
-            sink.pause();
-        }
-        sink.append(sample.source(false, 0.0, 0.0));
-        if slot == self.voices.len() {
-            self.voices.push((id, sink));
-        } else {
-            self.voices[slot] = (id, sink);
+        if let Ok(voice) = self.engine.play(clip.clone(), config) {
+            self.voices[slot] = Some((id, voice));
         }
     }
     pub fn update(&mut self) {
         if self.fade > 0 {
-            self.fade = (self.fade + 1).min(256);
-            if let Some(sink) = &self.music {
-                sink.set_volume(0.85 * self.music_volume * (256 - self.fade) as f32 / 256.0);
-            }
+            self.fade = (self.fade + 1).min(FADE_STEPS);
+            self.sync_music();
         }
     }
 
     /// Pause preserves the current playback position.
     pub fn settings(&mut self, music: u8, effects: u8, paused: bool) {
-        self.music_volume = music.min(100) as f32 / 100.0;
-        self.effects_volume = effects.min(100) as f32 / 100.0;
+        self.music_volume = f32::from(music.min(100)) / 100.0;
+        self.effects_volume = f32::from(effects.min(100)) / 100.0;
         self.host_paused = paused;
+        let _ = self.engine.set_paused(paused);
+        let _ = self
+            .engine
+            .set_bus_volume(self.effects_bus, self.effects_volume);
         self.sync_music();
-        for (_, sink) in &self.voices {
-            sink.set_volume(self.effects_volume);
-            if paused {
-                sink.pause();
-            } else {
-                sink.play();
-            }
-        }
     }
 
     fn sync_music(&self) {
-        if let Some(sink) = &self.music {
-            sink.set_volume(0.85 * self.music_volume * (256 - self.fade) as f32 / 256.0);
-            if self.host_paused {
-                sink.pause();
-            } else {
-                sink.play();
-            }
-        }
+        let faded = f32::from(FADE_STEPS - self.fade) / f32::from(FADE_STEPS);
+        let _ = self
+            .engine
+            .set_bus_volume(self.music_bus, MUSIC_GAIN * self.music_volume * faded);
+        let _ = self.engine.set_paused(self.host_paused);
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use quasar_audio::{Mixer, MixerConfig};
+
+    fn clip(seconds: f64) -> Clip {
+        let rate = 4_000u32;
+        let frames = (seconds * f64::from(rate)) as usize;
+        Clip::from_samples(vec![0.25; frames], 1, rate, "test").expect("test clip")
+    }
+
     #[test]
     fn repository_audio_assets_decode() {
         let root = crate::assets::default_root();
@@ -299,8 +263,8 @@ mod tests {
                 .collect();
             assert_eq!(files.len(), expected);
             for path in files {
-                let sample = Sample::load(&path).unwrap();
-                assert!(!sample.data.is_empty(), "Empty audio: {}", path.display());
+                let clip = Clip::load(&path).unwrap();
+                assert!(clip.frames() > 0, "Empty audio: {}", path.display());
             }
         }
         for name in MUSIC
@@ -313,30 +277,66 @@ mod tests {
     }
 
     #[test]
-    fn intro_plays_once_then_only_loop_region_repeats() {
-        let sample = Sample {
-            data: Arc::from([0., 1., 2., 3., 4.]),
-            channels: 1,
-            rate: 1,
-        };
-        let source = sample.source(true, 2., 4.);
-        assert_eq!(
-            source.take(9).collect::<Vec<_>>(),
-            [0., 1., 2., 3., 2., 3., 2., 3., 2.]
-        );
+    fn track_tables_map_to_expected_loop_policies() {
+        let root = crate::assets::default_root();
+        for &(name, looping, start, end) in &MUSIC {
+            let clip = Clip::load(root.join(name)).unwrap();
+            let mode = loop_mode(&clip, looping, start, end);
+            match (looping, start, end) {
+                (false, _, _) => assert_eq!(mode, LoopMode::None, "{name}"),
+                (true, 0.0, 0.0) => assert_eq!(mode, LoopMode::Whole, "{name}"),
+                (true, start, end) => {
+                    let LoopMode::Region(region) = mode else {
+                        panic!("{name} should loop a region");
+                    };
+                    let rate = f64::from(clip.sample_rate());
+                    assert_eq!(region.start, (start * rate) as u64, "{name}");
+                    // A region end past the decoded asset is clamped, as the
+                    // previous clip iterator did.
+                    assert_eq!(
+                        region.end,
+                        ((end * rate) as u64).min(clip.frames()),
+                        "{name}"
+                    );
+                }
+            }
+        }
     }
+
     #[test]
-    fn forced_seek_is_applied_at_next_sample() {
-        let sample = Sample {
-            data: Arc::from([0., 1., 2., 3.]),
-            channels: 1,
-            rate: 1,
-        };
-        let mut source = sample.source(false, 0., 0.);
-        assert_eq!(source.next(), Some(0.));
-        source.seek.store(2, Ordering::Relaxed);
-        assert_eq!(source.next(), Some(2.));
-        assert_eq!(source.next(), Some(3.));
-        assert_eq!(source.next(), None);
+    fn region_loop_plays_the_intro_once_before_repeating() {
+        let mut mixer = Mixer::new(MixerConfig {
+            sample_rate: 4_000,
+            channels: 2,
+            max_voices: 4,
+            command_capacity: 16,
+        })
+        .unwrap();
+        let source = Clip::from_samples(vec![-1.0, -0.5, 0.0, 0.5, 1.0], 1, 4_000, "ramp").unwrap();
+        // Entering at frame zero, play to the region end, then repeat 2..4.
+        mixer
+            .play(
+                source,
+                PlaybackConfig {
+                    looping: LoopMode::Region(LoopRegion::new(2, 4).unwrap()),
+                    ..PlaybackConfig::default()
+                },
+            )
+            .unwrap();
+        let frames = mixer.render(8).unwrap();
+        let expected = [
+            -1.0, -1.0, -0.5, -0.5, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.5, 0.5,
+        ];
+        assert_eq!(&frames[..expected.len()], &expected);
+    }
+
+    #[test]
+    fn short_assets_fall_back_to_a_single_playback() {
+        // The previous clip iterator stopped instead of erroring when a region
+        // did not fit the decoded asset.
+        let short = clip(1.0);
+        assert_eq!(loop_mode(&short, true, 15.174, 24.759), LoopMode::None);
+        assert_eq!(loop_mode(&short, true, 0.0, 0.0), LoopMode::Whole);
+        assert_eq!(loop_mode(&short, false, 1.0, 2.0), LoopMode::None);
     }
 }

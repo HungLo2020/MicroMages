@@ -6,7 +6,6 @@ use micro_mages_re::{
     font::glyph,
     video::{HEIGHT, WIDTH},
 };
-use sdl2::keyboard::Scancode as Key;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Command {
@@ -82,7 +81,7 @@ impl Menu {
         &mut self,
         held: [u8; 4],
         escape: bool,
-        keys: &[Key],
+        keys: &[KeyboardKey],
         pads: &[Vec<Button>; 4],
     ) -> Frame {
         let mut pressed = 0;
@@ -118,7 +117,7 @@ impl Menu {
                 let result = match self.device {
                     Device::Keyboard => keys
                         .first()
-                        .and_then(|&key| KeyboardKey::from_native(key))
+                        .copied()
                         .map(|key| self.controls.bind_key(self.player, capture.action, key)),
                     Device::Gamepad => pads[self.player]
                         .first()
@@ -605,14 +604,17 @@ mod tests {
         menu.selection = 6; // Jump.
         let empty_pads = std::array::from_fn(|_| Vec::new());
         press(&mut menu, 0, 1);
-        menu.handle_input([1, 0, 0, 0], false, &[Key::Return], &empty_pads);
+        menu.handle_input([1, 0, 0, 0], false, &[KeyboardKey::Enter], &empty_pads);
         assert_eq!(menu.controls, Controls::default());
         assert!(!menu.capture.unwrap().armed);
         menu.handle_input([0; 4], false, &[], &empty_pads);
-        let frame = menu.handle_input([0; 4], false, &[Key::Space], &empty_pads);
+        let frame = menu.handle_input([0; 4], false, &[KeyboardKey::Space], &empty_pads);
         assert!(frame.paused && menu.capture.is_none());
         assert_eq!(frame.buttons, [0; 4]);
-        assert_eq!(menu.controls.keyboard_masks(&[Key::Space]), [1, 0, 0, 0]);
+        assert_eq!(
+            menu.controls.keyboard_masks(&[KeyboardKey::Space]),
+            [1, 0, 0, 0]
+        );
 
         menu.player = 2;
         menu.device = Device::Gamepad;
@@ -636,7 +638,7 @@ mod tests {
         menu.handle_input([0; 4], false, &[], &pads);
         assert!(menu.capture.is_some());
         assert_eq!(menu.status, "BUTTON ALREADY IN USE");
-        menu.handle_input([0; 4], true, &[Key::Escape], &empty_pads);
+        menu.handle_input([0; 4], true, &[], &empty_pads);
         assert!(menu.capture.is_none() && menu.open);
         assert_eq!(menu.controls, previous);
 

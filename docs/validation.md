@@ -21,7 +21,13 @@ cargo test --all-targets
 cargo clippy --all-targets -- -D warnings
 python3 -m unittest discover -s DevUtils
 cargo run --example replay_matrix -- --validate-all
+xvfb-run -a cargo test --test presentation -- --ignored --test-threads=1
 ```
+
+The presentation regressions check Quasar's viewport math for landscape, square and
+portrait targets (16:15, bars on one axis only, never cropped), the Sharp/Smooth
+filter mapping, a pixel-exact Vulkan framebuffer round trip, and a native window
+presentation under Xvfb.
 
 The original audit passed 164 Rust tests and nine Python asset-tool tests, plus
 formatting, strict all-target Clippy and `git diff --check`.

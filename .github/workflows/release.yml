@@ -19,7 +19,9 @@ jobs:
       - name: Install build and test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libasound2-dev libudev-dev libsdl2-dev python3-pil xvfb xdotool openbox
+          sudo apt-get install -y build-essential cmake ninja-build libasound2-dev libudev-dev \
+            libvulkan-dev mesa-vulkan-drivers libxkbcommon-dev libwayland-dev libx11-dev \
+            libxrandr-dev libxi-dev libxcursor-dev python3-pil xvfb xdotool openbox
           rustup update stable --no-self-update
           rustup default stable
           rustup component add rustfmt clippy
@@ -28,6 +30,7 @@ jobs:
           cargo fmt --check
           cargo clippy --locked --all-targets -- -D warnings
           cargo test --locked --all-targets
+          cargo build --locked --no-default-features --release
           python3 -m unittest discover -s DevUtils
       - name: Build Linux x64
         run: cargo build --locked --release
@@ -37,8 +40,10 @@ jobs:
         run: |
           python3 DevUtils/package_linux.py --revision "$REVISION"
           python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
-          python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+          xvfb-run -a python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
           xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
+      - name: Native Vulkan presentation
+        run: xvfb-run -a cargo test --locked --test presentation -- --ignored --test-threads=1
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: linux-x64

@@ -4,10 +4,23 @@ version = "0.1.0"
 edition = "2024"
 publish = false
 
+[features]
+default = ["desktop"]
+desktop = [
+    "dep:quasar-render-2d",
+    "dep:quasar-window",
+    "quasar-render-2d/gpu",
+    "quasar-render-2d/vulkan",
+]
+
 [dependencies]
-sdl2 = { version = "0.38", features = ["use-pkgconfig"] }
-rodio = "0.20.1"
 gilrs = "0.11"
+quasar-audio = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5", default-features = false, features = ["native"] }
+quasar-core = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5" }
+quasar-input = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5" }
+quasar-render-2d = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5", default-features = false, features = ["gpu", "png", "vulkan"], optional = true }
+quasar-storage = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5" }
+quasar-window = { git = "https://github.com/HungLo2020/Quasar", tag = "v0.2.5", optional = true }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 png = "0.17"

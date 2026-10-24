@@ -1,4 +1,7 @@
-//! Machine-local fullscreen settings and full-height, aspect-preserving scaling.
+//! Machine-local fullscreen settings and aspect-preserving scaling.
+
+/// The framebuffer is 256x240, so its display aspect ratio is 16:15.
+pub const ASPECT: (u32, u32) = (16, 15);
 use crate::video::{HEIGHT, WIDTH};
 use serde::{Deserialize, Serialize};
 use std::{io, path::Path};
@@ -13,6 +16,21 @@ pub enum Scaling {
     Smooth,
 }
 impl Scaling {
+    /// Quasar centers the largest 16:15 image that fits, so bars appear on one
+    /// axis only; only the sampling filter differs between Sharp and Smooth.
+    pub fn options(self) -> quasar_core::DisplayOptions {
+        quasar_core::DisplayOptions {
+            aspect: Some(ASPECT),
+            scaling: quasar_core::Scaling::Fit,
+            filter: self.filter(),
+        }
+    }
+    pub fn filter(self) -> quasar_core::Filter {
+        match self {
+            Self::Fit => quasar_core::Filter::Nearest,
+            Self::Smooth => quasar_core::Filter::Linear,
+        }
+    }
     pub fn label(self) -> &'static str {
         match self {
             Self::Fit => "SHARP",
@@ -66,7 +84,10 @@ impl DisplaySettings {
     }
     pub fn save(&self, path: &Path) -> io::Result<()> {
         self.validate()?;
-        crate::storage::atomic_write(path, &serde_json::to_vec_pretty(self)?)
+        quasar_storage::write_json(path, self)
+    }
+    pub fn options(self) -> quasar_core::DisplayOptions {
+        self.scaling.options()
     }
     pub fn valid_size(width: usize, height: usize) -> bool {
         (WIDTH..=8192).contains(&width)
@@ -91,66 +112,112 @@ impl DisplaySettings {
         (self.width, self.height) = Self::SIZES
             [(index as isize + direction).rem_euclid(Self::SIZES.len() as isize) as usize];
     }
-    /// A narrow window becomes shorter instead of introducing letterboxing.
-    pub fn windowed_size(width: usize, height: usize) -> (usize, usize) {
-        let width = width.max(WIDTH);
-        let height = height.max(HEIGHT).min(width * HEIGHT / WIDTH);
-        (width, height)
-    }
-}
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct Viewport {
-    pub x: usize,
-    pub width: usize,
-    pub height: usize,
-}
-impl Viewport {
-    /// Always use the entire height. Reject dimensions that would crop the image.
-    pub fn fit(width: usize, height: usize) -> Option<Self> {
-        let image_width = height.checked_mul(WIDTH)?.checked_div(HEIGHT)?;
-        if image_width == 0 || image_width > width {
-            return None;
-        }
-        Some(Self {
-            x: (width - image_width) / 2,
-            width: image_width,
-            height,
-        })
+    /// Only the framebuffer minimum is enforced; any other window shape is
+    /// presented with letterboxing or pillarboxing by the Quasar viewport.
+    pub fn clamped_size(width: usize, height: usize) -> (usize, usize) {
+        (width.max(WIDTH), height.max(HEIGHT))
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use quasar_core::{Filter, Scaling as QuasarScaling, Viewport};
+
+    fn viewport(width: u32, height: u32) -> Viewport {
+        let options = DisplaySettings::default().options();
+        Viewport::calculate((WIDTH as u32, HEIGHT as u32), (width, height), options).unwrap()
+    }
+
     #[test]
-    fn scaling_uses_the_full_height_with_only_side_bars() {
+    fn sharp_and_smooth_select_nearest_and_linear_sampling() {
+        let sharp = DisplaySettings::default().options();
+        assert_eq!(sharp.aspect, Some((16, 15)));
+        assert_eq!(sharp.scaling, QuasarScaling::Fit);
+        assert_eq!(sharp.filter, Filter::Nearest);
+        let smooth = DisplaySettings {
+            scaling: Scaling::Smooth,
+            ..DisplaySettings::default()
+        }
+        .options();
+        assert_eq!(smooth.filter, Filter::Linear);
+        assert_eq!(smooth.aspect, sharp.aspect);
+        assert_eq!(smooth.scaling, sharp.scaling);
+    }
+
+    #[test]
+    fn landscape_windows_use_side_bars_only() {
         for (width, height, image_width) in [
             (1920, 1080, 1152),
             (1600, 900, 960),
-            (1000, 600, 640),
+            (1280, 1024, 1092),
+            (2560, 1440, 1536),
             (3840, 2160, 2304),
-            (128, 120, 128),
+            (1920, 1200, 1280),
         ] {
-            let viewport = Viewport::fit(width, height).unwrap();
-            assert_eq!(viewport.height, height);
-            assert_eq!(viewport.width, image_width);
-            assert_eq!(viewport.x, (width - image_width) / 2);
+            let viewport = viewport(width, height);
+            assert_eq!(viewport.height, height, "{width}x{height}");
+            assert_eq!(viewport.width, image_width, "{width}x{height}");
+            assert_eq!(viewport.y, 0, "{width}x{height}");
+            assert_eq!(viewport.x, (width - image_width) / 2, "{width}x{height}");
         }
-        assert!(Viewport::fit(600, 1000).is_none());
-        assert!(Viewport::fit(0, 0).is_none());
     }
+
     #[test]
-    fn narrow_windows_are_corrected_without_cropping_or_letterboxing() {
-        for (width, height) in [(600, 1000), (1000, 600), (128, 120), (256, 8192)] {
-            let (w, h) = DisplaySettings::windowed_size(width, height);
-            assert!(w >= WIDTH && h >= HEIGHT);
-            assert!(Viewport::fit(w, h).is_some());
+    fn portrait_and_square_windows_use_top_and_bottom_bars_only() {
+        for (width, height) in [(600, 1000), (1000, 1000), (256, 8192), (1080, 1920)] {
+            let viewport = viewport(width, height);
+            assert_eq!(viewport.width, width, "{width}x{height}");
+            assert_eq!(viewport.x, 0, "{width}x{height}");
+            assert_eq!(
+                viewport.y,
+                (height - viewport.height) / 2,
+                "{width}x{height}"
+            );
+            assert!(viewport.height <= height, "{width}x{height}");
         }
-        assert_eq!(DisplaySettings::windowed_size(600, 1000), (600, 562));
+        // A 600x1000 portrait window keeps its size and letterboxes vertically.
+        assert_eq!(viewport(600, 1000).height, 562);
+        assert_eq!(viewport(600, 1000).y, 219);
+        assert_eq!(viewport(1080, 1920).height, 1012);
+        assert_eq!(viewport(1080, 1920).y, 454);
     }
+
     #[test]
-    fn existing_display_configs_use_full_height_and_keep_window_dimensions() {
+    fn bars_never_appear_on_all_four_sides_and_the_image_is_never_cropped() {
+        for width in [256u32, 300, 640, 800, 1024, 1280, 1920, 3840] {
+            for height in [240u32, 300, 480, 600, 720, 1000, 1080, 2160] {
+                let viewport = viewport(width, height);
+                let horizontal = viewport.x > 0;
+                let vertical = viewport.y > 0;
+                assert!(!(horizontal && vertical), "{width}x{height}: {viewport:?}");
+                assert!(viewport.width <= width && viewport.height <= height);
+                let ratio = f64::from(viewport.width) / f64::from(viewport.height);
+                assert!(
+                    (ratio - 16.0 / 15.0).abs() < 0.01,
+                    "{width}x{height}: {ratio}"
+                );
+            }
+        }
+        let exact = viewport(256, 240);
+        assert_eq!(
+            (exact.x, exact.y, exact.width, exact.height),
+            (0, 0, 256, 240)
+        );
+        assert!(
+            Viewport::calculate((256, 240), (0, 0), DisplaySettings::default().options()).is_none()
+        );
+    }
+
+    #[test]
+    fn window_sizes_only_enforce_the_framebuffer_minimum() {
+        assert_eq!(DisplaySettings::clamped_size(600, 1000), (600, 1000));
+        assert_eq!(DisplaySettings::clamped_size(128, 120), (WIDTH, HEIGHT));
+        assert_eq!(DisplaySettings::clamped_size(1920, 1080), (1920, 1080));
+    }
+
+    #[test]
+    fn existing_display_configs_keep_window_dimensions_and_scaling() {
         let settings: DisplaySettings =
             serde_json::from_str(r#"{"version":1,"width":1600,"height":900,"scaling":"integer"}"#)
                 .unwrap();

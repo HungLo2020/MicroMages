@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Run under Xvfb: exercise settings, remapping, window resizing and persistence."""
+"""Run under Xvfb: exercise settings, remapping, window resizing and persistence.
+
+Requires a Vulkan 1.3 driver (Mesa lavapipe is enough under Xvfb).
+"""
 import argparse
 from contextlib import contextmanager
 import json
@@ -14,7 +17,7 @@ from verify_package import extract
 
 @contextmanager
 def desktop_session():
-    # SDL desktop fullscreen needs a window manager (Xvfb alone has none).
+    # Borderless fullscreen needs a window manager (Xvfb alone has none).
     manager = subprocess.Popen(["openbox", "--sm-disable"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
     try:
         time.sleep(0.5)
@@ -60,7 +63,6 @@ def verify(archive=None, binary=None, screenshot=None):
             extract(archive, root)
         env = {k: v for k, v in os.environ.items() if not k.startswith("BASALT_") and k != "MICRO_MAGES_ASSETS"}
         # Always use the isolated X server, even from a Wayland desktop session.
-        env["SDL_VIDEODRIVER"] = "x11"
         env["WAYLAND_DISPLAY"] = str(Path(directory) / "no-wayland-display")
         def start():
             return subprocess.Popen([str(root / "app/bin/micromages")], cwd=directory, env=env,
@@ -88,7 +90,7 @@ def verify(archive=None, binary=None, screenshot=None):
             key(window, "Return")  # display
             key(window, "Right")  # 1280x720
             key(window, "Down")
-            key(window, "Right")  # smooth full-height scaling
+            key(window, "Right")  # smooth scaling
             key(window, "Down")
             key(window, "Down")  # skip fullscreen
             key(window, "Return")  # apply in place
@@ -101,11 +103,13 @@ def verify(archive=None, binary=None, screenshot=None):
             time.sleep(0.8)  # resize persistence is debounced
             display = json.loads(display_path.read_text())
             assert (display["width"], display["height"]) == (1000, 600), display
-            # A portrait resize is made shorter rather than cropped or letterboxed.
+            # Any window shape is accepted; portrait sizes letterbox vertically.
             subprocess.run(["xdotool", "windowsize", window, "600", "1000"], check=True)
             time.sleep(0.8)
             display = json.loads(display_path.read_text())
-            assert (display["width"], display["height"]) == (600, 562), display
+            assert (display["width"], display["height"]) == (600, 1000), display
+            portrait_geometry = subprocess.check_output(["xdotool", "getwindowgeometry", "--shell", window], text=True)
+            assert "WIDTH=600\n" in portrait_geometry and "HEIGHT=1000\n" in portrait_geometry, portrait_geometry
             subprocess.run(["xdotool", "windowsize", window, "1000", "600"], check=True)
             time.sleep(0.8)
             key(window, "alt+Return")

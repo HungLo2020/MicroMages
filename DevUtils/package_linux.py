@@ -14,7 +14,7 @@ from verify_artwork import verify_artwork
 ROOT = Path(__file__).resolve().parents[1]
 # Platform libraries belong to the host, including ALSA's matching plugins/config.
 HOST_LIBRARIES = {
-    "libasound.so.2", "libudev.so.1", "libgcc_s.so.1", "libSDL2-2.0.so.0",
+    "libasound.so.2", "libudev.so.1", "libgcc_s.so.1", "libstdc++.so.6",
     "ld-linux-x86-64.so.2", "libc.so.6", "libm.so.6", "libpthread.so.0", "libdl.so.2", "librt.so.1",
 }
 
