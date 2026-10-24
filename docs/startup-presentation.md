@@ -53,7 +53,7 @@ Artwork is stored once in an RGB PNG atlas; editable JSON contains per-cell
 animation keys. This is a native cinematic timeline, not emulated rendering:
 there are no controller registers, CPU state, executable data or memory maps
 in these assets or their playback code. See `assets/presentation/README.md`
-and `scripts/extract_presentation.py` for the conversion format.
+and `DevUtils/extract_presentation.py` for the conversion format.
 
 The separate secret challenge password `7195` selects an additional source
 difficulty bit, not ordinary hard mode. It is rejected rather than silently

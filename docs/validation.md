@@ -19,7 +19,7 @@ routes are then replayed under those corrected rules.
 cargo fmt --check
 cargo test --all-targets
 cargo clippy --all-targets -- -D warnings
-python3 -m unittest discover -s scripts
+python3 -m unittest discover -s DevUtils
 cargo run --example replay_matrix -- --validate-all
 ```
 

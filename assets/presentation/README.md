@@ -14,7 +14,7 @@ register state, or runtime extraction is used by the game.
   icons. Rust draws the current tower/floor, lives and individual scores over
   the template, and dims inactive player rows.
 
-`python3 scripts/extract_presentation.py /path/to/reference-frames` rebuilds
+`python3 DevUtils/extract_presentation.py /path/to/reference-frames` rebuilds
 intro/title assets from RGB PPM observations named `0001.ppm` through `1459.ppm`.
 The observations came from the previously archived reference implementation
 of executable SHA-256

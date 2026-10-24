@@ -82,10 +82,10 @@ dependencies installed; Xvfb, xdotool and Openbox for the desktop check):
 
 ```sh
 cargo build --locked --release
-python3 scripts/package_linux.py --revision "$(git rev-parse HEAD)"
-python3 scripts/verify_package.py dist/MicroMages-latest-linux-x64.zip
-python3 scripts/verify_audio.py dist/MicroMages-latest-linux-x64.zip
-xvfb-run -a python3 scripts/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
+python3 DevUtils/package_linux.py --revision "$(git rev-parse HEAD)"
+python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
+python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
 ```
 
 ## Continuous validation and rolling latest

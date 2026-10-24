@@ -28,17 +28,17 @@ jobs:
           cargo fmt --check
           cargo clippy --locked --all-targets -- -D warnings
           cargo test --locked --all-targets
-          python3 -m unittest discover -s scripts
+          python3 -m unittest discover -s DevUtils
       - name: Build Linux x64
         run: cargo build --locked --release
       - name: Package and verify the shipped ZIP
         env:
           REVISION: ${{ github.sha }}
         run: |
-          python3 scripts/package_linux.py --revision "$REVISION"
-          python3 scripts/verify_package.py dist/MicroMages-latest-linux-x64.zip
-          python3 scripts/verify_audio.py dist/MicroMages-latest-linux-x64.zip
-          xvfb-run -a python3 scripts/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
+          python3 DevUtils/package_linux.py --revision "$REVISION"
+          python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
+          python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+          xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: linux-x64
@@ -69,4 +69,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_COMMIT: ${{ github.sha }}
-        run: python3 scripts/publish_latest.py
+        run: python3 DevUtils/publish_latest.py

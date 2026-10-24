@@ -1,4 +1,4 @@
-"""Independent migration regressions; run python3 -m unittest discover -s scripts."""
+"""Independent migration regressions; run python3 -m unittest discover -s DevUtils."""
 
 import hashlib
 import json

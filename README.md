@@ -78,8 +78,9 @@ All runtime assets are in [`assets/`](assets/README.md):
 
 No `.bin` game assets remain. JSON and PNG edits are read on startup; no asset
 compiler or Python installation is needed to build or run. The optional Python
-migration tools document how the original assets were recovered and are not
-invoked by Cargo. Source asset provenance is recorded in `assets/manifest.json`; its hashes describe
+migration tools in [`DevUtils/`](DevUtils/README.md) document how the original
+assets were recovered and are not invoked by Cargo. Source asset provenance is
+recorded in `assets/manifest.json`; its hashes describe
 the extraction snapshot, rather than restricting later asset edits.
 
 Releases use `app/bin/micromages` and `app/assets/`. Run the executable directly or
@@ -125,9 +126,14 @@ Rust plus the Linux X11/Wayland, ALSA and udev development libraries are require
 cargo fmt --check
 cargo test --all-targets
 cargo clippy --all-targets -- -D warnings
-python3 -m unittest discover -s scripts  # optional migration checks; requires Pillow
+python3 -m unittest discover -s DevUtils  # optional migration checks; requires Pillow
 cargo run -- --headless --stage 0 --frames 3600 --demo --screenshot /tmp/game.png
 ```
+
+Development utilities (asset migration, packaging, release publication and
+verification) live in [`DevUtils/`](DevUtils/README.md). This project follows
+[CODING-STANDARDS.md](https://github.com/HungLo2020/LinuxScripts/blob/master/CODING-STANDARDS.md);
+agent-specific instructions are in [`## AGENTS`](#agents) below.
 
 `--stage N`, `--hard` and `--players 1..4` select a scenario directly. `--mute`
 disables audio, and `--frames N` bounds a run. PNG and legacy PPM screenshots are
@@ -163,3 +169,68 @@ Evidence and the scope of each comparison are documented in
 [`docs/enemy-behavior.md`](docs/enemy-behavior.md), and
 [`docs/pickup-behavior.md`](docs/pickup-behavior.md), and
 [`docs/startup-presentation.md`](docs/startup-presentation.md).
+
+## AGENTS
+
+This section is the single source of truth for coding agents. `AGENTS.md` is a
+symbolic link to this file, so every instruction here also applies to tools that
+read `AGENTS.md`. The project follows
+[CODING-STANDARDS.md](https://github.com/HungLo2020/LinuxScripts/blob/master/CODING-STANDARDS.md)
+and the [Basalt Game Standard](https://github.com/HungLo2020/Basalt/blob/main/STANDARDS.md);
+see [docs/basalt.md](docs/basalt.md) for how it is applied here.
+
+Project skills live in [`.agents/skills/`](.agents/skills/); `.claude/skills` is
+a symbolic link to that directory, so add or edit skills only once, there.
+
+### Non-negotiables
+
+- **No original game data.** Never add an instruction translator, CPU state, an
+  original executable, a program image, or an emulator. Gameplay is the Rust
+  simulation in `src/`; assets are editable JSON and PNG in `assets/`.
+- **Basalt contract.** The game never writes to `app/`; user data goes only to
+  `data/save/`, `data/config/` and `data/cache/`, with portable preferences in
+  `data/config/shared/`. Honor `BASALT_*` and `MICRO_MAGES_ASSETS` overrides and
+  keep the executable at `app/bin/micromages`. See [docs/basalt.md](docs/basalt.md).
+- **Deterministic simulation.** Gameplay logic stays free of window and audio
+  dependencies, runs at a fixed 60 Hz, and must remain replayable headlessly
+  (`--headless`, `--replay`).
+- **Assets stay editable.** JSON and PNG edits are read at startup; do not add an
+  asset compiler or a build step that requires Python. `assets/manifest.json`
+  records provenance and does not lock later edits.
+- **Fixtures are evidence.** Do not regenerate the reference CSVs, `*_reference.json`
+  traces, or the replay fixtures in `tests/fixtures/` just to make a test pass.
+  Change them only with an intentional behavior change, and document why.
+
+### Conventions
+
+- Rust for game code, tests and examples. Python (standard library first, Pillow
+  only where artwork requires it) for tooling in `DevUtils/`. Keep shell scripts
+  limited to command orchestration.
+- Tooling belongs in [`DevUtils/`](DevUtils/README.md); add a row to its README
+  when adding a utility. Documentation belongs in `docs/`, linked from this README.
+- Update the module table above when a module's responsibility changes, and keep
+  this AGENTS section accurate in the same change.
+
+### Verify like CI
+
+`.github/workflows/release.yml` is the authority. Locally, with
+`pkg-config libsdl2-dev libasound2-dev libudev-dev python3-pil xvfb xdotool openbox`
+installed (Debian/Ubuntu names), run:
+
+```sh
+cargo fmt --check
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked --all-targets
+python3 -m unittest discover -s DevUtils
+cargo build --locked --release
+python3 DevUtils/package_linux.py --revision "$(git rev-parse HEAD)"
+python3 DevUtils/verify_package.py dist/MicroMages-latest-linux-x64.zip
+python3 DevUtils/verify_audio.py dist/MicroMages-latest-linux-x64.zip
+xvfb-run -a python3 DevUtils/verify_desktop.py dist/MicroMages-latest-linux-x64.zip
+```
+
+A push to any branch runs the `validate` job; a push to `main` also runs
+`publish`, which replaces the rolling `latest` GitHub release and its
+`MicroMages-latest-linux-x64.zip` asset. Use the
+[commit-and-verify-ci](.agents/skills/commit-and-verify-ci/SKILL.md) skill to
+commit, push and confirm the whole workflow, including that release.

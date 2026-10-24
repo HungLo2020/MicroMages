@@ -73,7 +73,8 @@ break-state, so a shot can update graphics and collision together without an
 address lookup or decompressor. The manifest is provenance rather than an edit
 lock: ordinary edits do not require regenerating checksums to run the game.
 
-The optional extraction scripts take archived original regions as explicit input.
+The optional extraction tools in [`DevUtils/`](../DevUtils/README.md) take archived
+original regions as explicit input.
 No archived executable, original program image, or generated instruction
 translation is needed by Cargo. Cinematics use PNG artwork with editable JSON
 timelines; playback draws images and never executes archived instructions.

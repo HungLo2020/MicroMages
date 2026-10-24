@@ -112,8 +112,8 @@ files. These are ordinary editable audio files and have not been re-encoded.
 
 ## Recovery and verification
 
-`scripts/extract_assets.py` documents the tile, sprite, animation and level
-migration. `scripts/extract_presentation.py` converts reference image observations
+`DevUtils/extract_assets.py` documents the tile, sprite, animation and level
+migration. `DevUtils/extract_presentation.py` converts reference image observations
 to cinematic PNG/JSON assets.
 The gameplay extractor takes explicit external paths for archived program and tile regions;
 it is not invoked by Cargo and those source regions are not runtime assets.
@@ -128,4 +128,4 @@ Documented animated sparkle overlays are excluded from base-geometry comparisons
 This checks initial-screen extraction; it does not establish complete gameplay
 or whole-level behavioral equivalence.
 
-Run migration checks with `python3 -m unittest discover -s scripts`.
+Run migration checks with `python3 -m unittest discover -s DevUtils`.

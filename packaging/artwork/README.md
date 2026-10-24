@@ -14,7 +14,7 @@ not newly licensed or generated illustrations.
 - `source/`: unmodified downloaded cover and multi-resolution Windows icon.
   These files are retained for reproducibility but are not included in releases.
 
-Run `python3 scripts/prepare_artwork.py` to rebuild the PNGs locally with Pillow.
+Run `python3 DevUtils/prepare_artwork.py` to rebuild the PNGs locally with Pillow.
 Builds do not download images. `package_linux.py` ships the PNGs and provenance at
 `app/basalt/`. Basalt discovers the installed images automatically; the catalog
 does not request any separate artwork download. Artwork updates ship with the
